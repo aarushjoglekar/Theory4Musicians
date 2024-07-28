@@ -9,20 +9,19 @@ import {
 import React from "react";
 import { router } from "expo-router";
 import HomePageButtonSection from "../../../components/HomePageButtonSection";
+import Title from "../../../components/Title";
 
 const height = Dimensions.get("window").height;
 
 export default function Home() {
   return (
     <ImageBackground
-      source={
-        require('./../../../assets/images//BackgroundImages/Theory4NerdsBackground.jpg')
-      }
+      source={require("./../../../assets/images//BackgroundImages/Theory4NerdsBackground.jpg")}
       style={styles.container}
     >
       <SafeAreaView style={styles.container}>
         <View style={{ flex: 10, justifyContent: "flex-end" }}>
-          <Text style={styles.title}>Theory4Nerds</Text>
+          <Title title="Theory4Nerds" />
         </View>
         <View style={{ flex: 50, justifyContent: "space-evenly" }} />
         <HomePageButtonSection
@@ -45,12 +44,5 @@ export default function Home() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  },
-
-  title: {
-    color: "#000",
-    alignSelf: "center",
-    fontSize: 50,
-    fontFamily: "GillSans-SemiBoldItalic",
   },
 });

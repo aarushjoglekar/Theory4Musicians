@@ -10,16 +10,17 @@ import {
 } from "react-native";
 import React from "react";
 import { router } from "expo-router";
+import Title from "../../../components/Title";
 
 export default function LearnToReadMusic() {
   return (
     <ImageBackground
-      source={require('./../../../assets/images/BackgroundImages/TextBackground.jpeg')}
+      source={require("./../../../assets/images/BackgroundImages/TextBackground.jpeg")}
       style={{ flex: 1, padding: 50 }}
     >
       <SafeAreaView style={styles.container}>
         <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}>
-          <Text style={styles.title}>Reading Music</Text>
+          <Title title="Reading Music" />
           <Text style={styles.Subtitle}>{"\n"}The Staff</Text>
           <Text style={styles.LearnText}>
             {"\t"}Music is read in something called the staff. You can see the
@@ -28,7 +29,7 @@ export default function LearnToReadMusic() {
             note.
           </Text>
           <Image
-            source={require('./../../../assets/images/ReadingMusic/GrandStaffWithoutClefs.png')}
+            source={require("./../../../assets/images/ReadingMusic/GrandStaffWithoutClefs.png")}
             style={{ width: 300, height: 120, alignSelf: "center" }}
           />
           <Text style={styles.LearnText}>
@@ -38,7 +39,7 @@ export default function LearnToReadMusic() {
             later).
           </Text>
           <Image
-            source={require('./../../../assets/images/ReadingMusic/Measure.png')}
+            source={require("./../../../assets/images/ReadingMusic/Measure.png")}
             style={{ width: 250, height: 140, alignSelf: "center" }}
           />
           <Text style={styles.Subtitle}>{"\n"}Clefs</Text>
@@ -52,7 +53,7 @@ export default function LearnToReadMusic() {
           </Text>
           <View style={{ height: 10 }} />
           <Image
-            source={require('./../../../assets/images/ReadingMusic/GrandStaff.png')}
+            source={require("./../../../assets/images/ReadingMusic/GrandStaff.png")}
             style={{ width: 200, height: 167, alignSelf: "center" }}
           />
           <Text style={styles.Subtitle}>
@@ -90,7 +91,7 @@ export default function LearnToReadMusic() {
             spots on the staff.
           </Text>
           <Image
-            source={require('./../../../assets/images/ReadingMusic/TrebleClefNotes.png')}
+            source={require("./../../../assets/images/ReadingMusic/TrebleClefNotes.png")}
             style={{ width: 266, height: 100, alignSelf: "center" }}
           />
           <Text style={styles.Subtitle}>
@@ -118,7 +119,7 @@ export default function LearnToReadMusic() {
             learn.
           </Text>
           <Image
-            source={require('./../../../assets/images/ReadingMusic/BassClefNotes.png')}
+            source={require("./../../../assets/images/ReadingMusic/BassClefNotes.png")}
             style={{ width: 270, height: 100, alignSelf: "center" }}
           />
           <Text style={styles.Subtitle}>{"\n"}The Piano - Overview</Text>
@@ -130,7 +131,7 @@ export default function LearnToReadMusic() {
           </Text>
           <View style={{ height: 10 }} />
           <Image
-            source={require('./../../../assets/images/ReadingMusic/Piano.png')}
+            source={require("./../../../assets/images/ReadingMusic/Piano.png")}
             style={{ width: 270, height: 160, alignSelf: "center" }}
           />
           <View style={{ height: 10 }} />
@@ -216,7 +217,7 @@ export default function LearnToReadMusic() {
             </View>
             <View style={{ flex: 1, justifyContent: "center" }}>
               <Image
-                source={require('./../../../assets/images/ReadingMusic/WholeNote.png')}
+                source={require("./../../../assets/images/ReadingMusic/WholeNote.png")}
                 style={{ width: 40, height: 23, alignSelf: "center" }}
               />
             </View>
@@ -231,7 +232,7 @@ export default function LearnToReadMusic() {
             </View>
             <View style={{ flex: 1, justifyContent: "center" }}>
               <Image
-                source={require('./../../../assets/images/ReadingMusic/HalfNote.png')}
+                source={require("./../../../assets/images/ReadingMusic/HalfNote.png")}
                 style={{ width: 35, height: 57, alignSelf: "center" }}
               />
             </View>
@@ -246,7 +247,7 @@ export default function LearnToReadMusic() {
             </View>
             <View style={{ flex: 1, justifyContent: "center" }}>
               <Image
-                source={require('./../../../assets/images/ReadingMusic/QuarterNote.png')}
+                source={require("./../../../assets/images/ReadingMusic/QuarterNote.png")}
                 style={{ width: 50, height: 81, alignSelf: "center" }}
               />
             </View>
@@ -261,7 +262,7 @@ export default function LearnToReadMusic() {
             </View>
             <View style={{ flex: 0.9, justifyContent: "center" }}>
               <Image
-                source={require('./../../../assets/images/ReadingMusic/EighthNote.png')}
+                source={require("./../../../assets/images/ReadingMusic/EighthNote.png")}
                 style={{ width: 35, height: 57, alignSelf: "center" }}
               />
             </View>
@@ -277,7 +278,7 @@ export default function LearnToReadMusic() {
             </View>
             <View style={{ flex: 1, justifyContent: "center" }}>
               <Image
-                source={require('./../../../assets/images/ReadingMusic/DottedHalfNote.png')}
+                source={require("./../../../assets/images/ReadingMusic/DottedHalfNote.png")}
                 style={{ width: 55, height: 89, alignSelf: "center" }}
               />
             </View>
@@ -290,7 +291,7 @@ export default function LearnToReadMusic() {
           </Text>
           <View style={{ height: 10 }} />
           <Image
-            source={require('./../../../assets/images/ReadingMusic/TimeSignature.png')}
+            source={require("./../../../assets/images/ReadingMusic/TimeSignature.png")}
             style={{ width: 300, height: 130, alignSelf: "center" }}
           />
           <Text style={styles.LearnText}>
@@ -343,14 +344,14 @@ export default function LearnToReadMusic() {
 
 const styles = StyleSheet.create({
   container: {
-    flex:1,
+    flex: 1,
   },
 
   title: {
     color: "#000",
+    fontSize: 47,
+    fontFamily: "PTSerif",
     textAlign: "center",
-    fontSize: 50,
-    fontFamily: "GillSans-SemiBoldItalic",
   },
 
   Text: {

@@ -8,16 +8,17 @@ import {
 } from "react-native";
 import React from "react";
 import { router } from "expo-router";
+import Title from "../../../components/Title";
 
 export default function HowToUseThisApp() {
   return (
     <ImageBackground
-      source={require('./../../../assets/images/BackgroundImages/TextBackground.jpeg')}
+      source={require("./../../../assets/images/BackgroundImages/TextBackground.jpeg")}
       style={styles.container}
     >
       <SafeAreaView style={styles.container}>
         <View style={{ flex: 10, justifyContent: "flex-end" }}>
-          <Text style={styles.title}>How To Use</Text>
+          <Title title="How To Use" />
         </View>
         <View style={{ flex: 5 }} />
         <View style={{ flex: 78, flexDirection: "row" }}>
@@ -61,13 +62,6 @@ export default function HowToUseThisApp() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  },
-
-  title: {
-    color: "#000",
-    textAlign: "center",
-    fontSize: 50,
-    fontFamily: "GillSans-SemiBoldItalic",
   },
 
   Text: {
