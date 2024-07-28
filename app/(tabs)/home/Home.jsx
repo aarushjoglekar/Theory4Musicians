@@ -2,11 +2,16 @@ import {
   View,
   Text,
   ImageBackground,
-  TouchableOpacity,
   StyleSheet,
+  SafeAreaView,
+  Dimensions,
 } from "react-native";
 import React from "react";
 import { router } from "expo-router";
+import HomePageButtonSection from "../../../components/HomePageButtonSection";
+
+const width = Dimensions.get("window").width;
+const height = Dimensions.get("window").height;
 
 export default function Home() {
   return (
@@ -16,32 +21,24 @@ export default function Home() {
       }}
       style={styles.container}
     >
-      <View style={{ flex: 20, justifyContent: "flex-end" }}>
-        <Text style={styles.title}>Theory4Nerds</Text>
-      </View>
-      <View style={{ flex: 50 }} />
-      <View style={styles.HomePageButtonSection}>
-        <TouchableOpacity
-          style={styles.HomePageButton}
+      <SafeAreaView style={styles.container}>
+        <View style={{ flex: 10, justifyContent: "flex-end" }}>
+          <Text style={styles.title}>Theory4Nerds</Text>
+        </View>
+        <View style={{ flex: 50, justifyContent: "space-evenly" }} />
+        <HomePageButtonSection
           onPress={() => router.navigate("/home/HowToUseThisApp")}
-        >
-          <Text style={styles.Text}>How to Use This App</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={styles.HomePageButtonSection}>
-        <TouchableOpacity
-          style={styles.HomePageButton}
+          text="How To Use This App"
+        />
+        <View style={{ height: 40 }} />
+        <HomePageButtonSection
           onPress={() => router.navigate("/home/LearnToReadMusic")}
-        >
-          <Text style={styles.Text}>Learn to Read Music</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={styles.HomePageButtonSection}>
-        <TouchableOpacity style={styles.HomePageButton}>
-          <Text style={styles.Text}>Sign Out</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={{ flex: 10 }} />
+          text="Learn To Read Music"
+        />
+        <View style={{ height: 40 }} />
+        <HomePageButtonSection text="Sign Out" />
+        <View style={{ height: height * 0.1 }} />
+      </SafeAreaView>
     </ImageBackground>
   );
 }
@@ -53,30 +50,8 @@ const styles = StyleSheet.create({
 
   title: {
     color: "#000",
-    textAlign: "center",
+    alignSelf: "center",
     fontSize: 50,
     fontFamily: "GillSans-SemiBoldItalic",
-  },
-
-  HomePageButton: {
-    justifyContent: "center",
-    backgroundColor: "#edebeb",
-    width: 210,
-    height: 57,
-    borderRadius: 20,
-    borderWidth: 0.5,
-  },
-
-  Text: {
-    color: "#000",
-    textAlign: "center",
-    fontFamily: "Verdana",
-    fontSize: 17,
-  },
-
-  HomePageButtonSection: {
-    flex: 16,
-    justifyContent: "flex-end",
-    alignSelf: "center",
   },
 });
