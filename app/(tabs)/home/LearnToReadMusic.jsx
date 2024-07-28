@@ -14,7 +14,7 @@ import { router } from "expo-router";
 export default function LearnToReadMusic() {
   return (
     <ImageBackground
-      source={{ uri: "https://i.postimg.cc/HnXbt56B/Text-Background.jpg" }}
+      source={require('./../../../assets/images/BackgroundImages/TextBackground.jpeg')}
       style={{ flex: 1, padding: 50 }}
     >
       <SafeAreaView style={styles.container}>
@@ -28,7 +28,7 @@ export default function LearnToReadMusic() {
             note.
           </Text>
           <Image
-            source={{ uri: "https://i.postimg.cc/fWGXgQNS/image.png" }}
+            source={require('./../../../assets/images/ReadingMusic/GrandStaffWithoutClefs.png')}
             style={{ width: 300, height: 120, alignSelf: "center" }}
           />
           <Text style={styles.LearnText}>
@@ -38,7 +38,7 @@ export default function LearnToReadMusic() {
             later).
           </Text>
           <Image
-            source={{ uri: "https://i.postimg.cc/66cJMtRY/image.png" }}
+            source={require('./../../../assets/images/ReadingMusic/Measure.png')}
             style={{ width: 250, height: 140, alignSelf: "center" }}
           />
           <Text style={styles.Subtitle}>{"\n"}Clefs</Text>
@@ -52,7 +52,7 @@ export default function LearnToReadMusic() {
           </Text>
           <View style={{ height: 10 }} />
           <Image
-            source={{ uri: "https://i.postimg.cc/d06mzHBP/image.png" }}
+            source={require('./../../../assets/images/ReadingMusic/GrandStaff.png')}
             style={{ width: 200, height: 167, alignSelf: "center" }}
           />
           <Text style={styles.Subtitle}>
@@ -90,7 +90,7 @@ export default function LearnToReadMusic() {
             spots on the staff.
           </Text>
           <Image
-            source={{ uri: "https://i.postimg.cc/RFbyRvpN/image.png" }}
+            source={require('./../../../assets/images/ReadingMusic/TrebleClefNotes.png')}
             style={{ width: 266, height: 100, alignSelf: "center" }}
           />
           <Text style={styles.Subtitle}>
@@ -118,7 +118,7 @@ export default function LearnToReadMusic() {
             learn.
           </Text>
           <Image
-            source={{ uri: "https://i.postimg.cc/R01nKFFL/image.png" }}
+            source={require('./../../../assets/images/ReadingMusic/BassClefNotes.png')}
             style={{ width: 270, height: 100, alignSelf: "center" }}
           />
           <Text style={styles.Subtitle}>{"\n"}The Piano - Overview</Text>
@@ -130,7 +130,7 @@ export default function LearnToReadMusic() {
           </Text>
           <View style={{ height: 10 }} />
           <Image
-            source={{ uri: "https://i.postimg.cc/ZK7kYFxr/image.png" }}
+            source={require('./../../../assets/images/ReadingMusic/Piano.png')}
             style={{ width: 270, height: 160, alignSelf: "center" }}
           />
           <View style={{ height: 10 }} />
@@ -216,7 +216,7 @@ export default function LearnToReadMusic() {
             </View>
             <View style={{ flex: 1, justifyContent: "center" }}>
               <Image
-                source={{ uri: "https://i.postimg.cc/MZtMF6cT/image.png" }}
+                source={require('./../../../assets/images/ReadingMusic/WholeNote.png')}
                 style={{ width: 40, height: 23, alignSelf: "center" }}
               />
             </View>
@@ -231,7 +231,7 @@ export default function LearnToReadMusic() {
             </View>
             <View style={{ flex: 1, justifyContent: "center" }}>
               <Image
-                source={{ uri: "https://i.postimg.cc/2ymzkZVW/image.png" }}
+                source={require('./../../../assets/images/ReadingMusic/HalfNote.png')}
                 style={{ width: 35, height: 57, alignSelf: "center" }}
               />
             </View>
@@ -246,7 +246,7 @@ export default function LearnToReadMusic() {
             </View>
             <View style={{ flex: 1, justifyContent: "center" }}>
               <Image
-                source={{ uri: "https://i.postimg.cc/xdrBVSkJ/image.png" }}
+                source={require('./../../../assets/images/ReadingMusic/QuarterNote.png')}
                 style={{ width: 50, height: 81, alignSelf: "center" }}
               />
             </View>
@@ -261,7 +261,7 @@ export default function LearnToReadMusic() {
             </View>
             <View style={{ flex: 0.9, justifyContent: "center" }}>
               <Image
-                source={{ uri: "https://i.postimg.cc/qMP1zxpW/image.png" }}
+                source={require('./../../../assets/images/ReadingMusic/EighthNote.png')}
                 style={{ width: 35, height: 57, alignSelf: "center" }}
               />
             </View>
@@ -277,7 +277,7 @@ export default function LearnToReadMusic() {
             </View>
             <View style={{ flex: 1, justifyContent: "center" }}>
               <Image
-                source={{ uri: "https://i.postimg.cc/fb22Tnyf/image.png" }}
+                source={require('./../../../assets/images/ReadingMusic/DottedHalfNote.png')}
                 style={{ width: 55, height: 89, alignSelf: "center" }}
               />
             </View>
@@ -290,7 +290,7 @@ export default function LearnToReadMusic() {
           </Text>
           <View style={{ height: 10 }} />
           <Image
-            source={{ uri: "https://i.postimg.cc/Y92vRZzZ/image.png" }}
+            source={require('./../../../assets/images/ReadingMusic/TimeSignature.png')}
             style={{ width: 300, height: 130, alignSelf: "center" }}
           />
           <Text style={styles.LearnText}>

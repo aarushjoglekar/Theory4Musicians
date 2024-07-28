@@ -10,15 +10,14 @@ import React from "react";
 import { router } from "expo-router";
 import HomePageButtonSection from "../../../components/HomePageButtonSection";
 
-const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
 
 export default function Home() {
   return (
     <ImageBackground
-      source={{
-        uri: "https://i.postimg.cc/TYYFs92S/Theory4-Nerds-Background.jpg",
-      }}
+      source={
+        require('./../../../assets/images//BackgroundImages/Theory4NerdsBackground.jpg')
+      }
       style={styles.container}
     >
       <SafeAreaView style={styles.container}>

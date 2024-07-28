@@ -12,7 +12,7 @@ import { router } from "expo-router";
 export default function HowToUseThisApp() {
   return (
     <ImageBackground
-      source={{ uri: "https://i.postimg.cc/HnXbt56B/Text-Background.jpg" }}
+      source={require('./../../../assets/images/BackgroundImages/TextBackground.jpeg')}
       style={styles.container}
     >
       <SafeAreaView style={styles.container}>
