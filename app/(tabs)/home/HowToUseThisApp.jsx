@@ -21,13 +21,13 @@ export default function HowToUseThisApp(){
             <Text style = {styles.Subtitle}>
               The Order To Learn
             </Text>
-            <Text style = {styles.NonCenteredText}>
+            <Text style = {styles.LearnText}>
               {'\t'}The four main concepts this app aims to teach you are Keys, Scales, Triads, and Intervals. However since learning some of the topics taught requires knowledge of other topics, the reccomended order to learn these topics is in the following order: Keys, Scales, Intervals, and finally Triads.
             </Text>
             <Text style = {styles.Subtitle}>
               {'\n'}How To Learn Each Topic
             </Text>
-            <Text style = {styles.NonCenteredText}>
+            <Text style = {styles.LearnText}>
               {'\t'}To learn a topic, you should first grasp the general idea using the thorough explanation in the learn feature. Then, the study feature allows you to practice with flashcards, and refer to the learn feature if necessary. Finally to put your abilities to the test, you can use the sprint feature to see how many flashcards you can correctly answer in a 30 second period.
             </Text>
           </View>
@@ -58,26 +58,11 @@ const styles = StyleSheet.create({
     fontFamily: "GillSans-SemiBoldItalic",
   },
 
-  HomePageButton: {
-    justifyContent: "center",
-    backgroundColor: "#edebeb",
-    width: 210,
-    height: 57,
-    borderRadius: 20,
-    borderWidth: 0.5,
-  },
-
   Text: {
     color: "#000",
     textAlign: "center",
     fontFamily: "Verdana",
     fontSize: 17,
-  },
-
-  HomePageButtonSection: {
-    flex: 16,
-    justifyContent: "flex-end",
-    alignSelf: "center",
   },
 
   BackButton: {
@@ -90,15 +75,14 @@ const styles = StyleSheet.create({
     alignSelf: "center",
   },
 
-  NonCenteredText: {
-    color: "#000",
-    width: 260,
-    fontFamily: "Verdana",
-  },
-
   Subtitle: {
     color: "#000",
     width: 260,
     fontFamily: "Verdana-Bold",
+  },
+
+  LearnText: {
+    color: '#000',
+    fontFamily: 'Verdana',
   },
 });

@@ -79,26 +79,4 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
     alignSelf: "center",
   },
-
-  BackButton: {
-    justifyContent: "center",
-    backgroundColor: "#edebeb",
-    width: 70,
-    height: 45,
-    borderRadius: 20,
-    borderWidth: 0.5,
-    alignSelf: "center",
-  },
-
-  NonCenteredText: {
-    color: "#000",
-    width: 260,
-    fontFamily: "Verdana",
-  },
-
-  Subtitle: {
-    color: "#000",
-    width: 260,
-    fontFamily: "Verdana-Bold",
-  },
 });

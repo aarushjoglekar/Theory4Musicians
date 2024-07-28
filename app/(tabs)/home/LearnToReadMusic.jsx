@@ -332,10 +332,6 @@ export default function LearnToReadMusic() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-
   title: {
     color: "#000",
     textAlign: "center",
@@ -343,26 +339,11 @@ const styles = StyleSheet.create({
     fontFamily: "GillSans-SemiBoldItalic",
   },
 
-  HomePageButton: {
-    justifyContent: "center",
-    backgroundColor: "#edebeb",
-    width: 210,
-    height: 57,
-    borderRadius: 20,
-    borderWidth: 0.5,
-  },
-
   Text: {
     color: "#000",
     textAlign: "center",
     fontFamily: "Verdana",
     fontSize: 17,
-  },
-
-  HomePageButtonSection: {
-    flex: 16,
-    justifyContent: "flex-end",
-    alignSelf: "center",
   },
 
   BackButton: {
@@ -375,15 +356,14 @@ const styles = StyleSheet.create({
     alignSelf: "center",
   },
 
-  NonCenteredText: {
-    color: "#000",
-    width: 260,
-    fontFamily: "Verdana",
-  },
-
   Subtitle: {
     color: "#000",
     width: 260,
     fontFamily: "Verdana-Bold",
+  },
+
+  LearnText: {
+    color: '#000',
+    fontFamily: 'Verdana',
   },
 });
