@@ -11,6 +11,7 @@ import {
 import React from "react";
 import { router } from "expo-router";
 import Title from "../../../components/Title";
+import { RFPercentage } from "react-native-responsive-fontsize";
 
 export default function LearnToReadMusic() {
   return (
@@ -375,10 +376,12 @@ const styles = StyleSheet.create({
     color: "#000",
     width: 260,
     fontFamily: "Verdana-Bold",
+    fontSize: RFPercentage(1.5),
   },
 
   LearnText: {
     color: "#000",
     fontFamily: "Verdana",
+    fontSize: RFPercentage(1.5),
   },
 });

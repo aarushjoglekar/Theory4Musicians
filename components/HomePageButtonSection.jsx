@@ -1,7 +1,9 @@
 import { Text, StyleSheet, TouchableOpacity, Dimensions } from "react-native";
 import React from "react";
+import { RFPercentage } from "react-native-responsive-fontsize";
 
 const width = Dimensions.get('window').width;
+const height = Dimensions.get('window').height;
 
 export default function HomePageButtonSection({onPress = null, text}) {
   return (
@@ -15,23 +17,12 @@ export default function HomePageButtonSection({onPress = null, text}) {
 }
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-    },
-  
-    title: {
-      color: "#000",
-      alignSelf: "center",
-      fontSize: 50,
-      fontFamily: "GillSans-SemiBoldItalic",
-    },
-  
     HomePageButton: {
       justifyContent: "center",
       alignSelf: 'center',
       backgroundColor: "#edebeb",
       width: width * 0.53,
-      height: 57,
+      height: height * 0.07,
       borderRadius: 20,
       borderWidth: 0.5,
     },
@@ -40,11 +31,8 @@ const styles = StyleSheet.create({
       color: "#000",
       textAlign: "center",
       fontFamily: "Verdana",
-      fontSize: 17,
-    },
-  
-    HomePageButtonSection: {
-      flex: 16,
-      alignItems: 'center',
+      //fontSize: 17,
+      fontSize: RFPercentage(2),
+
     },
   });
