@@ -2,7 +2,6 @@ import { Text, TouchableOpacity, StyleSheet, Dimensions } from "react-native";
 import React from "react";
 
 const width = Dimensions.get("window").width;
-console.log(width)
 
 export default function ScoreButton({ Score }) {
   return (
