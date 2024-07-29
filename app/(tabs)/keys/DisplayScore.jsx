@@ -1,78 +1,67 @@
-import { StyleSheet } from "react-native";
+import {
+  ImageBackground,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import React from "react";
+import { router } from "expo-router";
+import Title from './../../../components/Title'
+
+export default function DisplayScore() {
+  return (
+    <ImageBackground
+      source={require('./../../../assets/images/BackgroundImages/DisplayScoreBackground.jpeg')}
+      style={styles.container}
+    >
+      <View style={{ flex: 3 }} />
+      <View style={{ flex: 1.5 }}>
+        <Title title="You Scored"/>
+      </View>
+      <View style={{ flex: 5 }}>
+        <Text style={styles.YouScoredNumber}>{KeysSprintScore}</Text>
+      </View>
+      <View style={{ flex: 6 }} />
+      <View style={{ flex: 1 }}>
+        <TouchableOpacity
+          style={styles.BackButton}
+          onPress={() => router.navigate("./keys/Keys")}
+        >
+          <Text style={styles.Text}>Back</Text>
+        </TouchableOpacity>
+      </View>
+      <View style={{ flex: 0.5 }} />
+    </ImageBackground>
+  );
+}
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-    },
-  
-    title: {
-      color: "#000",
-      textAlign: "center",
-      fontSize: 50,
-      fontFamily: "GillSans-SemiBoldItalic",
-    },
-  
-    Button: {
-      justifyContent: "center",
-      backgroundColor: "#edebeb",
-      width: 210,
-      height: 57,
-      borderRadius: 20,
-      borderWidth: 0.5,
-    },
-  
-    Text: {
-      color: "#000",
-      textAlign: "center",
-      fontFamily: "Verdana",
-      fontSize: 17,
-    },
-  
-    KeysSection: {
-      flex: 16,
-      justifyContent: "center",
-      alignSelf: "center",
-    },
-  
-    StudySection: {
-      flex: 12,
-      justifyContent: "center",
-      alignSelf: "center",
-    },
-  
-    StudyKeysImage: {
-      width: 220,
-      height: 220,
-      alignSelf: "center",
-      borderRadius: 5,
-    },
-  
-    BackButton: {
-      justifyContent: "center",
-      backgroundColor: "#edebeb",
-      width: 70,
-      height: 45,
-      borderRadius: 20,
-      borderWidth: 0.5,
-      alignSelf: "center",
-    },
-  
-    YouScoredNumber: {
-      color: "#000",
-      textAlign: "center",
-      fontSize: 200,
-      fontFamily: "GillSans-SemiBoldItalic",
-    },
-  
-    Subtitle: {
-      color: "#000",
-      width: 260,
-      fontFamily: "Verdana-Bold",
-    },
-  
-    LearnText: {
-      color: "#000",
-      width: 260,
-      fontFamily: "Verdana",
-    },
-  });
+  container: {
+    flex: 1,
+  },
+
+  Text: {
+    color: "#000",
+    textAlign: "center",
+    fontFamily: "Verdana",
+    fontSize: 17,
+  },
+
+  BackButton: {
+    justifyContent: "center",
+    backgroundColor: "#edebeb",
+    width: 70,
+    height: 45,
+    borderRadius: 20,
+    borderWidth: 0.5,
+    alignSelf: "center",
+  },
+
+  YouScoredNumber: {
+    color: "#000",
+    textAlign: "center",
+    fontSize: 200,
+    fontFamily: "GillSans-SemiBoldItalic",
+  },
+});

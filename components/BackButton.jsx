@@ -6,9 +6,9 @@ import { RFPercentage } from "react-native-responsive-fontsize";
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
 
-export default function BackButton() {
+export default function BackButton({onButtonPress}) {
   return (
-    <TouchableOpacity style={styles.BackButton} onPress={() => router.back()}>
+    <TouchableOpacity style={styles.BackButton} onPress={() => {router.back(), onButtonPress}}>
       <Text style={styles.Text}>Back</Text>
     </TouchableOpacity>
   );

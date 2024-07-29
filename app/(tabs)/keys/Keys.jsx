@@ -48,7 +48,7 @@ export default function KeysHome() {
           style={styles.Button}
           onPress={() => {
             KeysSprintScore = 0;
-            router.navigate("./keysSprint");
+            router.navigate("./keys/Sprint");
           }}
         >
           <Text style={styles.Text}>
