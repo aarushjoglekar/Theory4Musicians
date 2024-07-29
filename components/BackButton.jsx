@@ -1,6 +1,7 @@
 import { Dimensions, TouchableOpacity, Text, StyleSheet } from "react-native";
 import React from "react";
 import { router } from "expo-router";
+import { RFPercentage } from "react-native-responsive-fontsize";
 
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
@@ -18,7 +19,7 @@ const styles = StyleSheet.create({
     color: "#000",
     textAlign: "center",
     fontFamily: "Verdana",
-    fontSize: 17,
+    fontSize: RFPercentage(1.8),
   },
 
   BackButton: {
