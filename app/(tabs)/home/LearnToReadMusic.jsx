@@ -2,16 +2,15 @@ import {
   View,
   Text,
   ImageBackground,
-  TouchableOpacity,
   StyleSheet,
   ScrollView,
   Image,
   SafeAreaView,
 } from "react-native";
 import React from "react";
-import { router } from "expo-router";
 import Title from "../../../components/Title";
 import { RFPercentage } from "react-native-responsive-fontsize";
+import BackButton from "../../../components/BackButton";
 
 export default function LearnToReadMusic() {
   return (
@@ -331,12 +330,7 @@ export default function LearnToReadMusic() {
         </ScrollView>
         <View style={{ flex: 0.02 }} />
         <View style={{ flex: 0.01 }}>
-          <TouchableOpacity
-            style={styles.BackButton}
-            onPress={() => router.back()}
-          >
-            <Text style={styles.Text}>Back</Text>
-          </TouchableOpacity>
+          <BackButton/>
         </View>
       </SafeAreaView>
     </ImageBackground>
@@ -353,23 +347,6 @@ const styles = StyleSheet.create({
     fontSize: 47,
     fontFamily: "PTSerif",
     textAlign: "center",
-  },
-
-  Text: {
-    color: "#000",
-    textAlign: "center",
-    fontFamily: "Verdana",
-    fontSize: 17,
-  },
-
-  BackButton: {
-    justifyContent: "center",
-    backgroundColor: "#edebeb",
-    width: 70,
-    height: 45,
-    borderRadius: 20,
-    borderWidth: 0.5,
-    alignSelf: "center",
   },
 
   Subtitle: {

@@ -1,0 +1,179 @@
+import { useState } from "react";
+import { router } from "expo-router";
+import {
+  Image,
+  ImageBackground,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import Title from "../../../components/Title";
+import KeysDictionary from "./../../../constants/KeysDictionary";
+import shuffle from "../../../constants/Shuffle";
+import KeysProblemFunction from "./../../../constants/KeysProblemFunction"
+
+function setProblem(KeysDictionary) {
+  let KeysProblem = KeysProblemFunction(KeysDictionary);
+  return KeysProblem;
+}
+
+let answerOrder = [1,2,3,4]
+answerOrder = shuffle(answerOrder)
+let correctAnswerSpot = answerOrder.indexOf(1)
+
+export default function Study() {
+  let [KeysStudyScore, SetKeysStudyScore] = useState(0);
+  let [KeysProblem, ResetKeysProblem] = useState(
+    KeysProblemFunction(KeysDictionary)
+  );
+  return (
+    <ImageBackground
+      source={require('./../../../assets/images/BackgroundImages/StudyBackground.jpeg')}
+      style={{ flex: 1 }}
+    >
+      <View style={{ flex: 20, justifyContent: "flex-end" }}>
+        <Title title="Study" />
+      </View>
+      <View style={{ flex: 5 }} />
+      <View style={{ flex: 35, justifyContent: "center" }}>
+        <Image style={styles.StudyKeysImage} source={{ uri: KeysProblem[0] }} />
+      </View>
+      <View style={{ flex: 5 }} />
+      <View style={styles.StudySection}>
+        <TouchableOpacity
+          style={styles.Button}
+          onPress={() => {
+            if (correctAnswerSpot == 0) {
+              SetKeysStudyScore(KeysStudyScore + 1);
+            }
+            ResetKeysProblem(setProblem(KeysDictionary));
+            answerOrder = shuffle(answerOrder);
+            correctAnswerSpot = answerOrder.indexOf(1);
+          }}
+        >
+          <Text style={styles.Text}>{KeysProblem[answerOrder[0]]}</Text>
+        </TouchableOpacity>
+      </View>
+      <View style={styles.StudySection}>
+        <TouchableOpacity
+          style={styles.Button}
+          onPress={() => {
+            if (correctAnswerSpot == 1) {
+              SetKeysStudyScore(KeysStudyScore + 1);
+            }
+            ResetKeysProblem(setProblem(KeysDictionary));
+            answerOrder = shuffle(answerOrder);
+            correctAnswerSpot = answerOrder.indexOf(1);
+          }}
+        >
+          <Text style={styles.Text}>{KeysProblem[answerOrder[1]]}</Text>
+        </TouchableOpacity>
+      </View>
+      <View style={styles.StudySection}>
+        <TouchableOpacity
+          style={styles.Button}
+          onPress={() => {
+            if (correctAnswerSpot == 2) {
+              SetKeysStudyScore(KeysStudyScore + 1);
+            }
+            ResetKeysProblem(setProblem(KeysDictionary));
+            answerOrder = shuffle(answerOrder);
+            correctAnswerSpot = answerOrder.indexOf(1);
+          }}
+        >
+          <Text style={styles.Text}>{KeysProblem[answerOrder[2]]}</Text>
+        </TouchableOpacity>
+      </View>
+      <View style={styles.StudySection}>
+        <TouchableOpacity
+          style={styles.Button}
+          onPress={() => {
+            if (correctAnswerSpot == 3) {
+              SetKeysStudyScore(KeysStudyScore + 1);
+            }
+            ResetKeysProblem(setProblem(KeysDictionary));
+            answerOrder = shuffle(answerOrder);
+            correctAnswerSpot = answerOrder.indexOf(1);
+          }}
+        >
+          <Text style={styles.Text}>{KeysProblem[answerOrder[3]]}</Text>
+        </TouchableOpacity>
+      </View>
+      <View
+        style={{ flex: 10, justifyContent: "center", flexDirection: "row" }}
+      >
+        <TouchableOpacity
+          style={styles.BackButton}
+          onPress={() => {
+            router.back();
+          }}
+        >
+          <Text style={{ alignSelf: "center" }}>Back</Text>
+        </TouchableOpacity>
+        <View style={{ flex: 0.03 }} />
+        <TouchableOpacity
+          style={styles.BackButton}
+          onPress={() => {
+            router.navigate("./keys/Learn");
+          }}
+        >
+          <Text style={{ alignSelf: "center" }}>Learn</Text>
+        </TouchableOpacity>
+      </View>
+      <View style={{ flex: 5, flexDirection: "row" }}>
+        <View style={{ flex: 15 }}>
+          <Text style={{ alignSelf: "flex-end", fontFamily: "Verdana" }}>
+            Score: {KeysStudyScore}
+          </Text>
+        </View>
+        <View style={{ flex: 1 }} />
+      </View>
+    </ImageBackground>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+
+  Button: {
+    justifyContent: "center",
+    backgroundColor: "#edebeb",
+    width: 210,
+    height: 57,
+    borderRadius: 20,
+    borderWidth: 0.5,
+  },
+
+  Text: {
+    color: "#000",
+    textAlign: "center",
+    fontFamily: "Verdana",
+    fontSize: 17,
+  },
+
+  StudySection: {
+    flex: 12,
+    justifyContent: "center",
+    alignSelf: "center",
+  },
+
+  StudyKeysImage: {
+    width: 220,
+    height: 220,
+    alignSelf: "center",
+    borderRadius: 5,
+  },
+
+  BackButton: {
+    justifyContent: "center",
+    backgroundColor: "#edebeb",
+    width: 70,
+    height: 45,
+    borderRadius: 20,
+    borderWidth: 0.5,
+    alignSelf: "center",
+  },
+});

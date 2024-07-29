@@ -2,14 +2,17 @@ import {
   View,
   Text,
   ImageBackground,
-  TouchableOpacity,
   StyleSheet,
   SafeAreaView,
+  Dimensions,
 } from "react-native";
 import React from "react";
-import { router } from "expo-router";
 import Title from "../../../components/Title";
+import BackButton from "../../../components/BackButton";
 import { RFPercentage } from "react-native-responsive-fontsize";
+
+const width = Dimensions.get('window').width;
+const height = Dimensions.get('window').height;
 
 export default function HowToUseThisApp() {
   return (
@@ -46,13 +49,8 @@ export default function HowToUseThisApp() {
           <View style={{ flex: 2 }} />
         </View>
         <View style={{ flex: 4 }} />
-        <View style={styles.HomePageButtonSection}>
-          <TouchableOpacity
-            style={styles.BackButton}
-            onPress={() => router.back()}
-          >
-            <Text style={styles.Text}>Back</Text>
-          </TouchableOpacity>
+        <View style={{flex:7}}>
+          <BackButton/>
         </View>
         <View style={{ flex: 5 }} />
       </SafeAreaView>
@@ -63,23 +61,6 @@ export default function HowToUseThisApp() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  },
-
-  Text: {
-    color: "#000",
-    textAlign: "center",
-    fontFamily: "Verdana",
-    fontSize: 17,
-  },
-
-  BackButton: {
-    justifyContent: "center",
-    backgroundColor: "#edebeb",
-    width: 70,
-    height: 45,
-    borderRadius: 20,
-    borderWidth: 0.5,
-    alignSelf: "center",
   },
 
   Subtitle: {
