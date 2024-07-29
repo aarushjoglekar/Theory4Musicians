@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     title: {
       color: "#000",
       textAlign: "center",
-      fontSize: RFPercentage(5.5),
+      fontSize: RFPercentage(5.7),
       fontFamily: "PTSerif"
     },
 });

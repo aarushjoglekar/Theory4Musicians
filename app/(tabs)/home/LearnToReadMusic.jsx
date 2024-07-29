@@ -328,8 +328,8 @@ export default function LearnToReadMusic() {
             music career.
           </Text>
         </ScrollView>
-        <View style={{ flex: 0.02 }} />
-        <View style={{ flex: 0.01 }}>
+        <View style={{flex:0.01}}/>
+        <View style={{ flex: 0.02 }}>
           <BackButton/>
         </View>
       </SafeAreaView>
@@ -353,12 +353,12 @@ const styles = StyleSheet.create({
     color: "#000",
     width: 260,
     fontFamily: "Verdana-Bold",
-    fontSize: RFPercentage(1.5),
+    fontSize: RFPercentage(1.6),
   },
 
   LearnText: {
     color: "#000",
     fontFamily: "Verdana",
-    fontSize: RFPercentage(1.5),
+    fontSize: RFPercentage(1.6),
   },
 });

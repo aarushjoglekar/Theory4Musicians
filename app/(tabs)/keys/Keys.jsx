@@ -1,13 +1,12 @@
 import {
   View,
-  Text,
-  TouchableOpacity,
   ImageBackground,
   StyleSheet,
   SafeAreaView,
 } from "react-native";
 import React from "react";
 import Title from "../../../components/Title";
+import HomeButton from "../../../components/HomeButton";
 import { router } from "expo-router";
 
 export default function KeysHome() {
@@ -30,34 +29,13 @@ export default function KeysHome() {
         </View>
         <View style={{ flex: 5 }} />
         <View style={styles.KeysSection}>
-          <TouchableOpacity
-            style={styles.Button}
-            onPress={() => router.navigate("./keys/Learn")}
-          >
-            <Text style={styles.Text}>Learn</Text>
-          </TouchableOpacity>
+          <HomeButton onPress={()=>router.navigate('./keys/Learn')} text="Learn"/>
         </View>
         <View style={styles.KeysSection}>
-          <TouchableOpacity
-            style={styles.Button}
-            onPress={() => router.navigate("./keys/Study")}
-          >
-            <Text style={styles.Text}>Study</Text>
-          </TouchableOpacity>
+          <HomeButton onPress={()=>router.navigate('./keys/Study')} text="Study"/>
         </View>
         <View style={styles.KeysSection}>
-          <TouchableOpacity
-            style={styles.Button}
-            onPress={() => {
-              KeysSprintScore = 0;
-              router.navigate("./keys/Sprint");
-            }}
-          >
-            <Text style={styles.Text}>
-              Sprint{"\n"}
-              {/*Personal Best: {KeysHighScore}*/}
-            </Text>
-          </TouchableOpacity>
+          <HomeButton onPress={()=>router.navigate('./keys/Sprint')} text={"Sprint\nPersonal Best"}/>
         </View>
         <View style={{ flex: 55 }} />
       </SafeAreaView>

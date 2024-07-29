@@ -1,14 +1,14 @@
-import { router } from "expo-router";
 import {
   ImageBackground,
   SafeAreaView,
   ScrollView,
   StyleSheet,
   Text,
-  TouchableOpacity,
   View,
 } from "react-native";
 import Title from "../../../components/Title";
+import BackButton from "../../../components/BackButton";
+import { RFPercentage } from "react-native-responsive-fontsize";
 
 export default function Learn() {
   return (
@@ -18,7 +18,7 @@ export default function Learn() {
     >
       <SafeAreaView style={styles.container}>
         <ScrollView style={{ flex: 1 }}>
-          <Title title="Keys"/>
+          <Title title="Keys" />
           <Text style={styles.Subtitle}>{"\n"}What Is A Key</Text>
           <Text style={styles.LearnText}>
             {"\t"}The key of the music is the note or scale the composition is
@@ -154,14 +154,9 @@ export default function Learn() {
             it's B-double flat.
           </Text>
         </ScrollView>
-        <View style={{ flex: 0.02 }} />
-        <View style={{ flex: 0.01 }}>
-          <TouchableOpacity
-            style={styles.BackButton}
-            onPress={() => router.back()}
-          >
-            <Text style={styles.Text}>Back</Text>
-          </TouchableOpacity>
+        <View style={{ flex: 0.01 }} />
+        <View style={{ flex: 0.02 }}>
+          <BackButton />
         </View>
       </SafeAreaView>
     </ImageBackground>
@@ -173,46 +168,11 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 
-  title: {
-    color: "#000",
-    textAlign: "center",
-    fontSize: 50,
-    fontFamily: "GillSans-SemiBoldItalic",
-  },
-
-  Button: {
-    justifyContent: "center",
-    backgroundColor: "#edebeb",
-    width: 210,
-    height: 57,
-    borderRadius: 20,
-    borderWidth: 0.5,
-  },
-
   Text: {
     color: "#000",
     textAlign: "center",
     fontFamily: "Verdana",
     fontSize: 17,
-  },
-
-  KeysSection: {
-    flex: 16,
-    justifyContent: "center",
-    alignSelf: "center",
-  },
-
-  StudySection: {
-    flex: 12,
-    justifyContent: "center",
-    alignSelf: "center",
-  },
-
-  StudyKeysImage: {
-    width: 220,
-    height: 220,
-    alignSelf: "center",
-    borderRadius: 5,
   },
 
   BackButton: {
@@ -225,22 +185,15 @@ const styles = StyleSheet.create({
     alignSelf: "center",
   },
 
-  YouScoredNumber: {
-    color: "#000",
-    textAlign: "center",
-    fontSize: 200,
-    fontFamily: "GillSans-SemiBoldItalic",
-  },
-
   Subtitle: {
     color: "#000",
-    width: 260,
     fontFamily: "Verdana-Bold",
+    fontSize: RFPercentage(1.6),
   },
 
   LearnText: {
     color: "#000",
-    width: 260,
     fontFamily: "Verdana",
+    fontSize: RFPercentage(1.6),
   },
 });

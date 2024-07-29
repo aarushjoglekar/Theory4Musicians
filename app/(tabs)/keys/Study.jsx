@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     backgroundColor: "#edebeb",
     width: 210,
-    height: 57,
+    height: height * 0.064,
     borderRadius: 20,
     borderWidth: 0.5,
   },
@@ -179,8 +179,8 @@ const styles = StyleSheet.create({
   },
 
   StudyKeysImage: {
-    width: 220,
-    height: 220,
+    height: height * 0.25,
+    width: height * 0.25,
     alignSelf: "center",
     borderRadius: 5,
   },

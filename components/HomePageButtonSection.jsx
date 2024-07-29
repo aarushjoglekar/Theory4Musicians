@@ -31,7 +31,6 @@ const styles = StyleSheet.create({
       color: "#000",
       textAlign: "center",
       fontFamily: "Verdana",
-      //fontSize: 17,
       fontSize: RFPercentage(2),
 
     },
