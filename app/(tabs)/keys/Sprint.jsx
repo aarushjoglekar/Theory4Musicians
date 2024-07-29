@@ -15,6 +15,7 @@ import shuffle from "../../../constants/Shuffle";
 import Title from "../../../components/Title";
 import { router } from "expo-router";
 import { RFPercentage } from "react-native-responsive-fontsize";
+import ScoreButton from "../../../components/ScoreButton";
 
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
@@ -45,97 +46,95 @@ export default function KeysSprint() {
       style={styles.container}
     >
       <SafeAreaView style={styles.container}>
-      <View style={{ flex: 10, justifyContent: "flex-end" }}>
-        <Title title="Sprint" />
-      </View>
-      <View style={{ flex: 5 }} />
-      <View style={{ flex: 35, justifyContent: "center" }}>
-        <Image style={styles.StudyKeysImage} source={{ uri: KeysProblem[0] }} />
-      </View>
-      <View style={{ flex: 5 }} />
-      <View style={styles.StudySection}>
-        <TouchableOpacity
-          style={styles.Button}
-          onPress={() => {
-            if (correctAnswerSpot == 0) {
-              KeysSprintScore += 1;
-              SetKeysSprintScore(KeysSprintScore);
-            }
-            ResetKeysProblem(setProblem(KeysDictionary));
-            answerOrder = shuffle(answerOrder);
-            correctAnswerSpot = answerOrder.indexOf(1);
-          }}
-        >
-          <Text style={styles.Text}>{KeysProblem[answerOrder[0]]}</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={styles.StudySection}>
-        <TouchableOpacity
-          style={styles.Button}
-          onPress={() => {
-            if (correctAnswerSpot == 1) {
-              KeysSprintScore += 1;
-              SetKeysSprintScore(KeysSprintScore);
-            }
-            ResetKeysProblem(setProblem(KeysDictionary));
-            answerOrder = shuffle(answerOrder);
-            correctAnswerSpot = answerOrder.indexOf(1);
-          }}
-        >
-          <Text style={styles.Text}>{KeysProblem[answerOrder[1]]}</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={styles.StudySection}>
-        <TouchableOpacity
-          style={styles.Button}
-          onPress={() => {
-            if (correctAnswerSpot == 2) {
-              KeysSprintScore += 1;
-              SetKeysSprintScore(KeysSprintScore);
-            }
-            ResetKeysProblem(setProblem(KeysDictionary));
-            answerOrder = shuffle(answerOrder);
-            correctAnswerSpot = answerOrder.indexOf(1);
-          }}
-        >
-          <Text style={styles.Text}>{KeysProblem[answerOrder[2]]}</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={styles.StudySection}>
-        <TouchableOpacity
-          style={styles.Button}
-          onPress={() => {
-            if (correctAnswerSpot == 3) {
-              KeysSprintScore += 1;
-              SetKeysSprintScore(KeysSprintScore);
-            }
-            ResetKeysProblem(setProblem(KeysDictionary));
-            answerOrder = shuffle(answerOrder);
-            correctAnswerSpot = answerOrder.indexOf(1);
-          }}
-        >
-          <Text style={styles.Text}>{KeysProblem[answerOrder[3]]}</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={{ flex: 10, justifyContent: "center" }}>
-        <TouchableOpacity
-          style={styles.BackButton}
-          onPress={() => {
-            router.navigate("./keys/DisplayScore");
-            clearTimeout(id);
-          }}
-        >
-          <Text style={styles.BackText}>Back</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={{ flex: 5, flexDirection: "row" }}>
-        <View style={{ flex: 15 }}>
-          <Text style={{ alignSelf: "flex-end", fontFamily: "Verdana" }}>
-            Score: {KeysSprintScore}
-          </Text>
+        <View style={{ flex: 10, justifyContent: "flex-end" }}>
+          <Title title="Sprint" />
         </View>
-        <View style={{ flex: 1 }} />
-      </View>
+        <View style={{ flex: 5 }} />
+        <View style={{ flex: 35, justifyContent: "center" }}>
+          <Image
+            style={styles.StudyKeysImage}
+            source={{ uri: KeysProblem[0] }}
+          />
+        </View>
+        <View style={{ flex: 5 }} />
+        <View style={styles.StudySection}>
+          <TouchableOpacity
+            style={styles.Button}
+            onPress={() => {
+              if (correctAnswerSpot == 0) {
+                KeysSprintScore += 1;
+                SetKeysSprintScore(KeysSprintScore);
+              }
+              ResetKeysProblem(setProblem(KeysDictionary));
+              answerOrder = shuffle(answerOrder);
+              correctAnswerSpot = answerOrder.indexOf(1);
+            }}
+          >
+            <Text style={styles.Text}>{KeysProblem[answerOrder[0]]}</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.StudySection}>
+          <TouchableOpacity
+            style={styles.Button}
+            onPress={() => {
+              if (correctAnswerSpot == 1) {
+                KeysSprintScore += 1;
+                SetKeysSprintScore(KeysSprintScore);
+              }
+              ResetKeysProblem(setProblem(KeysDictionary));
+              answerOrder = shuffle(answerOrder);
+              correctAnswerSpot = answerOrder.indexOf(1);
+            }}
+          >
+            <Text style={styles.Text}>{KeysProblem[answerOrder[1]]}</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.StudySection}>
+          <TouchableOpacity
+            style={styles.Button}
+            onPress={() => {
+              if (correctAnswerSpot == 2) {
+                KeysSprintScore += 1;
+                SetKeysSprintScore(KeysSprintScore);
+              }
+              ResetKeysProblem(setProblem(KeysDictionary));
+              answerOrder = shuffle(answerOrder);
+              correctAnswerSpot = answerOrder.indexOf(1);
+            }}
+          >
+            <Text style={styles.Text}>{KeysProblem[answerOrder[2]]}</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.StudySection}>
+          <TouchableOpacity
+            style={styles.Button}
+            onPress={() => {
+              if (correctAnswerSpot == 3) {
+                KeysSprintScore += 1;
+                SetKeysSprintScore(KeysSprintScore);
+              }
+              ResetKeysProblem(setProblem(KeysDictionary));
+              answerOrder = shuffle(answerOrder);
+              correctAnswerSpot = answerOrder.indexOf(1);
+            }}
+          >
+            <Text style={styles.Text}>{KeysProblem[answerOrder[3]]}</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={{ flex: 10, justifyContent: "center" }}>
+          <TouchableOpacity
+            style={styles.BackButton}
+            onPress={() => {
+              router.navigate("./keys/DisplayScore");
+              clearTimeout(id);
+            }}
+          >
+            <Text style={styles.BackText}>Back</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={{ flex: 6 }}>
+          <ScoreButton Score={KeysSprintScore} />
+        </View>
       </SafeAreaView>
     </ImageBackground>
   );

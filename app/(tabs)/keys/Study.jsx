@@ -15,9 +15,10 @@ import KeysDictionary from "./../../../constants/KeysDictionary";
 import shuffle from "../../../constants/Shuffle";
 import KeysProblemFunction from "./../../../constants/KeysProblemFunction";
 import { RFPercentage } from "react-native-responsive-fontsize";
+import ScoreButton from "../../../components/ScoreButton";
 
-const width = Dimensions.get('window').width;
-const height = Dimensions.get('window').height;
+const width = Dimensions.get("window").width;
+const height = Dimensions.get("window").height;
 
 function setProblem(KeysDictionary) {
   let KeysProblem = KeysProblemFunction(KeysDictionary);
@@ -131,13 +132,8 @@ export default function Study() {
             <Text style={styles.BackText}>Learn</Text>
           </TouchableOpacity>
         </View>
-        <View style={{ flex: 5, flexDirection: "row" }}>
-          <View style={{ flex: 15 }}>
-            <Text style={{ alignSelf: "flex-end", fontFamily: "Verdana" }}>
-              Score: {KeysStudyScore}
-            </Text>
-          </View>
-          <View style={{ flex: 1 }} />
+        <View style={{ flex: 6 }}>
+          <ScoreButton Score={KeysStudyScore} />
         </View>
       </SafeAreaView>
     </ImageBackground>
