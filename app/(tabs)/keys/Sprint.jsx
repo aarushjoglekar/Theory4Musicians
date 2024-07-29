@@ -3,6 +3,7 @@ import {
   Dimensions,
   Image,
   ImageBackground,
+  SafeAreaView,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -11,11 +12,12 @@ import {
 import KeysProblemFunction from "./../../../constants/KeysProblemFunction";
 import KeysDictionary from "./../../../constants/KeysDictionary";
 import shuffle from "../../../constants/Shuffle";
-import Title from "../../../components/Title"
+import Title from "../../../components/Title";
 import { router } from "expo-router";
+import { RFPercentage } from "react-native-responsive-fontsize";
 
-const width = Dimensions.get('window').width;
-const height = Dimensions.get('window').height;
+const width = Dimensions.get("window").width;
+const height = Dimensions.get("window").height;
 
 function setProblem(KeysDictionary) {
   let KeysProblem = KeysProblemFunction(KeysDictionary);
@@ -39,11 +41,12 @@ export default function KeysSprint() {
   }
   return (
     <ImageBackground
-      source={require('./../../../assets/images/BackgroundImages/SprintBackground.jpeg')}
+      source={require("./../../../assets/images/BackgroundImages/SprintBackground.jpeg")}
       style={styles.container}
     >
-      <View style={{ flex: 20, justifyContent: "flex-end" }}>
-        <Title title="Sprint"/>
+      <SafeAreaView style={styles.container}>
+      <View style={{ flex: 10, justifyContent: "flex-end" }}>
+        <Title title="Sprint" />
       </View>
       <View style={{ flex: 5 }} />
       <View style={{ flex: 35, justifyContent: "center" }}>
@@ -122,7 +125,7 @@ export default function KeysSprint() {
             clearTimeout(id);
           }}
         >
-          <Text style={styles.Text}>Back</Text>
+          <Text style={styles.BackText}>Back</Text>
         </TouchableOpacity>
       </View>
       <View style={{ flex: 5, flexDirection: "row" }}>
@@ -133,6 +136,7 @@ export default function KeysSprint() {
         </View>
         <View style={{ flex: 1 }} />
       </View>
+      </SafeAreaView>
     </ImageBackground>
   );
 }
@@ -155,7 +159,14 @@ const styles = StyleSheet.create({
     color: "#000",
     textAlign: "center",
     fontFamily: "Verdana",
-    fontSize: 17,
+    fontSize: RFPercentage(2),
+  },
+
+  BackText: {
+    color: "#000",
+    textAlign: "center",
+    fontFamily: "Verdana",
+    fontSize: RFPercentage(1.8),
   },
 
   StudySection: {

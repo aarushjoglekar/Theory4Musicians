@@ -4,9 +4,10 @@ import {
   TouchableOpacity,
   ImageBackground,
   StyleSheet,
+  SafeAreaView,
 } from "react-native";
 import React from "react";
-import Title from '../../../components/Title'
+import Title from "../../../components/Title";
 import { router } from "expo-router";
 
 export default function KeysHome() {
@@ -23,41 +24,43 @@ export default function KeysHome() {
       source={require("./../../../assets/images/BackgroundImages/KeysBackground.jpeg")}
       style={styles.container}
     >
-      <View style={{ flex: 20, justifyContent: "flex-end" }}>
-        <Title title="Keys"/>
-      </View>
-      <View style={{ flex: 5 }} />
-      <View style={styles.KeysSection}>
-        <TouchableOpacity
-          style={styles.Button}
-          onPress={() => router.navigate("./keys/Learn")}
-        >
-          <Text style={styles.Text}>Learn</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={styles.KeysSection}>
-        <TouchableOpacity
-          style={styles.Button}
-          onPress={() => router.navigate("./keys/Study")}
-        >
-          <Text style={styles.Text}>Study</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={styles.KeysSection}>
-        <TouchableOpacity
-          style={styles.Button}
-          onPress={() => {
-            KeysSprintScore = 0;
-            router.navigate("./keys/Sprint");
-          }}
-        >
-          <Text style={styles.Text}>
-            Sprint{"\n"}
-            {/*Personal Best: {KeysHighScore}*/}
-          </Text>
-        </TouchableOpacity>
-      </View>
-      <View style={{ flex: 55 }} />
+      <SafeAreaView style={styles.container}>
+        <View style={{ flex: 10, justifyContent: "flex-end" }}>
+          <Title title="Keys" />
+        </View>
+        <View style={{ flex: 5 }} />
+        <View style={styles.KeysSection}>
+          <TouchableOpacity
+            style={styles.Button}
+            onPress={() => router.navigate("./keys/Learn")}
+          >
+            <Text style={styles.Text}>Learn</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.KeysSection}>
+          <TouchableOpacity
+            style={styles.Button}
+            onPress={() => router.navigate("./keys/Study")}
+          >
+            <Text style={styles.Text}>Study</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.KeysSection}>
+          <TouchableOpacity
+            style={styles.Button}
+            onPress={() => {
+              KeysSprintScore = 0;
+              router.navigate("./keys/Sprint");
+            }}
+          >
+            <Text style={styles.Text}>
+              Sprint{"\n"}
+              {/*Personal Best: {KeysHighScore}*/}
+            </Text>
+          </TouchableOpacity>
+        </View>
+        <View style={{ flex: 55 }} />
+      </SafeAreaView>
     </ImageBackground>
   );
 }
