@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import {
   Dimensions,
   Image,
@@ -13,7 +13,7 @@ import KeysProblemFunction from "./../../../constants/KeysProblemFunction";
 import KeysDictionary from "./../../../constants/KeysDictionary";
 import shuffle from "../../../constants/Shuffle";
 import Title from "../../../components/Title";
-import { router } from "expo-router";
+import { router, useFocusEffect } from "expo-router";
 import { RFPercentage } from "react-native-responsive-fontsize";
 import ScoreButton from "../../../components/ScoreButton";
 
@@ -29,17 +29,25 @@ let answerOrder = [1, 2, 3, 4];
 answerOrder = shuffle(answerOrder);
 let correctAnswerSpot = answerOrder.indexOf(1);
 
-let firstVisit = true;
+
 
 export default function KeysSprint() {
   let [KeysSprintScore, SetKeysSprintScore] = useState(0);
   let [KeysProblem, ResetKeysProblem] = useState(
     KeysProblemFunction(KeysDictionary)
   );
-  if (firstVisit == true) {
-    let id = setTimeout(() => router.navigate("./keys/DisplayScore"), 2000);
-    firstVisit = false;
-  }
+
+  useFocusEffect(useCallback(() => {
+    let id = setTimeout(
+      () =>
+        router.navigate({
+          pathname: "/keys/DisplayScore",
+          params: { KeysSprintScore },
+        }),
+      30000
+    );
+    return () => clearTimeout(id);
+  }, []));
   return (
     <ImageBackground
       source={require("./../../../assets/images/BackgroundImages/SprintBackground.jpeg")}
@@ -62,8 +70,7 @@ export default function KeysSprint() {
             style={styles.Button}
             onPress={() => {
               if (correctAnswerSpot == 0) {
-                KeysSprintScore += 1;
-                SetKeysSprintScore(KeysSprintScore);
+                SetKeysSprintScore(KeysSprintScore + 1);
               }
               ResetKeysProblem(setProblem(KeysDictionary));
               answerOrder = shuffle(answerOrder);
@@ -78,8 +85,7 @@ export default function KeysSprint() {
             style={styles.Button}
             onPress={() => {
               if (correctAnswerSpot == 1) {
-                KeysSprintScore += 1;
-                SetKeysSprintScore(KeysSprintScore);
+                SetKeysSprintScore(KeysSprintScore + 1);
               }
               ResetKeysProblem(setProblem(KeysDictionary));
               answerOrder = shuffle(answerOrder);
@@ -94,8 +100,7 @@ export default function KeysSprint() {
             style={styles.Button}
             onPress={() => {
               if (correctAnswerSpot == 2) {
-                KeysSprintScore += 1;
-                SetKeysSprintScore(KeysSprintScore);
+                SetKeysSprintScore(KeysSprintScore + 1);
               }
               ResetKeysProblem(setProblem(KeysDictionary));
               answerOrder = shuffle(answerOrder);
@@ -110,8 +115,7 @@ export default function KeysSprint() {
             style={styles.Button}
             onPress={() => {
               if (correctAnswerSpot == 3) {
-                KeysSprintScore += 1;
-                SetKeysSprintScore(KeysSprintScore);
+                SetKeysSprintScore(KeysSprintScore + 1);
               }
               ResetKeysProblem(setProblem(KeysDictionary));
               answerOrder = shuffle(answerOrder);
@@ -125,11 +129,13 @@ export default function KeysSprint() {
           <TouchableOpacity
             style={styles.BackButton}
             onPress={() => {
-              router.navigate("./keys/DisplayScore");
-              clearTimeout(id);
+              router.navigate({
+                pathname: "/keys/DisplayScore",
+                params: { KeysSprintScore },
+              });
             }}
           >
-            <Text style={styles.BackText}>Back</Text>
+            <Text style={styles.BackText}>Finish</Text>
           </TouchableOpacity>
         </View>
         <View style={{ flex: 6 }}>

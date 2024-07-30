@@ -8,13 +8,14 @@ import {
   View,
 } from "react-native";
 import React from "react";
-import { router } from "expo-router";
+import { router, useLocalSearchParams } from "expo-router";
 import Title from "./../../../components/Title";
 
-const width = Dimensions.get('window').width;
-const height = Dimensions.get('window').height;
+const width = Dimensions.get("window").width;
+const height = Dimensions.get("window").height;
 
 export default function DisplayScore() {
+  const { KeysSprintScore } = useLocalSearchParams();
   return (
     <ImageBackground
       source={require("./../../../assets/images/BackgroundImages/DisplayScoreBackground.jpeg")}
@@ -32,7 +33,7 @@ export default function DisplayScore() {
         <View style={{ flex: 1 }}>
           <TouchableOpacity
             style={styles.BackButton}
-            onPress={() => router.navigate("./keys/Keys")}
+            onPress={() => router.navigate({pathname: "/keys/Keys", params: { KeysSprintScore }})}
           >
             <Text style={styles.Text}>Back</Text>
           </TouchableOpacity>

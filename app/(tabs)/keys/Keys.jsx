@@ -7,17 +7,11 @@ import {
 import React from "react";
 import Title from "../../../components/Title";
 import HomeButton from "../../../components/HomeButton";
-import { router } from "expo-router";
+import { router, useLocalSearchParams } from "expo-router";
 
 export default function KeysHome() {
-  {
-    /* 
-    if (KeysSprintScore > KeysHighScore){
-    KeysHighScore = KeysSprintScore
-  }
-  visit = 0;
-  */
-  }
+  const params = useLocalSearchParams();
+  console.log(params)
   return (
     <ImageBackground
       source={require("./../../../assets/images/BackgroundImages/KeysBackground.jpeg")}
@@ -26,17 +20,23 @@ export default function KeysHome() {
       <SafeAreaView style={styles.container}>
         <View style={{ flex: 10, justifyContent: "flex-end" }}>
           <Title title="Keys" />
+          {/* <Title title={KeysSprintScore}/> */}
         </View>
         <View style={{ flex: 5 }} />
         <View style={styles.KeysSection}>
-          <HomeButton onPress={()=>router.navigate('./keys/Learn')} text="Learn"/>
+          <HomeButton onPress={()=>router.navigate('/keys/Learn')} text="Learn"/>
         </View>
         <View style={styles.KeysSection}>
-          <HomeButton onPress={()=>router.navigate('./keys/Study')} text="Study"/>
+          <HomeButton onPress={()=>router.navigate('/keys/Study')} text="Study"/>
         </View>
         <View style={styles.KeysSection}>
-          <HomeButton onPress={()=>router.navigate('./keys/Sprint')} text={"Sprint\nPersonal Best"}/>
+          <HomeButton onPress={()=>router.navigate('/keys/Sprint')} text={"Sprint\nPersonalBest"}/>
         </View>
+
+        <View style={styles.KeysSection}>
+          <HomeButton onPress={()=>router.navigate('/keys/Sprint')} text={"New Score"}/>
+        </View>
+        
         <View style={{ flex: 55 }} />
       </SafeAreaView>
     </ImageBackground>
