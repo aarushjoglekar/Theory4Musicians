@@ -1,41 +1,51 @@
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, doc, getDoc } from "firebase/firestore";
 import { db } from "./../config/firebase";
+import { dummyDefaultUser } from "../constants/dummy";
 
 type ScoreType = "keys" | "scales" | "intervals" | "triads";
-type ScoreRecord = {
-  value: number;
-  date: Date;
-};
 
-const SCORES = "scores";
-const scoresCollectionRef = collection(db, SCORES);
+const CURRENT_USER = dummyDefaultUser;
+const USERS = "users";
+const usersCollectionRef = collection(db, USERS);
 
-async function storeScore(
+export async function storeScore(
   scoreType: ScoreType,
   scoreValue: number
 ): Promise<void> {
   try {
-    const newScoreRef = await addDoc(scoresCollectionRef, {
-      value: scoreValue,
-      date: new Date(),
-    });
+ 
+    // TODO: Get current user high score
+  
 
-    console.log("Document written with ID: ", newScoreRef.id);
+    // TODO: compare against the new one
+
+    // TODO: store the highest
+    
+    // console.log("Document written with ID: ", newScoreRef.id);
   } catch (error) {
     console.error("Error adding document: ", error);
   }
 }
 
-async function getAllScores(scoreType: ScoreType): Promise<ScoreRecord[] | []> {
-  return [];
-}
-
-async function getHighestScore(
+export async function getHighestScore(
   scoreType: ScoreType
-): Promise<ScoreRecord | null> {
-  const allScores = await getAllScores(scoreType);
-  if (allScores.length <= 0) return null;
+): Promise<number | null> {
+  try { 
 
-  const sortedScores = allScores.sort((a, b) => b.value - a.value);
-  return sortedScores[0];
+    // TODO: get user data "dkalslsfdk.highScores.keys"
+    // TODO: return the needed score
+    // const docRef = doc(db, "scores", docId);
+    // console.log("Document read with ID: ", newScoreRef.id);
+  } catch (error) {
+    // console.error("Error reading document: ", error);
+  }
+
+  return null;
 }
+
+// todo: get user info 
+export const getCurrentUserInfo = (userId: string) => {
+  // const user = getDoc(usersCollectionRef)
+}
+
+

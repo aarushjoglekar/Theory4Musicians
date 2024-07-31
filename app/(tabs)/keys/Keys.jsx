@@ -7,6 +7,7 @@ import {
 import React from "react";
 import Title from "../../../components/Title";
 import HomeButton from "../../../components/HomeButton";
+import { storeScore } from "../../../services/scoreService";
 import { router, useLocalSearchParams } from "expo-router";
 
 export default function KeysHome() {
@@ -34,7 +35,7 @@ export default function KeysHome() {
         </View>
 
         <View style={styles.KeysSection}>
-          <HomeButton onPress={()=>router.navigate('/keys/Sprint')} text={"New Score"}/>
+          <HomeButton onPress={()=>null} text={"New Score"}/>
         </View>
         
         <View style={{ flex: 55 }} />
