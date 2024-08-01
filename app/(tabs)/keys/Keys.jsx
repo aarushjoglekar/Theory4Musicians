@@ -7,8 +7,10 @@ import {
 import React from "react";
 import Title from "../../../components/Title";
 import HomeButton from "../../../components/HomeButton";
-import { storeScore } from "../../../services/scoreService";
+import { getCurrentUserInfo } from "../../../services/userService";
 import { router, useLocalSearchParams } from "expo-router";
+import { getStorage } from "../../../services/storage";
+import { storeScore } from "../../../services/scoreService";
 
 export default function KeysHome() {
   const params = useLocalSearchParams();
@@ -35,7 +37,19 @@ export default function KeysHome() {
         </View>
 
         <View style={styles.KeysSection}>
-          <HomeButton onPress={()=>null} text={"New Score"}/>
+          <HomeButton onPress={()=>getCurrentUserInfo()} text={"get and update curr user"}/>
+        </View>
+        <View style={styles.KeysSection}>
+          <HomeButton onPress={()=>storeScore("keys", 3)} text={"SCORE 3"}/>
+        </View>
+        <View style={styles.KeysSection}>
+          <HomeButton onPress={()=>storeScore("keys", 4)} text={"SCORE 4"}/>
+        </View>
+        <View style={styles.KeysSection}>
+          <HomeButton onPress={async ()=>{
+            const user = await getStorage('user');
+            console.log(`user`, user)
+          }} text={"read user from storage"}/>
         </View>
         
         <View style={{ flex: 55 }} />
