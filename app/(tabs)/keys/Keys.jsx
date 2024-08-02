@@ -7,7 +7,7 @@ import {
 import React from "react";
 import Title from "../../../components/Title";
 import HomeButton from "../../../components/HomeButton";
-import { getCurrentUserInfo } from "../../../services/userService";
+import { getAndUpdateCurrentUserInfo } from "../../../services/userService";
 import { router, useLocalSearchParams } from "expo-router";
 import { getStorage } from "../../../services/storage";
 import { storeScore } from "../../../services/scoreService";
@@ -37,7 +37,7 @@ export default function KeysHome() {
         </View>
 
         <View style={styles.KeysSection}>
-          <HomeButton onPress={()=>getCurrentUserInfo()} text={"get and update curr user"}/>
+          <HomeButton onPress={()=>getAndUpdateCurrentUserInfo()} text={"get and update curr user"}/>
         </View>
         <View style={styles.KeysSection}>
           <HomeButton onPress={()=>storeScore("keys", 3)} text={"SCORE 3"}/>

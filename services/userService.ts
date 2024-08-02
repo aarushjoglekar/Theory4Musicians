@@ -3,6 +3,7 @@ import { ScoreType } from "./scoreService";
 import { saveUserInfo } from "./storage";
 import { dummyDefaultUser } from "@/constants/dummy";
 import { db } from "@/config/firebase";
+import userNotFoundAlert from "../components/UserNotFoundAlert";
 
 export type UserType = {
   id: string;
@@ -12,13 +13,34 @@ export type UserType = {
   highScores: Record<ScoreType, number>;
 };
 
-const CURRENT_USER = dummyDefaultUser;
+export const MessagesEnum = {
+  userNotFount: "userNotFount",
+  sessionEnded: "sessionEnded",
+  userFoundAndUpdated: "userFoundAndUpdated",
+};
+
+interface ReturnType {
+  message: string;
+  data: UserType | null;
+}
+
+// export const CURRENT_USER = dummyDefaultUser;
 const USERS = "users";
 const usersCollectionRef = collection(db, USERS);
-export const currentUserDocRef = doc(usersCollectionRef, CURRENT_USER);
 
-export async function getCurrentUserInfo(
-): Promise<UserType | null> {
+export async function getAndUpdateCurrentUserInfo(
+  currentUserId?: string
+): Promise<ReturnType> {
+  if (!currentUserId) {
+    // todo: check user if in storage
+
+    return {
+      message: MessagesEnum.sessionEnded,
+      data: null,
+    };
+  }
+
+  const currentUserDocRef = doc(usersCollectionRef, currentUserId);
   try {
     const userDocSnap = await getDoc(currentUserDocRef);
     if (userDocSnap.exists()) {
@@ -29,17 +51,19 @@ export async function getCurrentUserInfo(
 
       await saveUserInfo(userInfo as UserType);
 
-      console.log(`userInfo`, userInfo)
-      return userInfo as UserType;
+      console.log(`userInfo`, userInfo);
+      return {
+        message: MessagesEnum.userFoundAndUpdated,
+        data: userInfo as UserType,
+      };
     } else {
       console.log("No such user!");
+      return {
+        message: MessagesEnum.userNotFount,
+        data: null,
+      };
     }
   } catch (error) {
     console.error("Error reading CurrentUser: ", error);
   }
-
-  return null;
 }
-
-
-
