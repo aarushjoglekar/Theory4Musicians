@@ -1,1 +1,0 @@
-export const dummyDefaultUser = 'QYHqFFRIGBFJos58LB0V';

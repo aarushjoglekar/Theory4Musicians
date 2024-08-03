@@ -70,6 +70,6 @@ const styles = StyleSheet.create({
     color: "#000",
     textAlign: "center",
     fontSize: 200,
-    fontFamily: "GillSans-SemiBoldItalic",
+    fontFamily: "PTSerif",
   },
 });

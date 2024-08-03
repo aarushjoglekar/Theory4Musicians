@@ -7,14 +7,9 @@ import {
 import React from "react";
 import Title from "../../../components/Title";
 import HomeButton from "../../../components/HomeButton";
-import { getAndUpdateCurrentUserInfo } from "../../../services/userService";
-import { router, useLocalSearchParams } from "expo-router";
-import { getStorage } from "../../../services/storage";
-import { storeScore } from "../../../services/scoreService";
+import { router } from "expo-router";
 
 export default function KeysHome() {
-  const params = useLocalSearchParams();
-  console.log(params)
   return (
     <ImageBackground
       source={require("./../../../assets/images/BackgroundImages/KeysBackground.jpeg")}
@@ -23,7 +18,6 @@ export default function KeysHome() {
       <SafeAreaView style={styles.container}>
         <View style={{ flex: 10, justifyContent: "flex-end" }}>
           <Title title="Keys" />
-          {/* <Title title={KeysSprintScore}/> */}
         </View>
         <View style={{ flex: 5 }} />
         <View style={styles.KeysSection}>
@@ -35,23 +29,6 @@ export default function KeysHome() {
         <View style={styles.KeysSection}>
           <HomeButton onPress={()=>router.navigate('/keys/Sprint')} text={"Sprint\nPersonalBest"}/>
         </View>
-
-        <View style={styles.KeysSection}>
-          <HomeButton onPress={()=>getAndUpdateCurrentUserInfo()} text={"get and update curr user"}/>
-        </View>
-        <View style={styles.KeysSection}>
-          <HomeButton onPress={()=>storeScore("keys", 3)} text={"SCORE 3"}/>
-        </View>
-        <View style={styles.KeysSection}>
-          <HomeButton onPress={()=>storeScore("keys", 4)} text={"SCORE 4"}/>
-        </View>
-        <View style={styles.KeysSection}>
-          <HomeButton onPress={async ()=>{
-            const user = await getStorage('user');
-            console.log(`user`, user)
-          }} text={"read user from storage"}/>
-        </View>
-        
         <View style={{ flex: 55 }} />
       </SafeAreaView>
     </ImageBackground>
@@ -63,74 +40,9 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 
-  title: {
-    color: "#000",
-    textAlign: "center",
-    fontSize: 50,
-    fontFamily: "GillSans-SemiBoldItalic",
-  },
-
-  Button: {
-    justifyContent: "center",
-    backgroundColor: "#edebeb",
-    width: 210,
-    height: 57,
-    borderRadius: 20,
-    borderWidth: 0.5,
-  },
-
-  Text: {
-    color: "#000",
-    textAlign: "center",
-    fontFamily: "Verdana",
-    fontSize: 17,
-  },
-
   KeysSection: {
     flex: 16,
     justifyContent: "center",
     alignSelf: "center",
-  },
-
-  StudySection: {
-    flex: 12,
-    justifyContent: "center",
-    alignSelf: "center",
-  },
-
-  StudyKeysImage: {
-    width: 220,
-    height: 220,
-    alignSelf: "center",
-    borderRadius: 5,
-  },
-
-  BackButton: {
-    justifyContent: "center",
-    backgroundColor: "#edebeb",
-    width: 70,
-    height: 45,
-    borderRadius: 20,
-    borderWidth: 0.5,
-    alignSelf: "center",
-  },
-
-  YouScoredNumber: {
-    color: "#000",
-    textAlign: "center",
-    fontSize: 200,
-    fontFamily: "GillSans-SemiBoldItalic",
-  },
-
-  Subtitle: {
-    color: "#000",
-    width: 260,
-    fontFamily: "Verdana-Bold",
-  },
-
-  LearnText: {
-    color: "#000",
-    width: 260,
-    fontFamily: "Verdana",
   },
 });
