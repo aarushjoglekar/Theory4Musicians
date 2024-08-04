@@ -9,39 +9,16 @@ import {
 } from "react-native";
 import React from "react";
 import { router, useLocalSearchParams } from "expo-router";
-import Title from "./../../../components/Title";
+import DisplayScore from "../../../components/DisplayScore";
 
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
 
-export default function DisplayScore() {
+export default function KeysDisplayScore() {
   const { KeysSprintScore } = useLocalSearchParams();
   return (
-    <ImageBackground
-      source={require("./../../../assets/images/BackgroundImages/DisplayScoreBackground.jpeg")}
-      style={styles.container}
-    >
-      <SafeAreaView style={styles.container}>
-        <View style={{ flex: 3 }} />
-        <View style={{ flex: 1.5 }}>
-          <Title title="You Scored" />
-        </View>
-        <View style={{ flex: 5 }}>
-          <Text style={styles.YouScoredNumber}>{KeysSprintScore}</Text>
-        </View>
-        <View style={{ flex: 6 }} />
-        <View style={{ flex: 1 }}>
-          <TouchableOpacity
-            style={styles.BackButton}
-            onPress={() => router.navigate({pathname: "/keys/Keys", params: { KeysSprintScore }})}
-          >
-            <Text style={styles.Text}>Back</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={{ flex: 0.5 }} />
-      </SafeAreaView>
-    </ImageBackground>
-  );
+    <DisplayScore scoreValue={KeysSprintScore} onPress={()=>router.navigate('/keys/Keys')}/>
+  )
 }
 
 const styles = StyleSheet.create({
