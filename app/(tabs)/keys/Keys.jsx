@@ -8,8 +8,10 @@ import React from "react";
 import Title from "../../../components/Title";
 import HomeButton from "../../../components/HomeButton";
 import { router } from "expo-router";
+import readScore from "../../../storageServices/readScore";
 
 export default function KeysHome() {
+  const KeysHighScore = readScore("keys")
   return (
     <ImageBackground
       source={require("./../../../assets/images/BackgroundImages/KeysBackground.jpeg")}
@@ -27,7 +29,7 @@ export default function KeysHome() {
           <HomeButton onPress={()=>router.navigate('/keys/Study')} text="Study"/>
         </View>
         <View style={styles.KeysSection}>
-          <HomeButton onPress={()=>router.navigate('/keys/Sprint')} text={"Sprint\nPersonalBest"}/>
+          <HomeButton onPress={()=>router.navigate('/keys/Sprint')} text={"Sprint\nPersonal Best: " + KeysHighScore}/>
         </View>
         <View style={{ flex: 55 }} />
       </SafeAreaView>
