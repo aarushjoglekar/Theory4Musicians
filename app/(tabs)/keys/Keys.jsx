@@ -12,6 +12,7 @@ import readScore from "../../../storageServices/readScore";
 
 export default function KeysHome() {
   const KeysHighScore = readScore("keys")
+  console.log(KeysHighScore)
   return (
     <ImageBackground
       source={require("./../../../assets/images/BackgroundImages/KeysBackground.jpeg")}
