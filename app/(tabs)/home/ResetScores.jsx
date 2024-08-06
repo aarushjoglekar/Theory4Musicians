@@ -10,6 +10,7 @@ import React from "react";
 import BackButton from "../../../components/BackButton";
 import HomePageButtonSection from "../../../components/HomePageButtonSection";
 import Title from "../../../components/Title";
+import updateScore from "../../../storageServices/updateScore";
 
 const height = Dimensions.get("window").height;
 
@@ -31,12 +32,8 @@ export default function ResetScores() {
               "Resetting Keys High Score",
               "Are you sure you want to reset your personal best?",
               [
-                {
-                  text: "Cancel",
-                  onPress: () => console.log("Cancel Pressed"),
-                  style: "cancel",
-                },
-                { text: "Yes", onPress: () => console.log("Yes Pressed") },
+                { text: "Cancel", style: "cancel" },
+                { text: "Yes", onPress: () => updateScore("keys", 0) },
               ]
             )
           }
@@ -49,12 +46,8 @@ export default function ResetScores() {
               "Resetting Scales High Score",
               "Are you sure you want to reset your personal best?",
               [
-                {
-                  text: "Cancel",
-                  onPress: () => console.log("Cancel Pressed"),
-                  style: "cancel",
-                },
-                { text: "Yes", onPress: () => console.log("Yes Pressed") },
+                { text: "Cancel", style: "cancel" },
+                { text: "Yes", onPress: () => updateScore("scales", 0) },
               ]
             )
           }
@@ -67,12 +60,8 @@ export default function ResetScores() {
               "Resetting Intervals High Score",
               "Are you sure you want to reset your personal best?",
               [
-                {
-                  text: "Cancel",
-                  onPress: () => console.log("Cancel Pressed"),
-                  style: "cancel",
-                },
-                { text: "Yes", onPress: () => console.log("Yes Pressed") },
+                { text: "Cancel", style: "cancel" },
+                { text: "Yes", onPress: () => updateScore("intervals", 0) },
               ]
             )
           }
@@ -85,12 +74,8 @@ export default function ResetScores() {
               "Resetting Triads High Score",
               "Are you sure you want to reset your personal best?",
               [
-                {
-                  text: "Cancel",
-                  onPress: () => console.log("Cancel Pressed"),
-                  style: "cancel",
-                },
-                { text: "Yes", onPress: () => console.log("Yes Pressed") },
+                { text: "Cancel", style: "cancel" },
+                { text: "Yes", onPress: () => updateScore("triads", 0) },
               ]
             )
           }
@@ -103,12 +88,14 @@ export default function ResetScores() {
               "Resetting ALL High Scores",
               "Are you sure you want to reset your personal best?",
               [
-                {
-                  text: "Cancel",
-                  onPress: () => console.log("Cancel Pressed"),
-                  style: "cancel",
+                { text: "Cancel", style: "cancel" },
+                { text: "Yes", onPress: () => {
+                  updateScore("keys", 0) 
+                  updateScore("scales", 0) 
+                  updateScore("intervals", 0) 
+                  updateScore("triads", 0) 
+                  }
                 },
-                { text: "Yes", onPress: () => console.log("Yes Pressed") },
               ]
             )
           }
