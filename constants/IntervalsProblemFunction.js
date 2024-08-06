@@ -1,6 +1,7 @@
-function ScalesProblemFunction(Dictionary) {
-  let scales = Object.keys(Dictionary);
-  let problemKey = scales[Math.round((scales.length - 1) * Math.random())];
+export default function IntervalsProblemFunction(Dictionary) {
+  let Intervals = Object.keys(Dictionary);
+  let problemKey =
+    Intervals[Math.round((Intervals.length - 1) * Math.random())];
   let correctAnswer = Dictionary[problemKey][0];
   let wrongAnswer1 = Dictionary[problemKey][1];
   let wrongAnswer2 = Dictionary[problemKey][2];
@@ -14,5 +15,3 @@ function ScalesProblemFunction(Dictionary) {
   ];
   return problem;
 }
-
-export default ScalesProblemFunction;

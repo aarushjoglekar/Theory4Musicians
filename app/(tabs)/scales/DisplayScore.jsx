@@ -4,7 +4,7 @@ import DisplayScore from "../../../components/DisplayScore";
 import readScore from "../../../storageServices/readScore";
 import updateScore from "../../../storageServices/updateScore";
 
-export default function KeysDisplayScore() {
+export default function ScalesDisplayScore() {
   const { ScalesSprintScore } = useLocalSearchParams();
   const ScalesHighScore = readScore("scales");
   if (ScalesSprintScore > ScalesHighScore){

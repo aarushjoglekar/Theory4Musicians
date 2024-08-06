@@ -10,10 +10,10 @@ import Title from "../../../components/Title";
 import BackButton from "../../../components/BackButton";
 import { RFPercentage } from "react-native-responsive-fontsize";
 
-export default function Learn() {
+export default function KeysLearn() {
   return (
     <ImageBackground
-      source={{ uri: "https://i.postimg.cc/HnXbt56B/Text-Background.jpg" }}
+      source={require('../../../assets/images/BackgroundImages/TextBackground.jpeg')}
       style={{ flex: 1, padding: 50 }}
     >
       <SafeAreaView style={styles.container}>

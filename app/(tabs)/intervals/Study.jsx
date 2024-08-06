@@ -11,28 +11,28 @@ import {
   View,
 } from "react-native";
 import Title from "../../../components/Title";
-import { ScalesDictionary } from "../../../constants/ScalesDictionary";
+import { IntervalsDictionary } from "../../../constants/IntervalsDictionary"
 import shuffle from "../../../constants/Shuffle";
-import ScalesProblemFunction from "../../../constants/ScalesProblemFunction";
+import IntervalsProblemFunction from "../../../constants/IntervalsProblemFunction";
 import { RFPercentage } from "react-native-responsive-fontsize";
 import ScoreButton from "../../../components/ScoreButton";
 
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
 
-function setProblem(ScalesDictionary) {
-  let ScalesProblem = ScalesProblemFunction(ScalesDictionary);
-  return ScalesProblem;
+function setProblem(IntervalsDictionary) {
+  let IntervalsProblem = IntervalsProblemFunction(IntervalsDictionary);
+  return IntervalsProblem;
 }
 
 let answerOrder = [1, 2, 3, 4];
 answerOrder = shuffle(answerOrder);
 let correctAnswerSpot = answerOrder.indexOf(1);
 
-export default function ScalesStudy() {
-  let [ScalesStudyScore, SetScalesStudyScore] = useState(0);
-  let [ScalesProblem, ResetScalesProblem] = useState(
-    ScalesProblemFunction(ScalesDictionary)
+export default function IntervalsStudy() {
+  let [IntervalsStudyScore, SetIntervalsStudyScore] = useState(0);
+  let [IntervalsProblem, ResetIntervalsProblem] = useState(
+    IntervalsProblemFunction(IntervalsDictionary)
   );
   return (
     <ImageBackground
@@ -46,8 +46,8 @@ export default function ScalesStudy() {
         <View style={{ flex: 5 }} />
         <View style={{ flex: 35, justifyContent: "center" }}>
           <Image
-            style={styles.StudyScalesImage}
-            source={{ uri: ScalesProblem[0] }}
+            style={styles.StudyIntervalsImage}
+            source={{ uri: IntervalsProblem[0] }}
           />
         </View>
         <View style={{ flex: 5 }} />
@@ -56,14 +56,14 @@ export default function ScalesStudy() {
             style={styles.Button}
             onPress={() => {
               if (correctAnswerSpot == 0) {
-                SetScalesStudyScore(ScalesStudyScore + 1);
+                SetIntervalsStudyScore(IntervalsStudyScore + 1);
               }
-              ResetScalesProblem(setProblem(ScalesDictionary));
+              ResetIntervalsProblem(setProblem(IntervalsDictionary));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
             }}
           >
-            <Text style={styles.Text}>{ScalesProblem[answerOrder[0]]}</Text>
+            <Text style={styles.Text}>{IntervalsProblem[answerOrder[0]]}</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.StudySection}>
@@ -71,14 +71,14 @@ export default function ScalesStudy() {
             style={styles.Button}
             onPress={() => {
               if (correctAnswerSpot == 1) {
-                SetScalesStudyScore(ScalesStudyScore + 1);
+                SetIntervalsStudyScore(IntervalsStudyScore + 1);
               }
-              ResetScalesProblem(setProblem(ScalesDictionary));
+              ResetIntervalsProblem(setProblem(IntervalsDictionary));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
             }}
           >
-            <Text style={styles.Text}>{ScalesProblem[answerOrder[1]]}</Text>
+            <Text style={styles.Text}>{IntervalsProblem[answerOrder[1]]}</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.StudySection}>
@@ -86,14 +86,14 @@ export default function ScalesStudy() {
             style={styles.Button}
             onPress={() => {
               if (correctAnswerSpot == 2) {
-                SetScalesStudyScore(ScalesStudyScore + 1);
+                SetIntervalsStudyScore(IntervalsStudyScore + 1);
               }
-              ResetScalesProblem(setProblem(ScalesDictionary));
+              ResetIntervalsProblem(setProblem(IntervalsDictionary));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
             }}
           >
-            <Text style={styles.Text}>{ScalesProblem[answerOrder[2]]}</Text>
+            <Text style={styles.Text}>{IntervalsProblem[answerOrder[2]]}</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.StudySection}>
@@ -101,14 +101,14 @@ export default function ScalesStudy() {
             style={styles.Button}
             onPress={() => {
               if (correctAnswerSpot == 3) {
-                SetScalesStudyScore(ScalesStudyScore + 1);
+                SetIntervalsStudyScore(IntervalsStudyScore + 1);
               }
-              ResetScalesProblem(setProblem(ScalesDictionary));
+              ResetIntervalsProblem(setProblem(IntervalsDictionary));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
             }}
           >
-            <Text style={styles.Text}>{ScalesProblem[answerOrder[3]]}</Text>
+            <Text style={styles.Text}>{IntervalsProblem[answerOrder[3]]}</Text>
           </TouchableOpacity>
         </View>
         <View
@@ -126,14 +126,14 @@ export default function ScalesStudy() {
           <TouchableOpacity
             style={styles.BackButton}
             onPress={() => {
-              router.navigate("/scales/Learn");
+              router.navigate("/intervals/Learn");
             }}
           >
             <Text style={styles.BackText}>Learn</Text>
           </TouchableOpacity>
         </View>
         <View style={{ flex: 6 }}>
-          <ScoreButton Score={ScalesStudyScore} />
+          <ScoreButton Score={IntervalsStudyScore} />
         </View>
       </SafeAreaView>
     </ImageBackground>
@@ -174,9 +174,9 @@ const styles = StyleSheet.create({
     alignSelf: "center",
   },
 
-  StudyScalesImage: {
-    width: width,
-    height: width / 7.5,
+  StudyIntervalsImage: {
+    width: 350,
+    height: 220,
     alignSelf: 'center',
     borderRadius: 5,
   },

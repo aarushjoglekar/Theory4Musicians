@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { router } from "expo-router";
+import { useCallback, useState } from "react";
 import {
   Dimensions,
   Image,
@@ -10,44 +9,57 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import Title from "../../../components/Title";
-import { ScalesDictionary } from "../../../constants/ScalesDictionary";
+import IntervalsProblemFunction from "./../../../constants/IntervalsProblemFunction";
+import { IntervalsDictionary } from "./../../../constants/IntervalsDictionary";
 import shuffle from "../../../constants/Shuffle";
-import ScalesProblemFunction from "../../../constants/ScalesProblemFunction";
+import Title from "../../../components/Title";
+import { router, useFocusEffect } from "expo-router";
 import { RFPercentage } from "react-native-responsive-fontsize";
 import ScoreButton from "../../../components/ScoreButton";
 
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
 
-function setProblem(ScalesDictionary) {
-  let ScalesProblem = ScalesProblemFunction(ScalesDictionary);
-  return ScalesProblem;
+function setProblem(IntervalsDictionary) {
+  let IntervalsProblem = IntervalsProblemFunction(IntervalsDictionary);
+  return IntervalsProblem;
 }
 
 let answerOrder = [1, 2, 3, 4];
 answerOrder = shuffle(answerOrder);
 let correctAnswerSpot = answerOrder.indexOf(1);
 
-export default function ScalesStudy() {
-  let [ScalesStudyScore, SetScalesStudyScore] = useState(0);
-  let [ScalesProblem, ResetScalesProblem] = useState(
-    ScalesProblemFunction(ScalesDictionary)
+export default function IntervalsSprint() {
+  let [IntervalsSprintScore, SetIntervalsSprintScore] = useState(0);
+  let [IntervalsProblem, ResetIntervalsProblem] = useState(
+    IntervalsProblemFunction(IntervalsDictionary)
   );
+
+  useFocusEffect(useCallback(() => {
+    let id = setTimeout(
+      () =>
+        router.navigate({
+          pathname: "/intervals/DisplayScore",
+          params: { IntervalsSprintScore },
+        }),
+      30000
+    );
+    return () => clearTimeout(id);
+  }, []));
   return (
     <ImageBackground
-      source={require("./../../../assets/images/BackgroundImages/StudyBackground.jpeg")}
-      style={{ flex: 1 }}
+      source={require("./../../../assets/images/BackgroundImages/SprintBackground.jpeg")}
+      style={styles.container}
     >
       <SafeAreaView style={styles.container}>
         <View style={{ flex: 10, justifyContent: "flex-end" }}>
-          <Title title="Study" />
+          <Title title="Sprint" />
         </View>
         <View style={{ flex: 5 }} />
         <View style={{ flex: 35, justifyContent: "center" }}>
           <Image
-            style={styles.StudyScalesImage}
-            source={{ uri: ScalesProblem[0] }}
+            style={styles.StudyIntervalsImage}
+            source={{ uri: IntervalsProblem[0] }}
           />
         </View>
         <View style={{ flex: 5 }} />
@@ -56,14 +68,14 @@ export default function ScalesStudy() {
             style={styles.Button}
             onPress={() => {
               if (correctAnswerSpot == 0) {
-                SetScalesStudyScore(ScalesStudyScore + 1);
+                SetIntervalsSprintScore(IntervalsSprintScore + 1);
               }
-              ResetScalesProblem(setProblem(ScalesDictionary));
+              ResetIntervalsProblem(setProblem(IntervalsDictionary));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
             }}
           >
-            <Text style={styles.Text}>{ScalesProblem[answerOrder[0]]}</Text>
+            <Text style={styles.Text}>{IntervalsProblem[answerOrder[0]]}</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.StudySection}>
@@ -71,14 +83,14 @@ export default function ScalesStudy() {
             style={styles.Button}
             onPress={() => {
               if (correctAnswerSpot == 1) {
-                SetScalesStudyScore(ScalesStudyScore + 1);
+                SetIntervalsSprintScore(IntervalsSprintScore + 1);
               }
-              ResetScalesProblem(setProblem(ScalesDictionary));
+              ResetIntervalsProblem(setProblem(IntervalsDictionary));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
             }}
           >
-            <Text style={styles.Text}>{ScalesProblem[answerOrder[1]]}</Text>
+            <Text style={styles.Text}>{IntervalsProblem[answerOrder[1]]}</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.StudySection}>
@@ -86,14 +98,14 @@ export default function ScalesStudy() {
             style={styles.Button}
             onPress={() => {
               if (correctAnswerSpot == 2) {
-                SetScalesStudyScore(ScalesStudyScore + 1);
+                SetIntervalsSprintScore(IntervalsSprintScore + 1);
               }
-              ResetScalesProblem(setProblem(ScalesDictionary));
+              ResetIntervalsProblem(setProblem(IntervalsDictionary));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
             }}
           >
-            <Text style={styles.Text}>{ScalesProblem[answerOrder[2]]}</Text>
+            <Text style={styles.Text}>{IntervalsProblem[answerOrder[2]]}</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.StudySection}>
@@ -101,39 +113,31 @@ export default function ScalesStudy() {
             style={styles.Button}
             onPress={() => {
               if (correctAnswerSpot == 3) {
-                SetScalesStudyScore(ScalesStudyScore + 1);
+                SetIntervalsSprintScore(IntervalsSprintScore + 1);
               }
-              ResetScalesProblem(setProblem(ScalesDictionary));
+              ResetIntervalsProblem(setProblem(IntervalsDictionary));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
             }}
           >
-            <Text style={styles.Text}>{ScalesProblem[answerOrder[3]]}</Text>
+            <Text style={styles.Text}>{IntervalsProblem[answerOrder[3]]}</Text>
           </TouchableOpacity>
         </View>
-        <View
-          style={{ flex: 10, justifyContent: "center", flexDirection: "row" }}
-        >
+        <View style={{ flex: 10, justifyContent: "center" }}>
           <TouchableOpacity
             style={styles.BackButton}
             onPress={() => {
-              router.back();
+              router.navigate({
+                pathname: "/intervals/DisplayScore",
+                params: { IntervalsSprintScore },
+              });
             }}
           >
-            <Text style={styles.BackText}>Back</Text>
-          </TouchableOpacity>
-          <View style={{ flex: 0.03 }} />
-          <TouchableOpacity
-            style={styles.BackButton}
-            onPress={() => {
-              router.navigate("/scales/Learn");
-            }}
-          >
-            <Text style={styles.BackText}>Learn</Text>
+            <Text style={styles.BackText}>Finish</Text>
           </TouchableOpacity>
         </View>
         <View style={{ flex: 6 }}>
-          <ScoreButton Score={ScalesStudyScore} />
+          <ScoreButton Score={IntervalsSprintScore} />
         </View>
       </SafeAreaView>
     </ImageBackground>
@@ -174,9 +178,16 @@ const styles = StyleSheet.create({
     alignSelf: "center",
   },
 
-  StudyScalesImage: {
-    width: width,
-    height: width / 7.5,
+  Study: {
+    height: height * 0.25,
+    width: height * 0.25,
+    alignSelf: "center",
+    borderRadius: 5,
+  },
+
+  StudyIntervalsImage: {
+    width: 350,
+    height: 220,
     alignSelf: 'center',
     borderRadius: 5,
   },

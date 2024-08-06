@@ -10,7 +10,7 @@ import HomeButton from "../../../components/HomeButton";
 import { router } from "expo-router";
 import readScore from "../../../storageServices/readScore";
 
-export default function KeysHome() {
+export default function ScalesHome() {
   const KeysHighScore = readScore("keys")
   console.log(KeysHighScore)
   return (

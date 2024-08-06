@@ -29,7 +29,7 @@ let answerOrder = [1, 2, 3, 4];
 answerOrder = shuffle(answerOrder);
 let correctAnswerSpot = answerOrder.indexOf(1);
 
-export default function Keys() {
+export default function KeysStudy() {
   let [KeysStudyScore, SetKeysStudyScore] = useState(0);
   let [KeysProblem, ResetKeysProblem] = useState(
     KeysProblemFunction(KeysDictionary)
