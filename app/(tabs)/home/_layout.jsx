@@ -11,6 +11,7 @@ export default function HomeLayout() {
       <Stack.Screen name="Home" />
       <Stack.Screen name="HowToUseThisApp" />
       <Stack.Screen name="LearnToReadMusic" />
+      <Stack.Screen name="ResetScores" />
     </Stack>
   );
 }

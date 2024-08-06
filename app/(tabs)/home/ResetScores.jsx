@@ -6,7 +6,7 @@ import {
   Dimensions,
 } from "react-native";
 import React from "react";
-import { router } from "expo-router";
+import BackButton from "../../../components/BackButton";
 import HomePageButtonSection from "../../../components/HomePageButtonSection";
 import Title from "../../../components/Title";
 
@@ -20,21 +20,19 @@ export default function Home() {
     >
       <SafeAreaView style={styles.container}>
         <View style={{ flex: 10, justifyContent: "flex-end" }}>
-          <Title title="Theory4Nerds" />
+          <Title title="Reset Scores" />
         </View>
-        <View style={{ flex: 50}} />
-        <HomePageButtonSection
-          onPress={() => router.navigate("/home/HowToUseThisApp")}
-          text="How To Use This App"
-        />
+        <View style={{ flex: 20}} />
+        <HomePageButtonSection text="Reset Keys Scores" />
         <View style={{ height: 40 }} />
-        <HomePageButtonSection
-          onPress={() => router.navigate("/home/LearnToReadMusic")}
-          text="Learn To Read Music"
-        />
+        <HomePageButtonSection text="Reset Scales Scores" />
         <View style={{ height: 40 }} />
-        <HomePageButtonSection onPress={()=>router.navigate("/home/ResetScores")}text="Reset Scores" />
+        <HomePageButtonSection text="Reset Intervals Scores" />
+        <View style={{ height: 40 }} />
+        <HomePageButtonSection text="Reset Triads Scores" />
         <View style={{ height: height * 0.1 }} />
+        <BackButton />
+        <View style={{flex:10}}/>
       </SafeAreaView>
     </ImageBackground>
   );
