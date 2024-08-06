@@ -11,28 +11,28 @@ import {
   View,
 } from "react-native";
 import Title from "../../../components/Title";
-import { KeysDictionary } from "./../../../constants/KeysDictionary";
+import { ScalesDictionary } from "../../../constants/ScalesDictionary";
 import shuffle from "../../../constants/Shuffle";
-import KeysProblemFunction from "./../../../constants/KeysProblemFunction";
+import ScalesProblemFunction from "../../../constants/ScalesProblemFunction";
 import { RFPercentage } from "react-native-responsive-fontsize";
 import ScoreButton from "../../../components/ScoreButton";
 
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
 
-function setProblem(KeysDictionary){
-  var KeysProblem = KeysProblemFunction(KeysDictionary)
-  return KeysProblem;
+function setProblem(ScalesDictionary) {
+  let ScalesProblem = ScalesProblemFunction(ScalesDictionary);
+  return ScalesProblem;
 }
 
 let answerOrder = [1, 2, 3, 4];
 answerOrder = shuffle(answerOrder);
 let correctAnswerSpot = answerOrder.indexOf(1);
 
-export default function Keys() {
-  let [KeysStudyScore, SetKeysStudyScore] = useState(0);
-  let [KeysProblem, ResetKeysProblem] = useState(
-    KeysProblemFunction(KeysDictionary)
+export default function Study() {
+  let [ScalesStudyScore, SetScalesStudyScore] = useState(0);
+  let [ScalesProblem, ResetScalesProblem] = useState(
+    ScalesProblemFunction(ScalesDictionary)
   );
   return (
     <ImageBackground
@@ -46,8 +46,8 @@ export default function Keys() {
         <View style={{ flex: 5 }} />
         <View style={{ flex: 35, justifyContent: "center" }}>
           <Image
-            style={styles.StudyKeysImage}
-            source={{ uri: KeysProblem[0] }}
+            style={styles.StudyScalesImage}
+            source={{ uri: ScalesProblem[0] }}
           />
         </View>
         <View style={{ flex: 5 }} />
@@ -56,14 +56,14 @@ export default function Keys() {
             style={styles.Button}
             onPress={() => {
               if (correctAnswerSpot == 0) {
-                SetKeysStudyScore(KeysStudyScore + 1);
+                SetScalesStudyScore(ScalesStudyScore + 1);
               }
-              ResetKeysProblem(setProblem(KeysDictionary));
+              ResetScalesProblem(setProblem(ScalesDictionary));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
             }}
           >
-            <Text style={styles.Text}>{KeysProblem[answerOrder[0]]}</Text>
+            <Text style={styles.Text}>{ScalesProblem[answerOrder[0]]}</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.StudySection}>
@@ -71,14 +71,14 @@ export default function Keys() {
             style={styles.Button}
             onPress={() => {
               if (correctAnswerSpot == 1) {
-                SetKeysStudyScore(KeysStudyScore + 1);
+                SetScalesStudyScore(ScalesStudyScore + 1);
               }
-              ResetKeysProblem(setProblem(KeysDictionary));
+              ResetScalesProblem(setProblem(ScalesDictionary));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
             }}
           >
-            <Text style={styles.Text}>{KeysProblem[answerOrder[1]]}</Text>
+            <Text style={styles.Text}>{ScalesProblem[answerOrder[1]]}</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.StudySection}>
@@ -86,14 +86,14 @@ export default function Keys() {
             style={styles.Button}
             onPress={() => {
               if (correctAnswerSpot == 2) {
-                SetKeysStudyScore(KeysStudyScore + 1);
+                SetScalesStudyScore(ScalesStudyScore + 1);
               }
-              ResetKeysProblem(setProblem(KeysDictionary));
+              ResetScalesProblem(setProblem(ScalesDictionary));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
             }}
           >
-            <Text style={styles.Text}>{KeysProblem[answerOrder[2]]}</Text>
+            <Text style={styles.Text}>{ScalesProblem[answerOrder[2]]}</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.StudySection}>
@@ -101,14 +101,14 @@ export default function Keys() {
             style={styles.Button}
             onPress={() => {
               if (correctAnswerSpot == 3) {
-                SetKeysStudyScore(KeysStudyScore + 1);
+                SetScalesStudyScore(ScalesStudyScore + 1);
               }
-              ResetKeysProblem(setProblem(KeysDictionary));
+              ResetScalesProblem(setProblem(ScalesDictionary));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
             }}
           >
-            <Text style={styles.Text}>{KeysProblem[answerOrder[3]]}</Text>
+            <Text style={styles.Text}>{ScalesProblem[answerOrder[3]]}</Text>
           </TouchableOpacity>
         </View>
         <View
@@ -126,14 +126,14 @@ export default function Keys() {
           <TouchableOpacity
             style={styles.BackButton}
             onPress={() => {
-              router.navigate("/keys/Learn");
+              router.navigate("/scales/Learn");
             }}
           >
             <Text style={styles.BackText}>Learn</Text>
           </TouchableOpacity>
         </View>
         <View style={{ flex: 6 }}>
-          <ScoreButton Score={KeysStudyScore} />
+          <ScoreButton Score={ScalesStudyScore} />
         </View>
       </SafeAreaView>
     </ImageBackground>
@@ -174,10 +174,10 @@ const styles = StyleSheet.create({
     alignSelf: "center",
   },
 
-  StudyKeysImage: {
-    height: height * 0.25,
-    width: height * 0.25,
-    alignSelf: "center",
+  StudyScalesImage: {
+    width: width,
+    height: width / 7.5,
+    alignSelf: 'center',
     borderRadius: 5,
   },
 

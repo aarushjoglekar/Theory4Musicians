@@ -1,4 +1,4 @@
-let KeysDictionary = {
+export const KeysDictionary = {
     "https://i.postimg.cc/cJ4pwXYq/None.png": [
       ["C Major", "F Major", "A Major", "G Major"],
       ["a minor", "c minor", "f minor", "g♭ minor"],
@@ -60,5 +60,3 @@ let KeysDictionary = {
       ["a♭ minor", "f minor", "d minor", "e♭ minor"],
     ],
   };
-
-export default KeysDictionary;

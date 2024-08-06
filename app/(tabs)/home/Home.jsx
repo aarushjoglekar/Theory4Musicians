@@ -33,7 +33,7 @@ export default function Home() {
           text="Learn To Read Music"
         />
         <View style={{ height: 40 }} />
-        <HomePageButtonSection text="Sign Out" />
+        <HomePageButtonSection text="Reset Scores" />
         <View style={{ height: height * 0.1 }} />
       </SafeAreaView>
     </ImageBackground>

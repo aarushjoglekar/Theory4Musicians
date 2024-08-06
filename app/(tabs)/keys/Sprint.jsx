@@ -10,7 +10,7 @@ import {
   View,
 } from "react-native";
 import KeysProblemFunction from "./../../../constants/KeysProblemFunction";
-import KeysDictionary from "./../../../constants/KeysDictionary";
+import { KeysDictionary } from "../../../constants/KeysDictionary";
 import shuffle from "../../../constants/Shuffle";
 import Title from "../../../components/Title";
 import { router, useFocusEffect } from "expo-router";

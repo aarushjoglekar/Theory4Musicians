@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { router } from "expo-router";
+import { useCallback, useState } from "react";
 import {
   Dimensions,
   Image,
@@ -10,44 +9,59 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import Title from "../../../components/Title";
-import { KeysDictionary } from "./../../../constants/KeysDictionary";
+import ScalesProblemFunction from "./../../../constants/ScalesProblemFunction";
+import { ScalesDictionary } from "./../../../constants/ScalesDictionary";
 import shuffle from "../../../constants/Shuffle";
-import KeysProblemFunction from "./../../../constants/KeysProblemFunction";
+import Title from "../../../components/Title";
+import { router, useFocusEffect } from "expo-router";
 import { RFPercentage } from "react-native-responsive-fontsize";
 import ScoreButton from "../../../components/ScoreButton";
 
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
 
-function setProblem(KeysDictionary){
-  var KeysProblem = KeysProblemFunction(KeysDictionary)
-  return KeysProblem;
+function setProblem(ScalesDictionary) {
+  let ScalesProblem = ScalesProblemFunction(ScalesDictionary);
+  return ScalesProblem;
 }
 
 let answerOrder = [1, 2, 3, 4];
 answerOrder = shuffle(answerOrder);
 let correctAnswerSpot = answerOrder.indexOf(1);
 
-export default function Keys() {
-  let [KeysStudyScore, SetKeysStudyScore] = useState(0);
-  let [KeysProblem, ResetKeysProblem] = useState(
-    KeysProblemFunction(KeysDictionary)
+
+
+export default function ScalesSprint() {
+  let [ScalesSprintScore, SetScalesSprintScore] = useState(0);
+  let [ScalesProblem, ResetScalesProblem] = useState(
+    ScalesProblemFunction(ScalesDictionary)
   );
+
+  useFocusEffect(useCallback(() => {
+    let id = setTimeout(
+      () =>
+        router.navigate({
+          pathname: "/scales/DisplayScore",
+          params: { ScalesSprintScore },
+        }),
+      30000
+    );
+    return () => clearTimeout(id);
+  }, []));
   return (
     <ImageBackground
-      source={require("./../../../assets/images/BackgroundImages/StudyBackground.jpeg")}
-      style={{ flex: 1 }}
+      source={require("./../../../assets/images/BackgroundImages/SprintBackground.jpeg")}
+      style={styles.container}
     >
       <SafeAreaView style={styles.container}>
         <View style={{ flex: 10, justifyContent: "flex-end" }}>
-          <Title title="Study" />
+          <Title title="Sprint" />
         </View>
         <View style={{ flex: 5 }} />
         <View style={{ flex: 35, justifyContent: "center" }}>
           <Image
-            style={styles.StudyKeysImage}
-            source={{ uri: KeysProblem[0] }}
+            style={styles.StudyScalesImage}
+            source={{ uri: ScalesProblem[0] }}
           />
         </View>
         <View style={{ flex: 5 }} />
@@ -56,14 +70,14 @@ export default function Keys() {
             style={styles.Button}
             onPress={() => {
               if (correctAnswerSpot == 0) {
-                SetKeysStudyScore(KeysStudyScore + 1);
+                SetScalesSprintScore(ScalesSprintScore + 1);
               }
-              ResetKeysProblem(setProblem(KeysDictionary));
+              ResetScalesProblem(setProblem(ScalesDictionary));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
             }}
           >
-            <Text style={styles.Text}>{KeysProblem[answerOrder[0]]}</Text>
+            <Text style={styles.Text}>{ScalesProblem[answerOrder[0]]}</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.StudySection}>
@@ -71,14 +85,14 @@ export default function Keys() {
             style={styles.Button}
             onPress={() => {
               if (correctAnswerSpot == 1) {
-                SetKeysStudyScore(KeysStudyScore + 1);
+                SetScalesSprintScore(ScalesSprintScore + 1);
               }
-              ResetKeysProblem(setProblem(KeysDictionary));
+              ResetScalesProblem(setProblem(ScalesDictionary));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
             }}
           >
-            <Text style={styles.Text}>{KeysProblem[answerOrder[1]]}</Text>
+            <Text style={styles.Text}>{ScalesProblem[answerOrder[1]]}</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.StudySection}>
@@ -86,14 +100,14 @@ export default function Keys() {
             style={styles.Button}
             onPress={() => {
               if (correctAnswerSpot == 2) {
-                SetKeysStudyScore(KeysStudyScore + 1);
+                SetScalesSprintScore(ScalesSprintScore + 1);
               }
-              ResetKeysProblem(setProblem(KeysDictionary));
+              ResetScalesProblem(setProblem(ScalesDictionary));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
             }}
           >
-            <Text style={styles.Text}>{KeysProblem[answerOrder[2]]}</Text>
+            <Text style={styles.Text}>{ScalesProblem[answerOrder[2]]}</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.StudySection}>
@@ -101,39 +115,31 @@ export default function Keys() {
             style={styles.Button}
             onPress={() => {
               if (correctAnswerSpot == 3) {
-                SetKeysStudyScore(KeysStudyScore + 1);
+                SetScalesSprintScore(ScalesSprintScore + 1);
               }
-              ResetKeysProblem(setProblem(KeysDictionary));
+              ResetScalesProblem(setProblem(ScalesDictionary));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
             }}
           >
-            <Text style={styles.Text}>{KeysProblem[answerOrder[3]]}</Text>
+            <Text style={styles.Text}>{ScalesProblem[answerOrder[3]]}</Text>
           </TouchableOpacity>
         </View>
-        <View
-          style={{ flex: 10, justifyContent: "center", flexDirection: "row" }}
-        >
+        <View style={{ flex: 10, justifyContent: "center" }}>
           <TouchableOpacity
             style={styles.BackButton}
             onPress={() => {
-              router.back();
+              router.navigate({
+                pathname: "/scales/DisplayScore",
+                params: { ScalesSprintScore },
+              });
             }}
           >
-            <Text style={styles.BackText}>Back</Text>
-          </TouchableOpacity>
-          <View style={{ flex: 0.03 }} />
-          <TouchableOpacity
-            style={styles.BackButton}
-            onPress={() => {
-              router.navigate("/keys/Learn");
-            }}
-          >
-            <Text style={styles.BackText}>Learn</Text>
+            <Text style={styles.BackText}>Finish</Text>
           </TouchableOpacity>
         </View>
         <View style={{ flex: 6 }}>
-          <ScoreButton Score={KeysStudyScore} />
+          <ScoreButton Score={ScalesSprintScore} />
         </View>
       </SafeAreaView>
     </ImageBackground>
@@ -174,10 +180,17 @@ const styles = StyleSheet.create({
     alignSelf: "center",
   },
 
-  StudyKeysImage: {
+  Study: {
     height: height * 0.25,
     width: height * 0.25,
     alignSelf: "center",
+    borderRadius: 5,
+  },
+
+  StudyScalesImage: {
+    width: width,
+    height: width / 7.5,
+    alignSelf: 'center',
     borderRadius: 5,
   },
 
