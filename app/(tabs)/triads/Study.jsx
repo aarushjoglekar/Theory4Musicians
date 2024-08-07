@@ -1,4 +1,5 @@
-import { useCallback, useState } from "react";
+import { useState } from "react";
+import { router } from "expo-router";
 import {
   Dimensions,
   Image,
@@ -9,57 +10,44 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import IntervalsProblemFunction from "./../../../constants/IntervalsProblemFunction";
-import { IntervalsDictionary } from "./../../../constants/IntervalsDictionary";
-import shuffle from "../../../constants/Shuffle";
 import Title from "../../../components/Title";
-import { router, useFocusEffect } from "expo-router";
+import { TriadsDictionary } from "../../../constants/TriadsDictionary";
+import shuffle from "../../../constants/Shuffle";
+import TriadsProblemFunction from "../../../constants/TriadsProblemFunction";
 import { RFPercentage } from "react-native-responsive-fontsize";
 import ScoreButton from "../../../components/ScoreButton";
 
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
 
-function setProblem(IntervalsDictionary) {
-  let IntervalsProblem = IntervalsProblemFunction(IntervalsDictionary);
-  return IntervalsProblem;
+function setProblem(TriadsDictionary) {
+  let TriadsProblem = TriadsProblemFunction(TriadsDictionary);
+  return TriadsProblem;
 }
 
 let answerOrder = [1, 2, 3, 4];
 answerOrder = shuffle(answerOrder);
 let correctAnswerSpot = answerOrder.indexOf(1);
 
-export default function IntervalsSprint() {
-  let [IntervalsSprintScore, SetIntervalsSprintScore] = useState(0);
-  let [IntervalsProblem, ResetIntervalsProblem] = useState(
-    IntervalsProblemFunction(IntervalsDictionary)
+export default function TriadsStudy() {
+  let [TriadsStudyScore, SetTriadsStudyScore] = useState(0);
+  let [TriadsProblem, ResetTriadsProblem] = useState(
+    TriadsProblemFunction(TriadsDictionary)
   );
-
-  useFocusEffect(useCallback(() => {
-    let id = setTimeout(
-      () =>
-        router.navigate({
-          pathname: "/intervals/DisplayScore",
-          params: { IntervalsSprintScore },
-        }),
-      30000
-    );
-    return () => clearTimeout(id);
-  }, []));
   return (
     <ImageBackground
-      source={require("./../../../assets/images/BackgroundImages/SprintBackground.jpeg")}
-      style={styles.container}
+      source={require("./../../../assets/images/BackgroundImages/StudyBackground.jpeg")}
+      style={{ flex: 1 }}
     >
       <SafeAreaView style={styles.container}>
         <View style={{ flex: 10, justifyContent: "flex-end" }}>
-          <Title title="Sprint" />
+          <Title title="Study" />
         </View>
         <View style={{ flex: 5 }} />
         <View style={{ flex: 35, justifyContent: "center" }}>
           <Image
-            style={styles.StudyIntervalsImage}
-            source={{ uri: IntervalsProblem[0] }}
+            style={styles.StudyTriadsImage}
+            source={{ uri: TriadsProblem[0] }}
           />
         </View>
         <View style={{ flex: 5 }} />
@@ -68,14 +56,14 @@ export default function IntervalsSprint() {
             style={styles.Button}
             onPress={() => {
               if (correctAnswerSpot == 0) {
-                SetIntervalsSprintScore(IntervalsSprintScore + 1);
+                SetTriadsStudyScore(TriadsStudyScore + 1);
               }
-              ResetIntervalsProblem(setProblem(IntervalsDictionary));
+              ResetTriadsProblem(setProblem(TriadsDictionary));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
             }}
           >
-            <Text style={styles.Text}>{IntervalsProblem[answerOrder[0]]}</Text>
+            <Text style={styles.Text}>{TriadsProblem[answerOrder[0]]}</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.StudySection}>
@@ -83,14 +71,14 @@ export default function IntervalsSprint() {
             style={styles.Button}
             onPress={() => {
               if (correctAnswerSpot == 1) {
-                SetIntervalsSprintScore(IntervalsSprintScore + 1);
+                SetTriadsStudyScore(TriadsStudyScore + 1);
               }
-              ResetIntervalsProblem(setProblem(IntervalsDictionary));
+              ResetTriadsProblem(setProblem(TriadsDictionary));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
             }}
           >
-            <Text style={styles.Text}>{IntervalsProblem[answerOrder[1]]}</Text>
+            <Text style={styles.Text}>{TriadsProblem[answerOrder[1]]}</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.StudySection}>
@@ -98,14 +86,14 @@ export default function IntervalsSprint() {
             style={styles.Button}
             onPress={() => {
               if (correctAnswerSpot == 2) {
-                SetIntervalsSprintScore(IntervalsSprintScore + 1);
+                SetTriadsStudyScore(TriadsStudyScore + 1);
               }
-              ResetIntervalsProblem(setProblem(IntervalsDictionary));
+              ResetTriadsProblem(setProblem(TriadsDictionary));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
             }}
           >
-            <Text style={styles.Text}>{IntervalsProblem[answerOrder[2]]}</Text>
+            <Text style={styles.Text}>{TriadsProblem[answerOrder[2]]}</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.StudySection}>
@@ -113,31 +101,39 @@ export default function IntervalsSprint() {
             style={styles.Button}
             onPress={() => {
               if (correctAnswerSpot == 3) {
-                SetIntervalsSprintScore(IntervalsSprintScore + 1);
+                SetTriadsStudyScore(TriadsStudyScore + 1);
               }
-              ResetIntervalsProblem(setProblem(IntervalsDictionary));
+              ResetTriadsProblem(setProblem(TriadsDictionary));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
             }}
           >
-            <Text style={styles.Text}>{IntervalsProblem[answerOrder[3]]}</Text>
+            <Text style={styles.Text}>{TriadsProblem[answerOrder[3]]}</Text>
           </TouchableOpacity>
         </View>
-        <View style={{ flex: 10, justifyContent: "center" }}>
+        <View
+          style={{ flex: 10, justifyContent: "center", flexDirection: "row" }}
+        >
           <TouchableOpacity
             style={styles.BackButton}
             onPress={() => {
-              router.navigate({
-                pathname: "/intervals/DisplayScore",
-                params: { IntervalsSprintScore },
-              });
+              router.back();
             }}
           >
-            <Text style={styles.BackText}>Finish</Text>
+            <Text style={styles.BackText}>Back</Text>
+          </TouchableOpacity>
+          <View style={{ flex: 0.03 }} />
+          <TouchableOpacity
+            style={styles.BackButton}
+            onPress={() => {
+              router.navigate("/triads/Learn");
+            }}
+          >
+            <Text style={styles.BackText}>Learn</Text>
           </TouchableOpacity>
         </View>
         <View style={{ flex: 6 }}>
-          <ScoreButton Score={IntervalsSprintScore} />
+          <ScoreButton Score={TriadsStudyScore} />
         </View>
       </SafeAreaView>
     </ImageBackground>
@@ -178,14 +174,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
   },
 
-  Study: {
-    height: height * 0.25,
-    width: height * 0.25,
-    alignSelf: "center",
-    borderRadius: 5,
-  },
-
-  StudyIntervalsImage: {
+  StudyTriadsImage: {
     width: width * 0.875,
     height: width * 0.55,
     alignSelf: 'center',

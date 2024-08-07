@@ -11,8 +11,8 @@ import { router } from "expo-router";
 import readScore from "../../../storageServices/readScore";
 
 export default function ScalesHome() {
-  const KeysHighScore = readScore("keys")
-  console.log(KeysHighScore)
+  const ScalesHighScore = readScore("scales")
+  console.log(ScalesHighScore)
   return (
     <ImageBackground
       source={require("./../../../assets/images/BackgroundImages/ScalesBackground.jpeg")}
@@ -30,7 +30,7 @@ export default function ScalesHome() {
           <HomeButton onPress={()=>router.navigate('/scales/Study')} text="Study"/>
         </View>
         <View style={styles.Section}>
-          <HomeButton onPress={()=>router.navigate('/scales/Sprint')} text={"Sprint\nPersonal Best: " + KeysHighScore}/>
+          <HomeButton onPress={()=>router.navigate('/scales/Sprint')} text={"Sprint\nPersonal Best: " + ScalesHighScore}/>
         </View>
         <View style={{ flex: 55 }} />
       </SafeAreaView>

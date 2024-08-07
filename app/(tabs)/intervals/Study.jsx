@@ -175,8 +175,8 @@ const styles = StyleSheet.create({
   },
 
   StudyIntervalsImage: {
-    width: 350,
-    height: 220,
+    width: width * 0.875,
+    height: width * 0.55,
     alignSelf: 'center',
     borderRadius: 5,
   },
