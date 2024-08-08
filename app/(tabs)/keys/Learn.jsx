@@ -17,7 +17,7 @@ export default function KeysLearn() {
       style={{ flex: 1, padding: 50 }}
     >
       <SafeAreaView style={styles.container}>
-        <ScrollView style={{ flex: 1 }}>
+        <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}>
           <Title title="Keys" />
           <Text style={styles.Subtitle}>{"\n"}What Is A Key</Text>
           <Text style={styles.LearnText}>

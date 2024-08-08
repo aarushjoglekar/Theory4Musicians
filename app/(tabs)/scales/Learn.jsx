@@ -17,7 +17,7 @@ export default function ScalesLearn() {
       style={{ flex: 1, padding: 50 }}
     >
       <SafeAreaView style={styles.container}>
-        <ScrollView style={{ flex: 1 }}>
+        <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}>
           <Title title="Scales"/>
           <Text style={styles.Subtitle}>{"\n"}What are Scales</Text>
           <Text style={styles.LearnText}>

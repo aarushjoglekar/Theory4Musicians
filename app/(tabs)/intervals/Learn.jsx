@@ -17,7 +17,7 @@ export default function IntervalsLearn() {
       style={{ flex: 1, padding: 50 }}
     >
       <SafeAreaView style={styles.container}>
-        <ScrollView style={{ flex: 1 }}>
+        <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}>
           <Title title="Intervals" />
           <Text style={styles.Subtitle}>{"\n"}What are Intervals</Text>
           <Text style={styles.LearnText}>

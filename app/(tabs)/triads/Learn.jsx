@@ -17,7 +17,7 @@ export default function TriadsLearn() {
       style={{ flex: 1, padding: 50 }}
     >
       <SafeAreaView style={styles.container}>
-        <ScrollView style={{ flex: 1 }}>
+        <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}>
           <Title title="Triads" />
           <Text style={styles.Subtitle}>{"\n"}What are Triads</Text>
           <Text style={styles.LearnText}>
