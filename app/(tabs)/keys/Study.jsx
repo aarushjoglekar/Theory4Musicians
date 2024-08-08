@@ -21,7 +21,7 @@ const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
 
 function setProblem(KeysDictionary) {
-  var KeysProblem = KeysProblemFunction(KeysDictionary);
+  let KeysProblem = KeysProblemFunction(KeysDictionary);
   return KeysProblem;
 }
 
