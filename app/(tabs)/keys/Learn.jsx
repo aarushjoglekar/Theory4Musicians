@@ -13,7 +13,7 @@ import { RFPercentage } from "react-native-responsive-fontsize";
 export default function KeysLearn() {
   return (
     <ImageBackground
-      source={require('../../../assets/images/BackgroundImages/TextBackground.jpeg')}
+      source={require("../../../assets/images/BackgroundImages/TextBackground.jpeg")}
       style={{ flex: 1, padding: 50 }}
     >
       <SafeAreaView style={styles.container}>
@@ -59,10 +59,11 @@ export default function KeysLearn() {
             are unsure of how to raise a note a half step, raise the note by one
             key on the piano).
             {"\n"}
-            {"\t"}Finally, if a key signature has seven sharps, they will be F#,
-            C#, G#, D#, A#, E#, and B#. Since the last sharp is B#, raising it a
-            half step gives the key of C# Major. (B# is the same note as C so
-            raising it a half step results in C#).
+            {"\t"}A third example is if a key signature has seven sharps. In
+            this case, the sharps will be F#, C#, G#, D#, A#, E#, and B#. Since
+            the last sharp is B#, raising it a half step gives the key of C#
+            Major. (B# is the same note as C so raising it a half step results
+            in C#).
           </Text>
           <Text style={styles.Subtitle}>
             {"\n"}Identifying Major Key Signatures With Flats
@@ -91,11 +92,14 @@ export default function KeysLearn() {
             {"\t"}There are two exceptions to identifying the major keys of key
             signatures. The first one is when there are no sharps or flats. This
             is a special scenario because none of the previous strategies will
-            work to find the key. The simple truth is that you will just have to
-            memorize that no sharps or flats corresponds to C Major. The second
-            exception is when there is only one flat. Since there is no second
-            last flat to identify, the previous strategy will not work. For this
-            too, you will have to memorize one flat as F Major.
+            work to find the key (as there are no sharps or flats to work with).
+            The fact is that you will just have to memorize that no sharps or
+            flats corresponds to C Major.
+            {"\n"}
+            {"\t"}The second exception is when there is only one flat. Since
+            there is no second last flat to identify, the previous strategy will
+            not work. For this too, you will have to memorize the key signature
+            containing one flat as F Major.
           </Text>
           <Text style={styles.Subtitle}>{"\n"}Identifying Minor Keys</Text>
           <Text style={styles.LearnText}>
@@ -117,6 +121,30 @@ export default function KeysLearn() {
             This means if you are asked to find the minor key of a key signature
             with three flats, you would first recognize the major key of Eb
             Major and then go down to C minor.
+            {"\n"}
+            {"\t"}However when working with this process, don't make this simple
+            mistake. Though you can argue that F# and Gb are the same note, you
+            cannot say their key signatures are the same. This is because the
+            key signature of F# (major or minor) will contain sharps while the
+            key signature of Gb (major or minor) will contain flats. Because of
+            this problem, you may find it hard to identify minor key signatures.
+            This is because going three half steps down from (take our previous
+            example) B Major gets either g# or ab, and you may not know which
+            one to use for the minor key.
+            {"\n"}
+            {"\t"}The simple way around this is to before going down three half
+            steps, go down two notes (creating an interval of three notes)
+            removing all accidentals. Take the example of B Major. Going down
+            one note gets A, and then again gets G. Now we know that the minor
+            key of B Major must have G in it, so we go with G# minor rather than
+            Ab minor.
+            {"\n"}
+            {"\t"}Let's take one more example. Say we have the key of F# Major.
+            Firstly, we create an interval distance of three notes by going down
+            two notes from F. This informs us the relative minor of this key
+            will have a D in it. Going down three half steps from F# gets us to
+            F, E, and then Eb. However since the key must have D in it, the
+            relative minor of F# Major is d# minor.
           </Text>
           <Text style={styles.Subtitle}>{"\n"}Reversing the Process</Text>
           <Text style={styles.LearnText}>
@@ -128,12 +156,13 @@ export default function KeysLearn() {
             you can simply go up three half steps to make it major.
             {"\n"}
             {"\t"}Then, you would recognize whether the key signature contains
-            flats or sharps. If the Major key name has a flat in it (with the
-            exception of F Major), the key signature will contain flats. If this
-            is the case, you need to ensure that the key name is the second last
-            flat. Keep adding flats to the key signature by the order of flats
-            until you get to the key name. Then add an additional flat to make
-            the key name the second last flat.
+            flats or sharps. A major key will only contain flats (with the
+            exception of F Major) if and only if the key name contains a flat.
+            If you find your key signature contains flats, to reverse the
+            process, you need to ensure that the key name is the
+            second last flat. Keep adding flats to the key signature by the
+            order of flats until you get to the key name. Then add an additional
+            flat to make the key name the second last flat.
             {"\n"}
             {"\t"}However, on the other hand, if the key signature contains
             sharps, you will have to go down a half step from the key name. This
