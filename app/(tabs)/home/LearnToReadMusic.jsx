@@ -19,7 +19,7 @@ export default function LearnToReadMusic() {
       style={{ flex: 1, padding: 50 }}
     >
       <SafeAreaView style={styles.container}>
-        <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}>
+        <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
           <Title title="Reading Music" />
           <Text style={styles.Subtitle}>{"\n"}The Staff</Text>
           <Text style={styles.LearnText}>
