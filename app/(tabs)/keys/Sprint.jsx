@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import {
   Dimensions,
   Image,
@@ -29,25 +29,28 @@ let answerOrder = [1, 2, 3, 4];
 answerOrder = shuffle(answerOrder);
 let correctAnswerSpot = answerOrder.indexOf(1);
 
-
-
 export default function KeysSprint() {
-  let [KeysSprintScore, SetKeysSprintScore] = useState(0);
-  let [KeysProblem, ResetKeysProblem] = useState(
+  const [KeysSprintScore, SetKeysSprintScore] = useState(0);
+  const [KeysProblem, ResetKeysProblem] = useState(
     KeysProblemFunction(KeysDictionary)
   );
-
-  useFocusEffect(useCallback(() => {
-    let id = setTimeout(
-      () =>
-        router.navigate({
-          pathname: "/keys/DisplayScore",
-          params: { KeysSprintScore },
-        }),
-      30000
-    );
-    return () => clearTimeout(id);
-  }, []));
+  const [imageSource, setImageSource] = useState(KeysProblem[0]);
+  useEffect(() => {
+    setImageSource(KeysProblem[0]);
+  }, [KeysProblem]);
+  useFocusEffect(
+    useCallback(() => {
+      let id = setTimeout(
+        () =>
+          router.navigate({
+            pathname: "/keys/DisplayScore",
+            params: { KeysSprintScore },
+          }),
+        30000
+      );
+      return () => clearTimeout(id);
+    }, [])
+  );
   return (
     <ImageBackground
       source={require("./../../../assets/images/BackgroundImages/SprintBackground.jpeg")}
@@ -59,10 +62,7 @@ export default function KeysSprint() {
         </View>
         <View style={{ flex: 5 }} />
         <View style={{ flex: 35, justifyContent: "center" }}>
-          <Image
-            style={styles.StudyKeysImage}
-            source={{ uri: KeysProblem[0] }}
-          />
+          <Image style={styles.StudyKeysImage} source={{ uri: imageSource }} />
         </View>
         <View style={{ flex: 5 }} />
         <View style={styles.StudySection}>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { router } from "expo-router";
 import {
   Dimensions,
@@ -30,10 +30,14 @@ answerOrder = shuffle(answerOrder);
 let correctAnswerSpot = answerOrder.indexOf(1);
 
 export default function IntervalsStudy() {
-  let [IntervalsStudyScore, SetIntervalsStudyScore] = useState(0);
-  let [IntervalsProblem, ResetIntervalsProblem] = useState(
+  const [IntervalsStudyScore, SetIntervalsStudyScore] = useState(0);
+  const [IntervalsProblem, ResetIntervalsProblem] = useState(
     IntervalsProblemFunction(IntervalsDictionary)
   );
+  const [imageSource, setImageSource] = useState(IntervalsProblem[0]);
+  useEffect(() => {
+    setImageSource(IntervalsProblem[0]);
+  }, [IntervalsProblem]);
   return (
     <ImageBackground
       source={require("./../../../assets/images/BackgroundImages/StudyBackground.jpeg")}
@@ -47,7 +51,7 @@ export default function IntervalsStudy() {
         <View style={{ flex: 35, justifyContent: "center" }}>
           <Image
             style={styles.StudyIntervalsImage}
-            source={{ uri: IntervalsProblem[0] }}
+            source={{ uri: imageSource }}
           />
         </View>
         <View style={{ flex: 5 }} />

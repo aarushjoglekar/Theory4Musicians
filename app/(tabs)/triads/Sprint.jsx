@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import {
   Dimensions,
   Image,
@@ -32,11 +32,14 @@ let correctAnswerSpot = answerOrder.indexOf(1);
 
 
 export default function TriadsSprint() {
-  let [TriadsSprintScore, SetTriadsSprintScore] = useState(0);
-  let [TriadsProblem, ResetTriadsProblem] = useState(
+  const [TriadsSprintScore, SetTriadsSprintScore] = useState(0);
+  const [TriadsProblem, ResetTriadsProblem] = useState(
     TriadsProblemFunction(TriadsDictionary)
   );
-
+  const [imageSource, setImageSource] = useState(TriadsProblem[0]);
+  useEffect(() => {
+    setImageSource(TriadsProblem[0]);
+  }, [TriadsProblem]);
   useFocusEffect(useCallback(() => {
     let id = setTimeout(
       () =>
@@ -61,7 +64,7 @@ export default function TriadsSprint() {
         <View style={{ flex: 35, justifyContent: "center" }}>
           <Image
             style={styles.StudyTriadsImage}
-            source={{ uri: TriadsProblem[0] }}
+            source={{ uri: imageSource }}
           />
         </View>
         <View style={{ flex: 5 }} />

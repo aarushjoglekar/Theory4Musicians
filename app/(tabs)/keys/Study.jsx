@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { router } from "expo-router";
 import {
   Dimensions,
@@ -20,8 +20,8 @@ import ScoreButton from "../../../components/ScoreButton";
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
 
-function setProblem(KeysDictionary){
-  var KeysProblem = KeysProblemFunction(KeysDictionary)
+function setProblem(KeysDictionary) {
+  var KeysProblem = KeysProblemFunction(KeysDictionary);
   return KeysProblem;
 }
 
@@ -30,10 +30,14 @@ answerOrder = shuffle(answerOrder);
 let correctAnswerSpot = answerOrder.indexOf(1);
 
 export default function KeysStudy() {
-  let [KeysStudyScore, SetKeysStudyScore] = useState(0);
-  let [KeysProblem, ResetKeysProblem] = useState(
+  const [KeysStudyScore, SetKeysStudyScore] = useState(0);
+  const [KeysProblem, ResetKeysProblem] = useState(
     KeysProblemFunction(KeysDictionary)
   );
+  const [imageSource, setImageSource] = useState(KeysProblem[0]);
+  useEffect(() => {
+    setImageSource(KeysProblem[0]);
+  }, [KeysProblem]);
   return (
     <ImageBackground
       source={require("./../../../assets/images/BackgroundImages/StudyBackground.jpeg")}
@@ -45,10 +49,7 @@ export default function KeysStudy() {
         </View>
         <View style={{ flex: 5 }} />
         <View style={{ flex: 35, justifyContent: "center" }}>
-          <Image
-            style={styles.StudyKeysImage}
-            source={{ uri: KeysProblem[0] }}
-          />
+          <Image style={styles.StudyKeysImage} source={{ uri: imageSource }} />
         </View>
         <View style={{ flex: 5 }} />
         <View style={styles.StudySection}>

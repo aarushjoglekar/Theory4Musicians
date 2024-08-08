@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { router } from "expo-router";
 import {
   Dimensions,
@@ -30,10 +30,14 @@ answerOrder = shuffle(answerOrder);
 let correctAnswerSpot = answerOrder.indexOf(1);
 
 export default function TriadsStudy() {
-  let [TriadsStudyScore, SetTriadsStudyScore] = useState(0);
-  let [TriadsProblem, ResetTriadsProblem] = useState(
+  const [TriadsStudyScore, SetTriadsStudyScore] = useState(0);
+  const [TriadsProblem, ResetTriadsProblem] = useState(
     TriadsProblemFunction(TriadsDictionary)
   );
+  const [imageSource, setImageSource] = useState(TriadsProblem[0]);
+  useEffect(() => {
+    setImageSource(TriadsProblem[0]);
+  }, [TriadsProblem]);
   return (
     <ImageBackground
       source={require("./../../../assets/images/BackgroundImages/StudyBackground.jpeg")}
@@ -47,7 +51,7 @@ export default function TriadsStudy() {
         <View style={{ flex: 35, justifyContent: "center" }}>
           <Image
             style={styles.StudyTriadsImage}
-            source={{ uri: TriadsProblem[0] }}
+            source={{ uri: imageSource }}
           />
         </View>
         <View style={{ flex: 5 }} />

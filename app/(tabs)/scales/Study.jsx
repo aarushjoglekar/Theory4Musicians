@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { router } from "expo-router";
 import {
   Dimensions,
@@ -30,10 +30,14 @@ answerOrder = shuffle(answerOrder);
 let correctAnswerSpot = answerOrder.indexOf(1);
 
 export default function ScalesStudy() {
-  let [ScalesStudyScore, SetScalesStudyScore] = useState(0);
-  let [ScalesProblem, ResetScalesProblem] = useState(
+  const [ScalesStudyScore, SetScalesStudyScore] = useState(0);
+  const [ScalesProblem, ResetScalesProblem] = useState(
     ScalesProblemFunction(ScalesDictionary)
   );
+  const [imageSource, setImageSource] = useState(ScalesProblem[0]);
+  useEffect(() => {
+    setImageSource(ScalesProblem[0]);
+  }, [ScalesProblem]);
   return (
     <ImageBackground
       source={require("./../../../assets/images/BackgroundImages/StudyBackground.jpeg")}
@@ -47,7 +51,7 @@ export default function ScalesStudy() {
         <View style={{ flex: 35, justifyContent: "center" }}>
           <Image
             style={styles.StudyScalesImage}
-            source={{ uri: ScalesProblem[0] }}
+            source={{ uri: imageSource }}
           />
         </View>
         <View style={{ flex: 5 }} />
@@ -177,7 +181,7 @@ const styles = StyleSheet.create({
   StudyScalesImage: {
     width: width,
     height: width / 7.5,
-    alignSelf: 'center',
+    alignSelf: "center",
     borderRadius: 5,
   },
 

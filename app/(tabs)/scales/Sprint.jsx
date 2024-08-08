@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import {
   Dimensions,
   Image,
@@ -32,11 +32,14 @@ let correctAnswerSpot = answerOrder.indexOf(1);
 
 
 export default function ScalesSprint() {
-  let [ScalesSprintScore, SetScalesSprintScore] = useState(0);
-  let [ScalesProblem, ResetScalesProblem] = useState(
+  const [ScalesSprintScore, SetScalesSprintScore] = useState(0);
+  const [ScalesProblem, ResetScalesProblem] = useState(
     ScalesProblemFunction(ScalesDictionary)
   );
-
+  const [imageSource, setImageSource] = useState(ScalesProblem[0]);
+  useEffect(() => {
+    setImageSource(ScalesProblem[0]);
+  }, [ScalesProblem]);
   useFocusEffect(useCallback(() => {
     let id = setTimeout(
       () =>
@@ -61,7 +64,7 @@ export default function ScalesSprint() {
         <View style={{ flex: 35, justifyContent: "center" }}>
           <Image
             style={styles.StudyScalesImage}
-            source={{ uri: ScalesProblem[0] }}
+            source={{ uri: imageSource }}
           />
         </View>
         <View style={{ flex: 5 }} />

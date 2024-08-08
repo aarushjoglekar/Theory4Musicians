@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import {
   Dimensions,
   Image,
@@ -30,11 +30,14 @@ answerOrder = shuffle(answerOrder);
 let correctAnswerSpot = answerOrder.indexOf(1);
 
 export default function IntervalsSprint() {
-  let [IntervalsSprintScore, SetIntervalsSprintScore] = useState(0);
-  let [IntervalsProblem, ResetIntervalsProblem] = useState(
+  const [IntervalsSprintScore, SetIntervalsSprintScore] = useState(0);
+  const [IntervalsProblem, ResetIntervalsProblem] = useState(
     IntervalsProblemFunction(IntervalsDictionary)
   );
-
+  const [imageSource, setImageSource] = useState(IntervalsProblem[0]);
+  useEffect(() => {
+    setImageSource(IntervalsProblem[0]);
+  }, [IntervalsProblem]);
   useFocusEffect(useCallback(() => {
     let id = setTimeout(
       () =>
@@ -59,7 +62,7 @@ export default function IntervalsSprint() {
         <View style={{ flex: 35, justifyContent: "center" }}>
           <Image
             style={styles.StudyIntervalsImage}
-            source={{ uri: IntervalsProblem[0] }}
+            source={{ uri: imageSource }}
           />
         </View>
         <View style={{ flex: 5 }} />
