@@ -19,7 +19,7 @@ export default function Onboarding() {
        slidesRef.current.scrollToIndex({ index: currentIndex + 1 })
     } else { 
       router.navigate('/home')
-      AsyncStorage.setItem('ViewedOnboarding', 'true')
+      //AsyncStorage.setItem('ViewedOnboarding', 'true')
     }
   }
   return (
