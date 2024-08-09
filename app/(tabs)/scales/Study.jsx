@@ -11,7 +11,7 @@ import {
   View,
 } from "react-native";
 import Title from "../../../components/Title";
-import { ScalesDictionary } from "../../../constants/ScalesDictionary";
+import { ScalesProblems } from "../../../constants/ScalesProblems";
 import shuffle from "../../../constants/Shuffle";
 import ScalesProblemFunction from "../../../constants/ScalesProblemFunction";
 import { RFPercentage } from "react-native-responsive-fontsize";
@@ -20,8 +20,8 @@ import ScoreButton from "../../../components/ScoreButton";
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
 
-function setProblem(ScalesDictionary) {
-  let ScalesProblem = ScalesProblemFunction(ScalesDictionary);
+function setProblem(ScalesProblems) {
+  let ScalesProblem = ScalesProblemFunction(ScalesProblems);
   return ScalesProblem;
 }
 
@@ -32,7 +32,7 @@ let correctAnswerSpot = answerOrder.indexOf(1);
 export default function ScalesStudy() {
   const [ScalesStudyScore, SetScalesStudyScore] = useState(0);
   const [ScalesProblem, ResetScalesProblem] = useState(
-    ScalesProblemFunction(ScalesDictionary)
+    ScalesProblemFunction(ScalesProblems)
   );
   const [imageSource, setImageSource] = useState(ScalesProblem[0]);
   useEffect(() => {
@@ -51,7 +51,7 @@ export default function ScalesStudy() {
         <View style={{ flex: 35, justifyContent: "center" }}>
           <Image
             style={styles.StudyScalesImage}
-            source={{ uri: imageSource }}
+            source={imageSource}
           />
         </View>
         <View style={{ flex: 5 }} />
@@ -62,7 +62,7 @@ export default function ScalesStudy() {
               if (correctAnswerSpot == 0) {
                 SetScalesStudyScore(ScalesStudyScore + 1);
               }
-              ResetScalesProblem(setProblem(ScalesDictionary));
+              ResetScalesProblem(setProblem(ScalesProblems));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
             }}
@@ -77,7 +77,7 @@ export default function ScalesStudy() {
               if (correctAnswerSpot == 1) {
                 SetScalesStudyScore(ScalesStudyScore + 1);
               }
-              ResetScalesProblem(setProblem(ScalesDictionary));
+              ResetScalesProblem(setProblem(ScalesProblems));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
             }}
@@ -92,7 +92,7 @@ export default function ScalesStudy() {
               if (correctAnswerSpot == 2) {
                 SetScalesStudyScore(ScalesStudyScore + 1);
               }
-              ResetScalesProblem(setProblem(ScalesDictionary));
+              ResetScalesProblem(setProblem(ScalesProblems));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
             }}
@@ -107,7 +107,7 @@ export default function ScalesStudy() {
               if (correctAnswerSpot == 3) {
                 SetScalesStudyScore(ScalesStudyScore + 1);
               }
-              ResetScalesProblem(setProblem(ScalesDictionary));
+              ResetScalesProblem(setProblem(ScalesProblems));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
             }}

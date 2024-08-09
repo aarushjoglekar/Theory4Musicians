@@ -1,12 +1,13 @@
-function ScalesProblemFunction(Dictionary) {
-  let scales = Object.keys(Dictionary);
-  let problemKey = scales[Math.round((scales.length - 1) * Math.random())];
-  let correctAnswer = Dictionary[problemKey][0];
-  let wrongAnswer1 = Dictionary[problemKey][1];
-  let wrongAnswer2 = Dictionary[problemKey][2];
-  let wrongAnswer3 = Dictionary[problemKey][3];
+function ScalesProblemFunction(Array) {
+  let randomQuestion = Math.round(Math.random() * (Array.length - 1))
+  let imagePath = Array[randomQuestion]['uri']
+  let answers = Array[randomQuestion]['answers']
+  let correctAnswer = answers[0]
+  let wrongAnswer1 = answers[1]
+  let wrongAnswer2 = answers[2]
+  let wrongAnswer3 = answers[3]
   let problem = [
-    problemKey,
+    imagePath,
     correctAnswer,
     wrongAnswer1,
     wrongAnswer2,
