@@ -1,13 +1,18 @@
-function KeysProblemFunction(Dictionary) {
+function KeysProblemFunction(Array) {
   let MajorOrMinor = Math.round(Math.random());
-  let keys = Object.keys(Dictionary);
-  let problemKey = keys[Math.round((keys.length - 1) * Math.random())];
-  let correctAnswer = Dictionary[problemKey][MajorOrMinor][0];
-  let wrongAnswer1 = Dictionary[problemKey][MajorOrMinor][1];
-  let wrongAnswer2 = Dictionary[problemKey][MajorOrMinor][2];
-  let wrongAnswer3 = Dictionary[problemKey][MajorOrMinor][3];
+  let randomQuestion = Math.round(Math.random() * (Array.length - 1))
+  let imagePath = Array[randomQuestion]['uri']
+  if (MajorOrMinor == 0){
+    var answers = Array[randomQuestion]['MajorAnswers']
+  } else {
+    var answers = Array[randomQuestion]['MajorAnswers']
+  }
+  let correctAnswer = answers[0]
+  let wrongAnswer1 = answers[1]
+  let wrongAnswer2 = answers[2]
+  let wrongAnswer3 = answers[3]
   let problem = [
-    problemKey,
+    imagePath,
     correctAnswer,
     wrongAnswer1,
     wrongAnswer2,

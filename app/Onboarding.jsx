@@ -4,6 +4,7 @@ import OnboardingScreens from "../constants/OnboardingScreens";
 import OnboardingItem from "../components/OnboardingItem";
 import Paginator from "../components/Paginator";
 import NextButton from "../components/NextButton";
+import { router } from "expo-router";
 
 export default function Onboarding() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -16,7 +17,7 @@ export default function Onboarding() {
     if (currentIndex < OnboardingScreens.length - 1){
        slidesRef.current.scrollToIndex({ index: currentIndex + 1 })
     } else { 
-      console.log('last item') 
+      router.navigate('/home')
     }
   }
   return (

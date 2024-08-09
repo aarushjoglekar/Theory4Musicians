@@ -10,7 +10,7 @@ import {
   View,
 } from "react-native";
 import KeysProblemFunction from "./../../../constants/KeysProblemFunction";
-import { KeysDictionary } from "../../../constants/KeysDictionary";
+import { KeysProblems } from "../../../constants/KeysProblems";
 import shuffle from "../../../constants/Shuffle";
 import Title from "../../../components/Title";
 import { router, useFocusEffect } from "expo-router";
@@ -20,8 +20,8 @@ import ScoreButton from "../../../components/ScoreButton";
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
 
-function setProblem(KeysDictionary) {
-  let KeysProblem = KeysProblemFunction(KeysDictionary);
+function setProblem(KeysProblems) {
+  let KeysProblem = KeysProblemFunction(KeysProblems);
   return KeysProblem;
 }
 
@@ -32,7 +32,7 @@ let correctAnswerSpot = answerOrder.indexOf(1);
 export default function KeysSprint() {
   const [KeysSprintScore, SetKeysSprintScore] = useState(0);
   const [KeysProblem, ResetKeysProblem] = useState(
-    KeysProblemFunction(KeysDictionary)
+    KeysProblemFunction(KeysProblems)
   );
   const [imageSource, setImageSource] = useState(KeysProblem[0]);
   useEffect(() => {
@@ -62,7 +62,7 @@ export default function KeysSprint() {
         </View>
         <View style={{ flex: 5 }} />
         <View style={{ flex: 35, justifyContent: "center" }}>
-          <Image style={styles.StudyKeysImage} source={{ uri: imageSource }} />
+          <Image style={styles.StudyKeysImage} source={imageSource} />
         </View>
         <View style={{ flex: 5 }} />
         <View style={styles.StudySection}>
@@ -72,7 +72,7 @@ export default function KeysSprint() {
               if (correctAnswerSpot == 0) {
                 SetKeysSprintScore(KeysSprintScore + 1);
               }
-              ResetKeysProblem(setProblem(KeysDictionary));
+              ResetKeysProblem(setProblem(KeysProblems));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
             }}
@@ -87,7 +87,7 @@ export default function KeysSprint() {
               if (correctAnswerSpot == 1) {
                 SetKeysSprintScore(KeysSprintScore + 1);
               }
-              ResetKeysProblem(setProblem(KeysDictionary));
+              ResetKeysProblem(setProblem(KeysProblems));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
             }}
@@ -102,7 +102,7 @@ export default function KeysSprint() {
               if (correctAnswerSpot == 2) {
                 SetKeysSprintScore(KeysSprintScore + 1);
               }
-              ResetKeysProblem(setProblem(KeysDictionary));
+              ResetKeysProblem(setProblem(KeysProblems));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
             }}
@@ -117,7 +117,7 @@ export default function KeysSprint() {
               if (correctAnswerSpot == 3) {
                 SetKeysSprintScore(KeysSprintScore + 1);
               }
-              ResetKeysProblem(setProblem(KeysDictionary));
+              ResetKeysProblem(setProblem(KeysProblems));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
             }}

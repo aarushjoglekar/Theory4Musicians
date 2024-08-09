@@ -11,7 +11,7 @@ import {
   View,
 } from "react-native";
 import Title from "../../../components/Title";
-import { KeysDictionary } from "./../../../constants/KeysDictionary";
+import { KeysProblems } from "../../../constants/KeysProblems";
 import shuffle from "../../../constants/Shuffle";
 import KeysProblemFunction from "./../../../constants/KeysProblemFunction";
 import { RFPercentage } from "react-native-responsive-fontsize";
@@ -20,8 +20,8 @@ import ScoreButton from "../../../components/ScoreButton";
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
 
-function setProblem(KeysDictionary) {
-  let KeysProblem = KeysProblemFunction(KeysDictionary);
+function setProblem(KeysProblems) {
+  let KeysProblem = KeysProblemFunction(KeysProblems);
   return KeysProblem;
 }
 
@@ -32,7 +32,7 @@ let correctAnswerSpot = answerOrder.indexOf(1);
 export default function KeysStudy() {
   const [KeysStudyScore, SetKeysStudyScore] = useState(0);
   const [KeysProblem, ResetKeysProblem] = useState(
-    KeysProblemFunction(KeysDictionary)
+    KeysProblemFunction(KeysProblems)
   );
   const [imageSource, setImageSource] = useState(KeysProblem[0]);
   useEffect(() => {
@@ -49,7 +49,7 @@ export default function KeysStudy() {
         </View>
         <View style={{ flex: 5 }} />
         <View style={{ flex: 35, justifyContent: "center" }}>
-          <Image style={styles.StudyKeysImage} source={{ uri: imageSource }} />
+          <Image style={styles.StudyKeysImage} source={imageSource} />
         </View>
         <View style={{ flex: 5 }} />
         <View style={styles.StudySection}>
@@ -59,7 +59,7 @@ export default function KeysStudy() {
               if (correctAnswerSpot == 0) {
                 SetKeysStudyScore(KeysStudyScore + 1);
               }
-              ResetKeysProblem(setProblem(KeysDictionary));
+              ResetKeysProblem(setProblem(KeysProblems));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
             }}
@@ -74,7 +74,7 @@ export default function KeysStudy() {
               if (correctAnswerSpot == 1) {
                 SetKeysStudyScore(KeysStudyScore + 1);
               }
-              ResetKeysProblem(setProblem(KeysDictionary));
+              ResetKeysProblem(setProblem(KeysProblems));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
             }}
@@ -89,7 +89,7 @@ export default function KeysStudy() {
               if (correctAnswerSpot == 2) {
                 SetKeysStudyScore(KeysStudyScore + 1);
               }
-              ResetKeysProblem(setProblem(KeysDictionary));
+              ResetKeysProblem(setProblem(KeysProblems));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
             }}
@@ -104,7 +104,7 @@ export default function KeysStudy() {
               if (correctAnswerSpot == 3) {
                 SetKeysStudyScore(KeysStudyScore + 1);
               }
-              ResetKeysProblem(setProblem(KeysDictionary));
+              ResetKeysProblem(setProblem(KeysProblems));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
             }}
