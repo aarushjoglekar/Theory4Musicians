@@ -1,4 +1,4 @@
-export const ScalesDictionary = [
+export const ScalesProblems = [
   {
     'uri': require('../assets/images/ScalesImages/Major/CbMajor.png'),
     'answers': ['Cb Major','cb natural minor','cb harmonic minor','cb melodic minor'],
