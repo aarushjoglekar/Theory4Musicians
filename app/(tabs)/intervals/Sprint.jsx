@@ -10,7 +10,7 @@ import {
   View,
 } from "react-native";
 import IntervalsProblemFunction from "./../../../constants/IntervalsProblemFunction";
-import { IntervalsDictionary } from "./../../../constants/IntervalsDictionary";
+import { IntervalsProblems } from "./../../../constants/IntervalsProblems";
 import shuffle from "../../../constants/Shuffle";
 import Title from "../../../components/Title";
 import { router, useFocusEffect } from "expo-router";
@@ -20,8 +20,8 @@ import ScoreButton from "../../../components/ScoreButton";
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
 
-function setProblem(IntervalsDictionary) {
-  let IntervalsProblem = IntervalsProblemFunction(IntervalsDictionary);
+function setProblem(IntervalsProblems) {
+  let IntervalsProblem = IntervalsProblemFunction(IntervalsProblems);
   return IntervalsProblem;
 }
 
@@ -32,7 +32,7 @@ let correctAnswerSpot = answerOrder.indexOf(1);
 export default function IntervalsSprint() {
   const [IntervalsSprintScore, SetIntervalsSprintScore] = useState(0);
   const [IntervalsProblem, ResetIntervalsProblem] = useState(
-    IntervalsProblemFunction(IntervalsDictionary)
+    IntervalsProblemFunction(IntervalsProblems)
   );
   const [imageSource, setImageSource] = useState(IntervalsProblem[0]);
   useEffect(() => {
@@ -73,7 +73,7 @@ export default function IntervalsSprint() {
               if (correctAnswerSpot == 0) {
                 SetIntervalsSprintScore(IntervalsSprintScore + 1);
               }
-              ResetIntervalsProblem(setProblem(IntervalsDictionary));
+              ResetIntervalsProblem(setProblem(IntervalsProblems));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
             }}
@@ -88,7 +88,7 @@ export default function IntervalsSprint() {
               if (correctAnswerSpot == 1) {
                 SetIntervalsSprintScore(IntervalsSprintScore + 1);
               }
-              ResetIntervalsProblem(setProblem(IntervalsDictionary));
+              ResetIntervalsProblem(setProblem(IntervalsProblems));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
             }}
@@ -103,7 +103,7 @@ export default function IntervalsSprint() {
               if (correctAnswerSpot == 2) {
                 SetIntervalsSprintScore(IntervalsSprintScore + 1);
               }
-              ResetIntervalsProblem(setProblem(IntervalsDictionary));
+              ResetIntervalsProblem(setProblem(IntervalsProblems));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
             }}
@@ -118,7 +118,7 @@ export default function IntervalsSprint() {
               if (correctAnswerSpot == 3) {
                 SetIntervalsSprintScore(IntervalsSprintScore + 1);
               }
-              ResetIntervalsProblem(setProblem(IntervalsDictionary));
+              ResetIntervalsProblem(setProblem(IntervalsProblems));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
             }}

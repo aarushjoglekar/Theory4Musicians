@@ -11,7 +11,7 @@ import {
   View,
 } from "react-native";
 import Title from "../../../components/Title";
-import { IntervalsDictionary } from "../../../constants/IntervalsDictionary"
+import { IntervalsProblems } from "../../../constants/IntervalsProblems"
 import shuffle from "../../../constants/Shuffle";
 import IntervalsProblemFunction from "../../../constants/IntervalsProblemFunction";
 import { RFPercentage } from "react-native-responsive-fontsize";
@@ -20,8 +20,8 @@ import ScoreButton from "../../../components/ScoreButton";
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
 
-function setProblem(IntervalsDictionary) {
-  let IntervalsProblem = IntervalsProblemFunction(IntervalsDictionary);
+function setProblem(IntervalsProblems) {
+  let IntervalsProblem = IntervalsProblemFunction(IntervalsProblems);
   return IntervalsProblem;
 }
 
@@ -32,7 +32,7 @@ let correctAnswerSpot = answerOrder.indexOf(1);
 export default function IntervalsStudy() {
   const [IntervalsStudyScore, SetIntervalsStudyScore] = useState(0);
   const [IntervalsProblem, ResetIntervalsProblem] = useState(
-    IntervalsProblemFunction(IntervalsDictionary)
+    IntervalsProblemFunction(IntervalsProblems)
   );
   const [imageSource, setImageSource] = useState(IntervalsProblem[0]);
   useEffect(() => {
@@ -62,7 +62,7 @@ export default function IntervalsStudy() {
               if (correctAnswerSpot == 0) {
                 SetIntervalsStudyScore(IntervalsStudyScore + 1);
               }
-              ResetIntervalsProblem(setProblem(IntervalsDictionary));
+              ResetIntervalsProblem(setProblem(IntervalsProblems));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
             }}
@@ -77,7 +77,7 @@ export default function IntervalsStudy() {
               if (correctAnswerSpot == 1) {
                 SetIntervalsStudyScore(IntervalsStudyScore + 1);
               }
-              ResetIntervalsProblem(setProblem(IntervalsDictionary));
+              ResetIntervalsProblem(setProblem(IntervalsProblems));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
             }}
@@ -92,7 +92,7 @@ export default function IntervalsStudy() {
               if (correctAnswerSpot == 2) {
                 SetIntervalsStudyScore(IntervalsStudyScore + 1);
               }
-              ResetIntervalsProblem(setProblem(IntervalsDictionary));
+              ResetIntervalsProblem(setProblem(IntervalsProblems));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
             }}
@@ -107,7 +107,7 @@ export default function IntervalsStudy() {
               if (correctAnswerSpot == 3) {
                 SetIntervalsStudyScore(IntervalsStudyScore + 1);
               }
-              ResetIntervalsProblem(setProblem(IntervalsDictionary));
+              ResetIntervalsProblem(setProblem(IntervalsProblems));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
             }}
