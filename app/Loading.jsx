@@ -12,7 +12,7 @@ export default function Loading() {
 
   useEffect(() => {
     if (loaded || error) {
-      router.navigate('/home');
+      router.navigate('/Onboarding');
     }
   }, [loaded, error]);
 
