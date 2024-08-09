@@ -3,6 +3,7 @@ import { View } from "react-native";
 import LottieView from "lottie-react-native";
 import React, { useEffect } from "react";
 import { router } from "expo-router";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function Loading() {
   const [loaded, error] = useFonts({
@@ -12,7 +13,14 @@ export default function Loading() {
 
   useEffect(() => {
     if (loaded || error) {
-      router.navigate('/Onboarding');
+      // if (AsyncStorage.getItem('ViewedOnboarding') != null){
+      //   console.log(AsyncStorage.getItem('ViewedOnboarding'))
+      //   router.navigate('/home')
+      // } else {
+      //   router.navigate('/Onboarding');
+      // }
+      router.navigate('/Onboarding')
+
     }
   }, [loaded, error]);
 

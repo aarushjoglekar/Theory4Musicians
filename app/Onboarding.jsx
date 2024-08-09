@@ -5,6 +5,7 @@ import OnboardingItem from "../components/OnboardingItem";
 import Paginator from "../components/Paginator";
 import NextButton from "../components/NextButton";
 import { router } from "expo-router";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function Onboarding() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -18,6 +19,7 @@ export default function Onboarding() {
        slidesRef.current.scrollToIndex({ index: currentIndex + 1 })
     } else { 
       router.navigate('/home')
+      AsyncStorage.setItem('ViewedOnboarding', 'true')
     }
   }
   return (

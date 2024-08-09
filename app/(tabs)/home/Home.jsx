@@ -22,9 +22,9 @@ export default function Home() {
         <View style={{ flex: 10, justifyContent: "flex-end" }}>
           <Title title="Theory4Nerds" />
         </View>
-        <View style={{ flex: 50}} />
+        <View style={{ flex: 50 }} />
         <HomePageButtonSection
-          onPress={() => router.navigate("/home/HowToUseThisApp")}
+          onPress={() => router.navigate({pathname: "../Onboarding", params: {screenIndex: 0}})}
           text="How To Use This App"
         />
         <View style={{ height: 40 }} />
@@ -33,7 +33,10 @@ export default function Home() {
           text="Learn To Read Music"
         />
         <View style={{ height: 40 }} />
-        <HomePageButtonSection onPress={()=>router.navigate("/home/ResetScores")}text="Reset Scores" />
+        <HomePageButtonSection
+          onPress={() => router.navigate("/home/ResetScores")}
+          text="Reset Scores"
+        />
         <View style={{ height: height * 0.1 }} />
       </SafeAreaView>
     </ImageBackground>
