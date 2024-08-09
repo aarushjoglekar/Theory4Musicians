@@ -4,7 +4,7 @@ import LottieView from "lottie-react-native";
 import React, { useEffect } from "react";
 import { router } from "expo-router";
 
-export default function SplashScreen() {
+export default function Loading() {
   const [loaded, error] = useFonts({
     Verdana: require("../assets/fonts/Verdana.ttf"),
     PTSerif: require("../assets/fonts/PTSerif-BoldItalic.ttf"),
