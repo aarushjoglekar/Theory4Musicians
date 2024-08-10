@@ -51,7 +51,7 @@ export default function IntervalsStudy() {
         <View style={{ flex: 35, justifyContent: "center" }}>
           <Image
             style={styles.StudyIntervalsImage}
-            source={{ uri: imageSource }}
+            source={imageSource}
           />
         </View>
         <View style={{ flex: 5 }} />
