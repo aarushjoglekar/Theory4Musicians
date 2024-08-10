@@ -10,7 +10,7 @@ import HomeButton from "../../../components/HomeButton";
 import { router } from "expo-router";
 import readScore from "../../../storageServices/readScore";
 
-export default function ScalesHome() {
+export default function TriadsHome() {
   const TriadsHighScore = readScore("triads")
   console.log(TriadsHighScore)
   return (
@@ -20,7 +20,7 @@ export default function ScalesHome() {
     >
       <SafeAreaView style={styles.container}>
         <View style={{ flex: 10, justifyContent: "flex-end" }}>
-          <Title title="Scales" />
+          <Title title="Triads" />
         </View>
         <View style={{ flex: 5 }} />
         <View style={styles.Section}>
