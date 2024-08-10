@@ -30,8 +30,8 @@ answerOrder = shuffle(answerOrder);
 let correctAnswerSpot = answerOrder.indexOf(1);
 
 
-
 export default function TriadsSprint() {
+  const [isAnswerEnabled, setIsAnswerEnabled] = useState(true)
   const [TriadsSprintScore, SetTriadsSprintScore] = useState(0);
   const [TriadsProblem, ResetTriadsProblem] = useState(
     TriadsProblemFunction(TriadsDictionary)
@@ -51,6 +51,10 @@ export default function TriadsSprint() {
     );
     return () => clearTimeout(id);
   }, []));
+  function disableAnswerBriefly(){ 
+    setIsAnswerEnabled(false)
+    setTimeout(() => setIsAnswerEnabled(true), 700)
+  }
   return (
     <ImageBackground
       source={require("./../../../assets/images/BackgroundImages/SprintBackground.jpeg")}
@@ -70,6 +74,7 @@ export default function TriadsSprint() {
         <View style={{ flex: 5 }} />
         <View style={styles.StudySection}>
           <TouchableOpacity
+            disabled={!isAnswerEnabled}
             style={styles.Button}
             onPress={() => {
               if (correctAnswerSpot == 0) {
@@ -78,6 +83,7 @@ export default function TriadsSprint() {
               ResetTriadsProblem(setProblem(TriadsDictionary));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
+              disableAnswerBriefly()
             }}
           >
             <Text style={styles.Text}>{TriadsProblem[answerOrder[0]]}</Text>
@@ -85,6 +91,7 @@ export default function TriadsSprint() {
         </View>
         <View style={styles.StudySection}>
           <TouchableOpacity
+            disabled={!isAnswerEnabled}
             style={styles.Button}
             onPress={() => {
               if (correctAnswerSpot == 1) {
@@ -93,6 +100,7 @@ export default function TriadsSprint() {
               ResetTriadsProblem(setProblem(TriadsDictionary));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
+              disableAnswerBriefly()
             }}
           >
             <Text style={styles.Text}>{TriadsProblem[answerOrder[1]]}</Text>
@@ -100,6 +108,7 @@ export default function TriadsSprint() {
         </View>
         <View style={styles.StudySection}>
           <TouchableOpacity
+            disabled={!isAnswerEnabled}
             style={styles.Button}
             onPress={() => {
               if (correctAnswerSpot == 2) {
@@ -108,6 +117,7 @@ export default function TriadsSprint() {
               ResetTriadsProblem(setProblem(TriadsDictionary));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
+              disableAnswerBriefly()
             }}
           >
             <Text style={styles.Text}>{TriadsProblem[answerOrder[2]]}</Text>
@@ -115,6 +125,7 @@ export default function TriadsSprint() {
         </View>
         <View style={styles.StudySection}>
           <TouchableOpacity
+            disabled={!isAnswerEnabled}
             style={styles.Button}
             onPress={() => {
               if (correctAnswerSpot == 3) {
@@ -123,6 +134,7 @@ export default function TriadsSprint() {
               ResetTriadsProblem(setProblem(TriadsDictionary));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
+              disableAnswerBriefly()
             }}
           >
             <Text style={styles.Text}>{TriadsProblem[answerOrder[3]]}</Text>

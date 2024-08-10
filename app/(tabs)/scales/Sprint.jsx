@@ -29,9 +29,8 @@ let answerOrder = [1, 2, 3, 4];
 answerOrder = shuffle(answerOrder);
 let correctAnswerSpot = answerOrder.indexOf(1);
 
-
-
 export default function ScalesSprint() {
+  const [isAnswerEnabled, setIsAnswerEnabled] = useState(true)
   const [ScalesSprintScore, SetScalesSprintScore] = useState(0);
   const [ScalesProblem, ResetScalesProblem] = useState(
     ScalesProblemFunction(ScalesProblems)
@@ -51,6 +50,10 @@ export default function ScalesSprint() {
     );
     return () => clearTimeout(id);
   }, []));
+  function disableAnswerBriefly(){
+    setIsAnswerEnabled(false)
+    setTimeout(() => setIsAnswerEnabled(true), 700)
+  }
   return (
     <ImageBackground
       source={require("./../../../assets/images/BackgroundImages/SprintBackground.jpeg")}
@@ -70,6 +73,7 @@ export default function ScalesSprint() {
         <View style={{ flex: 5 }} />
         <View style={styles.StudySection}>
           <TouchableOpacity
+            disabled={!isAnswerEnabled}
             style={styles.Button}
             onPress={() => {
               if (correctAnswerSpot == 0) {
@@ -78,6 +82,7 @@ export default function ScalesSprint() {
               ResetScalesProblem(setProblem(ScalesProblems));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
+              disableAnswerBriefly()
             }}
           >
             <Text style={styles.Text}>{ScalesProblem[answerOrder[0]]}</Text>
@@ -85,6 +90,7 @@ export default function ScalesSprint() {
         </View>
         <View style={styles.StudySection}>
           <TouchableOpacity
+            disabled={!isAnswerEnabled}
             style={styles.Button}
             onPress={() => {
               if (correctAnswerSpot == 1) {
@@ -93,6 +99,7 @@ export default function ScalesSprint() {
               ResetScalesProblem(setProblem(ScalesProblems));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
+              disableAnswerBriefly()
             }}
           >
             <Text style={styles.Text}>{ScalesProblem[answerOrder[1]]}</Text>
@@ -100,6 +107,7 @@ export default function ScalesSprint() {
         </View>
         <View style={styles.StudySection}>
           <TouchableOpacity
+            disabled={!isAnswerEnabled}
             style={styles.Button}
             onPress={() => {
               if (correctAnswerSpot == 2) {
@@ -108,6 +116,7 @@ export default function ScalesSprint() {
               ResetScalesProblem(setProblem(ScalesProblems));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
+              disableAnswerBriefly()
             }}
           >
             <Text style={styles.Text}>{ScalesProblem[answerOrder[2]]}</Text>
@@ -115,6 +124,7 @@ export default function ScalesSprint() {
         </View>
         <View style={styles.StudySection}>
           <TouchableOpacity
+            disabled={!isAnswerEnabled}
             style={styles.Button}
             onPress={() => {
               if (correctAnswerSpot == 3) {
@@ -123,6 +133,7 @@ export default function ScalesSprint() {
               ResetScalesProblem(setProblem(ScalesProblems));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
+              disableAnswerBriefly()
             }}
           >
             <Text style={styles.Text}>{ScalesProblem[answerOrder[3]]}</Text>

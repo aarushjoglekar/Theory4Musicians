@@ -30,6 +30,7 @@ answerOrder = shuffle(answerOrder);
 let correctAnswerSpot = answerOrder.indexOf(1);
 
 export default function KeysStudy() {
+  const [isAnswerEnabled, setIsAnswerEnabled] = useState(true)
   const [KeysStudyScore, SetKeysStudyScore] = useState(0);
   const [KeysProblem, ResetKeysProblem] = useState(
     KeysProblemFunction(KeysProblems)
@@ -38,6 +39,10 @@ export default function KeysStudy() {
   useEffect(() => {
     setImageSource(KeysProblem[0]);
   }, [KeysProblem]);
+  function disableAnswerBriefly(){
+    setIsAnswerEnabled(false)
+    setTimeout(() => setIsAnswerEnabled(true), 700)
+  }
   return (
     <ImageBackground
       source={require("./../../../assets/images/BackgroundImages/StudyBackground.jpeg")}
@@ -54,6 +59,7 @@ export default function KeysStudy() {
         <View style={{ flex: 5 }} />
         <View style={styles.StudySection}>
           <TouchableOpacity
+            disabled={!isAnswerEnabled}
             style={styles.Button}
             onPress={() => {
               if (correctAnswerSpot == 0) {
@@ -62,6 +68,7 @@ export default function KeysStudy() {
               ResetKeysProblem(setProblem(KeysProblems));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
+              disableAnswerBriefly()
             }}
           >
             <Text style={styles.Text}>{KeysProblem[answerOrder[0]]}</Text>
@@ -69,6 +76,7 @@ export default function KeysStudy() {
         </View>
         <View style={styles.StudySection}>
           <TouchableOpacity
+            disabled={!isAnswerEnabled}
             style={styles.Button}
             onPress={() => {
               if (correctAnswerSpot == 1) {
@@ -77,6 +85,7 @@ export default function KeysStudy() {
               ResetKeysProblem(setProblem(KeysProblems));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
+              disableAnswerBriefly()
             }}
           >
             <Text style={styles.Text}>{KeysProblem[answerOrder[1]]}</Text>
@@ -84,6 +93,7 @@ export default function KeysStudy() {
         </View>
         <View style={styles.StudySection}>
           <TouchableOpacity
+            disabled={!isAnswerEnabled}
             style={styles.Button}
             onPress={() => {
               if (correctAnswerSpot == 2) {
@@ -92,6 +102,7 @@ export default function KeysStudy() {
               ResetKeysProblem(setProblem(KeysProblems));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
+              disableAnswerBriefly()
             }}
           >
             <Text style={styles.Text}>{KeysProblem[answerOrder[2]]}</Text>
@@ -99,6 +110,7 @@ export default function KeysStudy() {
         </View>
         <View style={styles.StudySection}>
           <TouchableOpacity
+            disabled={!isAnswerEnabled}
             style={styles.Button}
             onPress={() => {
               if (correctAnswerSpot == 3) {
@@ -107,6 +119,7 @@ export default function KeysStudy() {
               ResetKeysProblem(setProblem(KeysProblems));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
+              disableAnswerBriefly();
             }}
           >
             <Text style={styles.Text}>{KeysProblem[answerOrder[3]]}</Text>

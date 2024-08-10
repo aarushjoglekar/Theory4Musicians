@@ -30,6 +30,7 @@ answerOrder = shuffle(answerOrder);
 let correctAnswerSpot = answerOrder.indexOf(1);
 
 export default function KeysSprint() {
+  const [isAnswerEnabled, setIsAnswerEnabled] = useState(true)
   const [KeysSprintScore, SetKeysSprintScore] = useState(0);
   const [KeysProblem, ResetKeysProblem] = useState(
     KeysProblemFunction(KeysProblems)
@@ -51,6 +52,10 @@ export default function KeysSprint() {
       return () => clearTimeout(id);
     }, [])
   );
+  function disableAnswerBriefly(){ 
+    setIsAnswerEnabled(false)
+    setTimeout(() => setIsAnswerEnabled(true), 700)
+  }
   return (
     <ImageBackground
       source={require("./../../../assets/images/BackgroundImages/SprintBackground.jpeg")}
@@ -67,6 +72,7 @@ export default function KeysSprint() {
         <View style={{ flex: 5 }} />
         <View style={styles.StudySection}>
           <TouchableOpacity
+            disabled={!isAnswerEnabled}
             style={styles.Button}
             onPress={() => {
               if (correctAnswerSpot == 0) {
@@ -75,6 +81,7 @@ export default function KeysSprint() {
               ResetKeysProblem(setProblem(KeysProblems));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
+              disableAnswerBriefly()
             }}
           >
             <Text style={styles.Text}>{KeysProblem[answerOrder[0]]}</Text>
@@ -82,6 +89,7 @@ export default function KeysSprint() {
         </View>
         <View style={styles.StudySection}>
           <TouchableOpacity
+            disabled={!isAnswerEnabled}
             style={styles.Button}
             onPress={() => {
               if (correctAnswerSpot == 1) {
@@ -90,6 +98,7 @@ export default function KeysSprint() {
               ResetKeysProblem(setProblem(KeysProblems));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
+              disableAnswerBriefly()
             }}
           >
             <Text style={styles.Text}>{KeysProblem[answerOrder[1]]}</Text>
@@ -97,6 +106,7 @@ export default function KeysSprint() {
         </View>
         <View style={styles.StudySection}>
           <TouchableOpacity
+            disabled={!isAnswerEnabled}
             style={styles.Button}
             onPress={() => {
               if (correctAnswerSpot == 2) {
@@ -105,6 +115,7 @@ export default function KeysSprint() {
               ResetKeysProblem(setProblem(KeysProblems));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
+              disableAnswerBriefly()
             }}
           >
             <Text style={styles.Text}>{KeysProblem[answerOrder[2]]}</Text>
@@ -112,6 +123,7 @@ export default function KeysSprint() {
         </View>
         <View style={styles.StudySection}>
           <TouchableOpacity
+            disabled={!isAnswerEnabled}
             style={styles.Button}
             onPress={() => {
               if (correctAnswerSpot == 3) {
@@ -120,6 +132,7 @@ export default function KeysSprint() {
               ResetKeysProblem(setProblem(KeysProblems));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
+              disableAnswerBriefly()
             }}
           >
             <Text style={styles.Text}>{KeysProblem[answerOrder[3]]}</Text>

@@ -30,6 +30,7 @@ answerOrder = shuffle(answerOrder);
 let correctAnswerSpot = answerOrder.indexOf(1);
 
 export default function IntervalsSprint() {
+  const [isAnswerEnabled, setIsAnswerEnabled] = useState(true)
   const [IntervalsSprintScore, SetIntervalsSprintScore] = useState(0);
   const [IntervalsProblem, ResetIntervalsProblem] = useState(
     IntervalsProblemFunction(IntervalsProblems)
@@ -49,6 +50,10 @@ export default function IntervalsSprint() {
     );
     return () => clearTimeout(id);
   }, []));
+  function disableAnswerBriefly(){
+    setIsAnswerEnabled(false)
+    setTimeout(() => setIsAnswerEnabled(true), 700)
+  }
   return (
     <ImageBackground
       source={require("./../../../assets/images/BackgroundImages/SprintBackground.jpeg")}
@@ -68,6 +73,7 @@ export default function IntervalsSprint() {
         <View style={{ flex: 5 }} />
         <View style={styles.StudySection}>
           <TouchableOpacity
+            disabled={!isAnswerEnabled}
             style={styles.Button}
             onPress={() => {
               if (correctAnswerSpot == 0) {
@@ -76,6 +82,7 @@ export default function IntervalsSprint() {
               ResetIntervalsProblem(setProblem(IntervalsProblems));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
+              disableAnswerBriefly()
             }}
           >
             <Text style={styles.Text}>{IntervalsProblem[answerOrder[0]]}</Text>
@@ -83,6 +90,7 @@ export default function IntervalsSprint() {
         </View>
         <View style={styles.StudySection}>
           <TouchableOpacity
+            disabled={!isAnswerEnabled}
             style={styles.Button}
             onPress={() => {
               if (correctAnswerSpot == 1) {
@@ -91,6 +99,7 @@ export default function IntervalsSprint() {
               ResetIntervalsProblem(setProblem(IntervalsProblems));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
+              disableAnswerBriefly()
             }}
           >
             <Text style={styles.Text}>{IntervalsProblem[answerOrder[1]]}</Text>
@@ -98,6 +107,7 @@ export default function IntervalsSprint() {
         </View>
         <View style={styles.StudySection}>
           <TouchableOpacity
+            disabled={!isAnswerEnabled}
             style={styles.Button}
             onPress={() => {
               if (correctAnswerSpot == 2) {
@@ -106,6 +116,7 @@ export default function IntervalsSprint() {
               ResetIntervalsProblem(setProblem(IntervalsProblems));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
+              disableAnswerBriefly()
             }}
           >
             <Text style={styles.Text}>{IntervalsProblem[answerOrder[2]]}</Text>
@@ -113,6 +124,7 @@ export default function IntervalsSprint() {
         </View>
         <View style={styles.StudySection}>
           <TouchableOpacity
+            disabled={!isAnswerEnabled}
             style={styles.Button}
             onPress={() => {
               if (correctAnswerSpot == 3) {
@@ -121,6 +133,7 @@ export default function IntervalsSprint() {
               ResetIntervalsProblem(setProblem(IntervalsProblems));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
+              disableAnswerBriefly()
             }}
           >
             <Text style={styles.Text}>{IntervalsProblem[answerOrder[3]]}</Text>
