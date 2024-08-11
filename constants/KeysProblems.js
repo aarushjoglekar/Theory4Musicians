@@ -75,3 +75,5 @@ export const KeysProblems = [
       'MinorAnswers': ["a♭ minor", "f minor", "d minor", "e♭ minor"],
     },
   ]
+
+Object.freeze(KeysProblems);

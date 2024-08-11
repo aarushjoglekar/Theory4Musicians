@@ -336,3 +336,5 @@ export const TriadsProblems = [
     "answers": ['B# Augmented', 'B# Major', 'b# minor', 'b# diminished']
   }
 ];
+
+Object.freeze(TriadsProblems);

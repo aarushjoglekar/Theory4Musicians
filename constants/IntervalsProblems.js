@@ -1700,3 +1700,5 @@ export const IntervalsProblems = [
     "answers": ['A8', 'P8', 'd8', 'M8'] 
   },
 ];
+
+Object.freeze(IntervalsProblems);
