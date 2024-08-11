@@ -9,15 +9,32 @@ import {
 import Title from "../../../components/Title";
 import BackButton from "../../../components/BackButton";
 import { RFPercentage } from "react-native-responsive-fontsize";
+import AntDesign from "@expo/vector-icons/AntDesign";
+import { useState } from "react";
 
 export default function KeysLearn() {
+  const [isNearBottom, setIsNearBottom] = useState(100);
+  const handleScroll = (event) => {
+    const { layoutMeasurement, contentOffset, contentSize } = event.nativeEvent;
+    const isCloseToBottom =
+      layoutMeasurement.height + contentOffset.y >= contentSize.height - 20;
+    if (isCloseToBottom) {
+      setIsNearBottom(0);
+    } else {
+      setIsNearBottom(100);
+    }
+  };
   return (
     <ImageBackground
       source={require("../../../assets/images/BackgroundImages/TextBackground.jpeg")}
       style={{ flex: 1, padding: 50 }}
     >
       <SafeAreaView style={styles.container}>
-        <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}>
+        <ScrollView
+          style={{ flex: 1 }}
+          showsVerticalScrollIndicator={false}
+          onScroll={handleScroll}
+        >
           <Title title="Keys" />
           <Text style={styles.Subtitle}>{"\n"}What Is A Key</Text>
           <Text style={styles.LearnText}>
@@ -159,10 +176,10 @@ export default function KeysLearn() {
             flats or sharps. A major key will only contain flats (with the
             exception of F Major) if and only if the key name contains a flat.
             If you find your key signature contains flats, to reverse the
-            process, you need to ensure that the key name is the
-            second last flat. Keep adding flats to the key signature by the
-            order of flats until you get to the key name. Then add an additional
-            flat to make the key name the second last flat.
+            process, you need to ensure that the key name is the second last
+            flat. Keep adding flats to the key signature by the order of flats
+            until you get to the key name. Then add an additional flat to make
+            the key name the second last flat.
             {"\n"}
             {"\t"}However, on the other hand, if the key signature contains
             sharps, you will have to go down a half step from the key name. This
@@ -183,8 +200,15 @@ export default function KeysLearn() {
             it's B-double flat.
           </Text>
         </ScrollView>
-        <View style={{ flex: 0.01 }} />
-        <View style={{ flex: 0.02 }}>
+        <View style={{ flex: 0.1, justifyContent: "center" }}>
+          <AntDesign
+            name="caretdown"
+            size={30}
+            color="#4d4d4d"
+            style={{ alignSelf: "center", opacity: isNearBottom }}
+          />
+        </View>
+        <View style={{ flex: 0.03 }}>
           <BackButton />
         </View>
       </SafeAreaView>

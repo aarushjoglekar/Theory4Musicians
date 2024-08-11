@@ -14,15 +14,15 @@ import BackButton from "../../../components/BackButton";
 import AntDesign from "@expo/vector-icons/AntDesign";
 
 export default function LearnToReadMusic() {
-  const [isNearBottom, setIsNearBottom] = useState(100)
+  const [isNearBottom, setIsNearBottom] = useState(100);
   const handleScroll = (event) => {
     const { layoutMeasurement, contentOffset, contentSize } = event.nativeEvent;
-    const isCloseToBottom = layoutMeasurement.height + contentOffset.y >= contentSize.height   
- - 20;
-    if (isCloseToBottom){
+    const isCloseToBottom =
+      layoutMeasurement.height + contentOffset.y >= contentSize.height - 20;
+    if (isCloseToBottom) {
       setIsNearBottom(0);
     } else {
-      setIsNearBottom(100)
+      setIsNearBottom(100);
     }
   };
   return (
@@ -348,7 +348,7 @@ export default function LearnToReadMusic() {
           <AntDesign
             name="caretdown"
             size={30}
-            color="#70849c"
+            color="#4d4d4d"
             style={{ alignSelf: "center", opacity: isNearBottom}}
           />
         </View>
