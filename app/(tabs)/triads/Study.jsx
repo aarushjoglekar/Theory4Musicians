@@ -11,7 +11,7 @@ import {
   View,
 } from "react-native";
 import Title from "../../../components/Title";
-import { TriadsDictionary } from "../../../constants/TriadsDictionary";
+import { TriadsProblems } from "../../../constants/TriadsProblems";
 import shuffle from "../../../constants/Shuffle";
 import TriadsProblemFunction from "../../../constants/TriadsProblemFunction";
 import { RFPercentage } from "react-native-responsive-fontsize";
@@ -20,8 +20,8 @@ import ScoreButton from "../../../components/ScoreButton";
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
 
-function setProblem(TriadsDictionary) {
-  let TriadsProblem = TriadsProblemFunction(TriadsDictionary);
+function setProblem(TriadsProblems) {
+  let TriadsProblem = TriadsProblemFunction(TriadsProblems);
   return TriadsProblem;
 }
 
@@ -33,7 +33,7 @@ export default function TriadsStudy() {
   const [isAnswerEnabled, setIsAnswerEnabled] = useState(true)
   const [TriadsStudyScore, SetTriadsStudyScore] = useState(0);
   const [TriadsProblem, ResetTriadsProblem] = useState(
-    TriadsProblemFunction(TriadsDictionary)
+    TriadsProblemFunction(TriadsProblems)
   );
   const [imageSource, setImageSource] = useState(TriadsProblem[0]);
   useEffect(() => {
@@ -56,7 +56,7 @@ export default function TriadsStudy() {
         <View style={{ flex: 35, justifyContent: "center" }}>
           <Image
             style={styles.StudyTriadsImage}
-            source={{ uri: imageSource }}
+            source={imageSource}
           />
         </View>
         <View style={{ flex: 5 }} />
@@ -68,7 +68,7 @@ export default function TriadsStudy() {
               if (correctAnswerSpot == 0) {
                 SetTriadsStudyScore(TriadsStudyScore + 1);
               }
-              ResetTriadsProblem(setProblem(TriadsDictionary));
+              ResetTriadsProblem(setProblem(TriadsProblems));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
               disableAnswerBriefly()
@@ -85,7 +85,7 @@ export default function TriadsStudy() {
               if (correctAnswerSpot == 1) {
                 SetTriadsStudyScore(TriadsStudyScore + 1);
               }
-              ResetTriadsProblem(setProblem(TriadsDictionary));
+              ResetTriadsProblem(setProblem(TriadsProblems));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
               disableAnswerBriefly()
@@ -102,7 +102,7 @@ export default function TriadsStudy() {
               if (correctAnswerSpot == 2) {
                 SetTriadsStudyScore(TriadsStudyScore + 1);
               }
-              ResetTriadsProblem(setProblem(TriadsDictionary));
+              ResetTriadsProblem(setProblem(TriadsProblems));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
               disableAnswerBriefly()
@@ -119,7 +119,7 @@ export default function TriadsStudy() {
               if (correctAnswerSpot == 3) {
                 SetTriadsStudyScore(TriadsStudyScore + 1);
               }
-              ResetTriadsProblem(setProblem(TriadsDictionary));
+              ResetTriadsProblem(setProblem(TriadsProblems));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
               disableAnswerBriefly()
