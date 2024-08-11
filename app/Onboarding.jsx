@@ -1,5 +1,5 @@
 import { View, FlatList, Animated } from "react-native";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import OnboardingScreens from "../constants/OnboardingScreens";
 import OnboardingItem from "../components/OnboardingItem";
 import Paginator from "../components/Paginator";
@@ -22,6 +22,19 @@ export default function Onboarding() {
       //AsyncStorage.setItem('ViewedOnboarding', 'true')
     }
   };
+  // const goToFirstPage = () => {
+  //   if (slidesRef.current) {
+  //     slidesRef.current.scrollToOffset({ offset: 0, animated: true });
+  //   }
+  // }
+  // useEffect(() => {
+  //   if (hasRendered.current) {
+  //     goToFirstPage()
+  //   } else {
+  //     hasRendered.current = true;
+  //   }
+  //   goToFirstPage()
+  // },[])
   return (
     <View style={{ flex: 1, backgroundColor: "white", alignItems: "center" }}>
       <FlatList

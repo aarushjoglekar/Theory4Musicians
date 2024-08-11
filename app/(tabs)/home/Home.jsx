@@ -24,7 +24,7 @@ export default function Home() {
         </View>
         <View style={{ flex: 50 }} />
         <HomePageButtonSection
-          onPress={() => router.navigate({pathname: "/../Onboarding", params: {screenIndex: 0}})}
+          onPress={() => router.push("/../Onboarding")}
           text="How To Use This App"
         />
         <View style={{ height: 40 }} />
