@@ -7,19 +7,35 @@ import {
   Image,
   SafeAreaView,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import Title from "../../../components/Title";
 import { RFPercentage } from "react-native-responsive-fontsize";
 import BackButton from "../../../components/BackButton";
+import AntDesign from "@expo/vector-icons/AntDesign";
 
 export default function LearnToReadMusic() {
+  const [isNearBottom, setIsNearBottom] = useState(100)
+  const handleScroll = (event) => {
+    const { layoutMeasurement, contentOffset, contentSize } = event.nativeEvent;
+    const isCloseToBottom = layoutMeasurement.height + contentOffset.y >= contentSize.height   
+ - 20;
+    if (isCloseToBottom){
+      setIsNearBottom(0);
+    } else {
+      setIsNearBottom(100)
+    }
+  };
   return (
     <ImageBackground
       source={require("./../../../assets/images/BackgroundImages/TextBackground.jpeg")}
       style={{ flex: 1, padding: 50 }}
     >
       <SafeAreaView style={styles.container}>
-        <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
+        <ScrollView
+          style={styles.container}
+          showsVerticalScrollIndicator={false}
+          onScroll={handleScroll}
+        >
           <Title title="Reading Music" />
           <Text style={styles.Subtitle}>{"\n"}The Staff</Text>
           <Text style={styles.LearnText}>
@@ -328,9 +344,16 @@ export default function LearnToReadMusic() {
             music career.
           </Text>
         </ScrollView>
-        <View style={{flex:0.01}}/>
-        <View style={{ flex: 0.02 }}>
-          <BackButton/>
+        <View style={{ flex: 0.1, justifyContent: "center" }}>
+          <AntDesign
+            name="caretdown"
+            size={30}
+            color="#70849c"
+            style={{ alignSelf: "center", opacity: isNearBottom}}
+          />
+        </View>
+        <View style={{ flex: 0.03 }}>
+          <BackButton />
         </View>
       </SafeAreaView>
     </ImageBackground>
