@@ -15,34 +15,35 @@ export default function Onboarding() {
     setCurrentIndex(viewableItems[0].index);
   }).current;
   const scrollTo = () => {
-    if (currentIndex < OnboardingScreens.length - 1){
-       slidesRef.current.scrollToIndex({ index: currentIndex + 1 })
-    } else { 
-      router.navigate('/home')
+    if (currentIndex < OnboardingScreens.length - 1) {
+      slidesRef.current.scrollToIndex({ index: currentIndex + 1 });
+    } else {
+      router.navigate("/home");
       //AsyncStorage.setItem('ViewedOnboarding', 'true')
     }
-  }
+  };
   return (
     <View style={{ flex: 1, backgroundColor: "white", alignItems: "center" }}>
-      <View style={{ flex: 3 }}>
-        <FlatList
-          data={OnboardingScreens}
-          renderItem={({ item }) => <OnboardingItem item={item} />}
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          pagingEnabled
-          bounces={false}
-          keyExtractor={(item) => item.id}
-          onScroll={Animated.event(
-            [{ nativeEvent: { contentOffset: { x: scrollX } } }],
-            { useNativeDriver: false }
-          )}
-          onViewableItemsChanged={viewableItemsChanged}
-          ref={slidesRef}
-        />
-      </View>
+      <FlatList
+        data={OnboardingScreens}
+        renderItem={({ item }) => <OnboardingItem item={item} />}
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        pagingEnabled
+        bounces={false}
+        keyExtractor={(item) => item.id}
+        onScroll={Animated.event(
+          [{ nativeEvent: { contentOffset: { x: scrollX } } }],
+          { useNativeDriver: false }
+        )}
+        onViewableItemsChanged={viewableItemsChanged}
+        ref={slidesRef}
+      />
       <Paginator data={OnboardingScreens} scrollX={scrollX} />
-      <NextButton scrollTo={scrollTo} percentage={(currentIndex + 1) * (100 / OnboardingScreens.length)}/>
+      <NextButton
+        scrollTo={scrollTo}
+        percentage={(currentIndex + 1) * (100 / OnboardingScreens.length)}
+      />
     </View>
   );
 }
