@@ -15,7 +15,7 @@ export default function NextButton({ percentage, scrollTo }) {
   const animation = (toValue) => {
     return Animated.timing(progressAnimation, {
       toValue,
-      duration: 250,
+      duration: 300,
       useNativeDriver: true,
     }).start();
   };
@@ -61,6 +61,7 @@ export default function NextButton({ percentage, scrollTo }) {
         </G>
         <TouchableOpacity
           style={styles.button}
+          disabled={true}
         >
           <AntDesign name="arrowright" size={32} color="#fff" />
         </TouchableOpacity>
