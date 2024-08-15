@@ -5,7 +5,7 @@ function KeysProblemFunction(Array) {
   if (MajorOrMinor == 0){
     var answers = Array[randomQuestion]['MajorAnswers']
   } else {
-    var answers = Array[randomQuestion]['MajorAnswers']
+    var answers = Array[randomQuestion]['MinorAnswers']
   }
   let correctAnswer = answers[0]
   let wrongAnswer1 = answers[1]

@@ -42,12 +42,13 @@ export default function KeysSprint() {
   useFocusEffect(
     useCallback(() => {
       let id = setTimeout(
-        () =>
+        () => {
           router.navigate({
             pathname: "/keys/DisplayScore",
             params: { KeysSprintScore },
-          }),
-        30000
+          })
+        },
+        2000,
       );
       return () => clearTimeout(id);
     }, [])
