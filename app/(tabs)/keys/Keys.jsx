@@ -1,13 +1,18 @@
 import { View, ImageBackground, StyleSheet, SafeAreaView } from "react-native";
-import React from "react";
+import React, { useCallback, useState } from "react";
 import Title from "../../../components/Title";
 import HomeButton from "../../../components/HomeButton";
-import { router } from "expo-router";
+import { router, useFocusEffect } from "expo-router";
 import readScore from "../../../storageServices/readScore";
+import updateScore from "../../../storageServices/updateScore";
 
 export default function KeysHome() {
-  const KeysHighScore = readScore("keys");
-  console.log(KeysHighScore);
+  const [KeysHighScore, setKeysHighScore] = useState(0)
+  useFocusEffect(useCallback(()=>{
+    readScore("keys").then(
+      (highScore) => { setKeysHighScore(highScore) }
+  );
+  }, [KeysHighScore]))
   return (
     <ImageBackground
       source={require("./../../../assets/images/BackgroundImages/KeysBackground.jpeg")}

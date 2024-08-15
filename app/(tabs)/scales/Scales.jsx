@@ -4,15 +4,20 @@ import {
   StyleSheet,
   SafeAreaView,
 } from "react-native";
-import React from "react";
+import React, { useCallback, useState } from "react";
 import Title from "../../../components/Title";
 import HomeButton from "../../../components/HomeButton";
-import { router } from "expo-router";
+import { router, useFocusEffect } from "expo-router";
 import readScore from "../../../storageServices/readScore";
 
+
 export default function ScalesHome() {
-  const ScalesHighScore = readScore("scales")
-  console.log(ScalesHighScore)
+  const [ScalesHighScore, setScalesHighScore] = useState(0)
+  useFocusEffect(useCallback(()=>{
+    readScore("scales").then(
+      (highScore) => { setScalesHighScore(highScore) }
+  );
+  }, [ScalesHighScore]))
   return (
     <ImageBackground
       source={require("./../../../assets/images/BackgroundImages/ScalesBackground.jpeg")}

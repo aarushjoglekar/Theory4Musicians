@@ -6,11 +6,11 @@ import updateScore from "../../../storageServices/updateScore";
 
 export default function KeysDisplayScore() {
   const { KeysSprintScore } = useLocalSearchParams();
-  const KeysHighScore = readScore("keys");
-  if (KeysSprintScore > KeysHighScore){
-    updateScore("keys", KeysSprintScore)
-  }
-  console.log(KeysHighScore)
+  readScore("keys").then( (highScore)=>{
+    if (KeysSprintScore > highScore){
+       updateScore("keys", KeysSprintScore)
+    }
+  });
   return (
     <DisplayScore scoreValue={KeysSprintScore} onPress={()=>router.navigate('/keys/Keys')}/>
   )

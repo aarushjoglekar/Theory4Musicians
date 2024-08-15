@@ -4,11 +4,11 @@ import { Tabs } from 'expo-router'
 export default function AppLayout() {
   return (
     <Tabs screenOptions={{headerShown: false}}>
-        <Tabs.Screen name="keys" options={{title: 'Keys'}}/>
-        <Tabs.Screen name="scales" options={{title: 'Scales'}}/>
-        <Tabs.Screen name="home" options={{title: 'Home'}}/>
-        <Tabs.Screen name="intervals" options={{title: 'Intervals'}}/>
-        <Tabs.Screen name="triads" options={{title: 'Triads'}}/>
+        <Tabs.Screen name="keys" options={{title: 'Keys', unmountOnBlur: true}}/>
+        <Tabs.Screen name="scales" options={{title: 'Scales', unmountOnBlur: true}}/>
+        <Tabs.Screen name="home" options={{title: 'Home', unmountOnBlur: true}}/>
+        <Tabs.Screen name="intervals" options={{title: 'Intervals', unmountOnBlur: true}}/>
+        <Tabs.Screen name="triads" options={{title: 'Triads', unmountOnBlur: true}}/>
     </Tabs>
   )
 }

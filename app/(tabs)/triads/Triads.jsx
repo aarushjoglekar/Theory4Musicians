@@ -4,15 +4,19 @@ import {
   StyleSheet,
   SafeAreaView,
 } from "react-native";
-import React from "react";
+import React, { useCallback, useState } from "react";
 import Title from "../../../components/Title";
 import HomeButton from "../../../components/HomeButton";
-import { router } from "expo-router";
+import { router, useFocusEffect } from "expo-router";
 import readScore from "../../../storageServices/readScore";
 
 export default function TriadsHome() {
-  const TriadsHighScore = readScore("triads")
-  console.log(TriadsHighScore)
+  const [TriadsHighScore, setTriadsHighScore] = useState(0)
+  useFocusEffect(useCallback(()=>{
+    readScore("triads").then(
+      (highScore) => { setTriadsHighScore(highScore) }
+  );
+  }, [TriadsHighScore]))
   return (
     <ImageBackground
       source={require("./../../../assets/images/BackgroundImages/TriadsBackground.jpeg")}

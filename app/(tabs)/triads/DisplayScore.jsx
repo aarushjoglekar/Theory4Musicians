@@ -6,11 +6,11 @@ import updateScore from "../../../storageServices/updateScore";
 
 export default function TriadsDisplayScore() {
   const { TriadsSprintScore } = useLocalSearchParams();
-  const TriadsHighScore = readScore("triads");
-  if (TriadsSprintScore > TriadsHighScore){
-    updateScore("triads", TriadsSprintScore)
-  }
-  console.log(TriadsHighScore)
+  readScore("triads").then( (highScore)=>{
+    if (TriadsSprintScore > highScore){
+       updateScore("triads", TriadsSprintScore)
+    }
+  });
   return (
     <DisplayScore scoreValue={TriadsSprintScore} onPress={()=>router.navigate('/triads/Triads')}/>
   )

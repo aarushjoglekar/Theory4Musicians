@@ -6,11 +6,11 @@ import updateScore from "../../../storageServices/updateScore";
 
 export default function ScalesDisplayScore() {
   const { ScalesSprintScore } = useLocalSearchParams();
-  const ScalesHighScore = readScore("scales");
-  if (ScalesSprintScore > ScalesHighScore){
-    updateScore("scales", ScalesSprintScore)
-  }
-  console.log(ScalesHighScore)
+  readScore("scales").then( (highScore)=>{
+    if (ScalesSprintScore > highScore){
+       updateScore("scales", ScalesSprintScore)
+    }
+  });
   return (
     <DisplayScore scoreValue={ScalesSprintScore} onPress={()=>router.navigate('/scales/Scales')}/>
   )

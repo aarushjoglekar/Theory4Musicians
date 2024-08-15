@@ -6,11 +6,11 @@ import updateScore from "../../../storageServices/updateScore";
 
 export default function IntervalsDisplayScore() {
   const { IntervalsSprintScore } = useLocalSearchParams();
-  const IntervalsHighScore = readScore("intervals");
-  if (IntervalsSprintScore > IntervalsHighScore){
-    updateScore("intervals", IntervalsSprintScore)
-  }
-  console.log(IntervalsHighScore)
+  readScore("intervals").then( (highScore)=>{
+    if (IntervalsSprintScore > highScore){
+       updateScore("intervals", IntervalsSprintScore)
+    }
+  });
   return (
     <DisplayScore scoreValue={IntervalsSprintScore} onPress={()=>router.navigate('/intervals/Intervals')}/>
   )

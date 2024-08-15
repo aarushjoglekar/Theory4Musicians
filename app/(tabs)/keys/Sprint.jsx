@@ -48,7 +48,7 @@ export default function KeysSprint() {
             params: { KeysSprintScore },
           })
         },
-        2000,
+        30000,
       );
       return () => clearTimeout(id);
     }, [])
