@@ -51,8 +51,8 @@ export default function LearnToReadMusic() {
           <Text style={styles.LearnText}>
             {"\t"}The staff is then broken by bar lines into different measures.
             These measures break up the piece in a way such that each measure is
-            assigned a certain amount of beats. (This will be talked about
-            later).
+            assigned a certain amount of beats. This helps the musician keep
+            time in the composition. (This will be talked about later).
           </Text>
           <Image
             source={require("./../../../assets/images/ReadingMusic/Measure.png")}
@@ -64,7 +64,7 @@ export default function LearnToReadMusic() {
             tell you what kinds of notes to expect in the staff. There are two
             main clefs - Treble Clef (top), and Bass Clef (bottom). Depending on
             what clef the staff is in, spaces and lines can represent different
-            notes. Putting the two clefs together gets you the grand staff as
+            notes. Putting the two clefs together creates the grand staff as
             seen below.
           </Text>
           <View style={{ height: 10 }} />
@@ -101,10 +101,9 @@ export default function LearnToReadMusic() {
             then E going from bottom to top. Meanwhile, the line notes can be
             memorized with the acronym - EGBDF, or Every Good Bird Does Fly.
             When you start, this can seem difficult as you have to go by the
-            acronyms for every space and line. However as you practice and put
-            reading music into practice, it will become much easier as your
-            brain will start to memorize what notes correspond to different
-            spots on the staff.
+            acronyms for every space and line. However as you practice, you will
+            soon start to memorize these notes and will no longer have to refer
+            to the acronyms
           </Text>
           <Image
             source={require("./../../../assets/images/ReadingMusic/TrebleClefNotes.png")}
@@ -129,10 +128,6 @@ export default function LearnToReadMusic() {
             memorized as Good Birds Do Fly Always. Remember as you practice,
             this process will become simpler as you will start to remember the
             spots for each note.
-            {"\n"}
-            {"\t"}Finally, keep in mind the practice problems in this app use
-            Treble Clef, but that does not mean Bass Clef is irrelevant to
-            learn.
           </Text>
           <Image
             source={require("./../../../assets/images/ReadingMusic/BassClefNotes.png")}
@@ -140,7 +135,7 @@ export default function LearnToReadMusic() {
           />
           <Text style={styles.Subtitle}>{"\n"}The Piano - Overview</Text>
           <Text style={styles.LearnText}>
-            {"\t"}Before we move on, it is vital that you understand the
+            {"\t"}Before we move on, it is vital that you understand the basic
             fundamentals of the piano. Here you can see the seven basic notes on
             the staff each correspond to a unique white key on the piano. (We’ll
             talk about the black keys in the next section).
@@ -156,7 +151,7 @@ export default function LearnToReadMusic() {
             is called a half step while going up two notes on the piano is
             called a whole step. For example, going up from F to G would be a
             whole step because we went up one note to the black key in between
-            from F, and then up a second note to G. Similarly, going from A to
+            from F, and then up a second note to G. Meanwhile, going from A to
             the note in between A and B would be a half step because the
             distance is only one note on the piano.
             {"\n"}
@@ -176,8 +171,8 @@ export default function LearnToReadMusic() {
             {"\t"}Thinking about the piano image we saw earlier, you may have
             been wondering if going up one note on the staff goes up one white
             key, how do we ever play the black keys? Well we use accidentals.
-            There are many kinds of accidentals but I’m going to review the most
-            basic ones first.
+            There are many kinds of accidentals but we're going to review the
+            most basic ones first.
             {"\n"}
             {"\t"}Firstly, there is the sharp (#). The sharp raises the note by
             one half step. For example if we write G in the staff, it would
@@ -200,9 +195,9 @@ export default function LearnToReadMusic() {
             to its original form. See in music, accidentals last the whole
             measure (for the same octave). For example, if a composer wants a G#
             in a measure but then a G in the same measure, they would not be
-            able to write the G as a plain G due to the G# lasting the whole
-            measure. To fix this, they would have to put the natural sign in
-            front of the G to bring it back to its natural form.
+            able to write plain G due to the G# lasting the whole measure. To
+            fix this, they would have to put the natural sign in front of the G
+            to bring it back to its natural form.
             {"\n"}
             {"\t"}A few more complicated accidentals you may see sometimes are
             the double sharp (𝄪) or the double flat (𝄫). Like their names
@@ -210,18 +205,17 @@ export default function LearnToReadMusic() {
             double flat lowers the note by a whole step. A common mistake people
             make would be to replace the accidental note with its enharmonic.
             For example, a G𝄪’s enharmonic is an A. However when you are
-            identifying chords, scales, intervals, or really anything else,
-            sometimes people would replace the G𝄪 with an A. This can change
-            many things about what you are identifying such as the root name,
-            the interval, etc. You don’t really have to worry about this now,
-            but when doing theory problems, make sure to not replace notes with
-            their enharmonic.
+            identifying chords, scales, intervals, or really anything else, you
+            should avoid making such changes. This is because changing the note
+            letter can affect thing such as the interval distance, the root
+            name, etc. Right now you don't have to worry about this, but keep
+            this common mistake in mind.
           </Text>
           <Text style={styles.Subtitle}>{"\n"}Note Lengths</Text>
           <Text style={styles.LearnText}>
-            {"\t"}Now you know how to read notes to play different pitches.
-            However right now, how do you tell the difference between the length
-            of these notes? I’m going to cover the few simple note lengths.
+            {"\t"}Now you know how to read notes to play different pitches. But
+            how do you tell the difference between the length of these notes?
+            Lets going to go over the few simple note lengths.
           </Text>
           <View style={{ flexDirection: "row" }}>
             <View style={{ flex: 3 }}>
@@ -329,7 +323,7 @@ export default function LearnToReadMusic() {
             one beat, so a whole note would get two beats. Meanwhile a quarter
             note would get ½ of a beat while an eighth note would get ¼ beat.
             (The ratio of the lengths of different types of notes should always
-            stay the same. The only thing changing is which note gets one beat).
+            stay the same. The only thing changing is which note gets the beat).
           </Text>
           <Text style={styles.Subtitle}>{"\n"}So Much More</Text>
           <Text style={styles.LearnText}>
@@ -349,7 +343,7 @@ export default function LearnToReadMusic() {
             name="caretdown"
             size={30}
             color="#4d4d4d"
-            style={{ alignSelf: "center", opacity: isNearBottom}}
+            style={{ alignSelf: "center", opacity: isNearBottom }}
           />
         </View>
         <View style={{ flex: 0.03 }}>
