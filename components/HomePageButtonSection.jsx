@@ -5,9 +5,10 @@ import { RFPercentage } from "react-native-responsive-fontsize";
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
 
-export default function HomePageButtonSection({onPress = null, text}) {
+export default function HomePageButtonSection({onPress = null, disabled = false, text}) {
   return (
     <TouchableOpacity
+      disabled={disabled}
       style={styles.HomePageButton}
       onPress={onPress}
     >

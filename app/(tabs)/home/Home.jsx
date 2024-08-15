@@ -22,7 +22,12 @@ export default function Home() {
         <View style={{ flex: 10, justifyContent: "flex-end" }}>
           <Title title="Theory4Nerds" />
         </View>
-        <View style={{ flex: 50 }} />
+        <View style={{ flex: 30 }} />
+        <HomePageButtonSection
+          disabled={true}
+          text="Daily Streak: 0"
+        />
+        <View style={{height: 40}}/>
         <HomePageButtonSection
           onPress={() => router.push("/../Onboarding")}
           text="How To Use This App"
