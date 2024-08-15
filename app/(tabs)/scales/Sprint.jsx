@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import {
   Dimensions,
   Image,
@@ -30,6 +30,7 @@ answerOrder = shuffle(answerOrder);
 let correctAnswerSpot = answerOrder.indexOf(1);
 
 export default function ScalesSprint() {
+  const LatestScalesSprintScoreRef = useRef()
   const [isAnswerEnabled, setIsAnswerEnabled] = useState(true)
   const [ScalesSprintScore, SetScalesSprintScore] = useState(0);
   const [ScalesProblem, ResetScalesProblem] = useState(
@@ -39,17 +40,22 @@ export default function ScalesSprint() {
   useEffect(() => {
     setImageSource(ScalesProblem[0]);
   }, [ScalesProblem]);
-  useFocusEffect(useCallback(() => {
-    let id = setTimeout(
-      () =>
+
+  useEffect(() => {
+    LatestScalesSprintScoreRef.current = ScalesSprintScore
+  }, [ScalesSprintScore]);
+
+  useFocusEffect(
+    useCallback(() => {
+      const id = setTimeout(() => {
         router.navigate({
           pathname: "/scales/DisplayScore",
-          params: { ScalesSprintScore },
-        }),
-      30000
-    );
-    return () => clearTimeout(id);
-  }, []));
+          params: { ScalesSprintScore: LatestScalesSprintScoreRef.current },
+        });
+      }, 7000);
+      return () => clearTimeout(id);
+    }, [])
+  );
   function disableAnswerBriefly(){
     setIsAnswerEnabled(false)
     setTimeout(() => setIsAnswerEnabled(true), 700)

@@ -19,7 +19,7 @@ export default function Loading() {
       // } else {
       //   router.navigate('/Onboarding');
       // }
-      router.navigate('/Onboarding')
+      router.navigate('/home')
 
     }
   }, [loaded, error]);

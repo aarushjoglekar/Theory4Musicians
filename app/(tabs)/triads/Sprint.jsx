@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import {
   Dimensions,
   Image,
@@ -31,6 +31,7 @@ let correctAnswerSpot = answerOrder.indexOf(1);
 
 
 export default function TriadsSprint() {
+  const LatestTriadsSprintScoreRef = useRef()
   const [isAnswerEnabled, setIsAnswerEnabled] = useState(true)
   const [TriadsSprintScore, SetTriadsSprintScore] = useState(0);
   const [TriadsProblem, ResetTriadsProblem] = useState(
@@ -40,17 +41,23 @@ export default function TriadsSprint() {
   useEffect(() => {
     setImageSource(TriadsProblem[0]);
   }, [TriadsProblem]);
-  useFocusEffect(useCallback(() => {
-    let id = setTimeout(
-      () =>
+
+  useEffect(() => {
+    LatestTriadsSprintScoreRef.current = TriadsSprintScore
+  }, [TriadsSprintScore]);
+
+  useFocusEffect(
+    useCallback(() => {
+      const id = setTimeout(() => {
         router.navigate({
           pathname: "/triads/DisplayScore",
-          params: { TriadsSprintScore },
-        }),
-      30000
-    );
-    return () => clearTimeout(id);
-  }, []));
+          params: { TriadsSprintScore: LatestTriadsSprintScoreRef.current },
+        });
+      }, 7000);
+      return () => clearTimeout(id);
+    }, [])
+  );
+
   function disableAnswerBriefly(){ 
     setIsAnswerEnabled(false)
     setTimeout(() => setIsAnswerEnabled(true), 700)

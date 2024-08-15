@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import {
   Dimensions,
   Image,
@@ -30,32 +30,37 @@ answerOrder = shuffle(answerOrder);
 let correctAnswerSpot = answerOrder.indexOf(1);
 
 export default function KeysSprint() {
-  const [isAnswerEnabled, setIsAnswerEnabled] = useState(true)
+  const LatestKeysSprintScoreRef = useRef()
+  const [isAnswerEnabled, setIsAnswerEnabled] = useState(true);
   const [KeysSprintScore, SetKeysSprintScore] = useState(0);
   const [KeysProblem, ResetKeysProblem] = useState(
     KeysProblemFunction(KeysProblems)
   );
   const [imageSource, setImageSource] = useState(KeysProblem[0]);
+
   useEffect(() => {
     setImageSource(KeysProblem[0]);
   }, [KeysProblem]);
+
+  useEffect(() => {
+    LatestKeysSprintScoreRef.current = KeysSprintScore
+  }, [KeysSprintScore]);
+
   useFocusEffect(
     useCallback(() => {
-      let id = setTimeout(
-        () => {
-          router.navigate({
-            pathname: "/keys/DisplayScore",
-            params: { KeysSprintScore },
-          })
-        },
-        30000,
-      );
+      const id = setTimeout(() => {
+        router.navigate({
+          pathname: "/keys/DisplayScore",
+          params: { KeysSprintScore: LatestKeysSprintScoreRef.current },
+        });
+      }, 7000);
       return () => clearTimeout(id);
     }, [])
   );
-  function disableAnswerBriefly(){ 
-    setIsAnswerEnabled(false)
-    setTimeout(() => setIsAnswerEnabled(true), 700)
+
+  function disableAnswerBriefly() {
+    setIsAnswerEnabled(false);
+    setTimeout(() => setIsAnswerEnabled(true), 700);
   }
   return (
     <ImageBackground
@@ -82,7 +87,7 @@ export default function KeysSprint() {
               ResetKeysProblem(setProblem(KeysProblems));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
-              disableAnswerBriefly()
+              disableAnswerBriefly();
             }}
           >
             <Text style={styles.Text}>{KeysProblem[answerOrder[0]]}</Text>
@@ -99,7 +104,7 @@ export default function KeysSprint() {
               ResetKeysProblem(setProblem(KeysProblems));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
-              disableAnswerBriefly()
+              disableAnswerBriefly();
             }}
           >
             <Text style={styles.Text}>{KeysProblem[answerOrder[1]]}</Text>
@@ -116,7 +121,7 @@ export default function KeysSprint() {
               ResetKeysProblem(setProblem(KeysProblems));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
-              disableAnswerBriefly()
+              disableAnswerBriefly();
             }}
           >
             <Text style={styles.Text}>{KeysProblem[answerOrder[2]]}</Text>
@@ -133,7 +138,7 @@ export default function KeysSprint() {
               ResetKeysProblem(setProblem(KeysProblems));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
-              disableAnswerBriefly()
+              disableAnswerBriefly();
             }}
           >
             <Text style={styles.Text}>{KeysProblem[answerOrder[3]]}</Text>

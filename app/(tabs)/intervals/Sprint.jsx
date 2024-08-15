@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import {
   Dimensions,
   Image,
@@ -30,6 +30,7 @@ answerOrder = shuffle(answerOrder);
 let correctAnswerSpot = answerOrder.indexOf(1);
 
 export default function IntervalsSprint() {
+  const LatestIntervalsSprintScoreRef = useRef()
   const [isAnswerEnabled, setIsAnswerEnabled] = useState(true)
   const [IntervalsSprintScore, SetIntervalsSprintScore] = useState(0);
   const [IntervalsProblem, ResetIntervalsProblem] = useState(
@@ -39,17 +40,23 @@ export default function IntervalsSprint() {
   useEffect(() => {
     setImageSource(IntervalsProblem[0]);
   }, [IntervalsProblem]);
-  useFocusEffect(useCallback(() => {
-    let id = setTimeout(
-      () =>
+
+  useEffect(() => {
+    LatestIntervalsSprintScoreRef.current = IntervalsSprintScore
+  }, [IntervalsSprintScore]);
+
+  useFocusEffect(
+    useCallback(() => {
+      const id = setTimeout(() => {
         router.navigate({
           pathname: "/intervals/DisplayScore",
-          params: { IntervalsSprintScore },
-        }),
-      30000
-    );
-    return () => clearTimeout(id);
-  }, []));
+          params: { IntervalsSprintScore: LatestIntervalsSprintScoreRef.current },
+        });
+      }, 7000);
+      return () => clearTimeout(id);
+    }, [])
+  );
+  
   function disableAnswerBriefly(){
     setIsAnswerEnabled(false)
     setTimeout(() => setIsAnswerEnabled(true), 700)
