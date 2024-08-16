@@ -19,22 +19,9 @@ export default function Onboarding() {
       slidesRef.current.scrollToIndex({ index: currentIndex + 1 });
     } else {
       router.navigate("/home");
-      //AsyncStorage.setItem('ViewedOnboarding', 'true')
+      AsyncStorage.setItem('ViewedOnboarding', 'true')
     }
   };
-  // const goToFirstPage = () => {
-  //   if (slidesRef.current) {
-  //     slidesRef.current.scrollToOffset({ offset: 0, animated: true });
-  //   }
-  // }
-  // useEffect(() => {
-  //   if (hasRendered.current) {
-  //     goToFirstPage()
-  //   } else {
-  //     hasRendered.current = true;
-  //   }
-  //   goToFirstPage()
-  // },[])
   return (
     <View style={{ flex: 1, backgroundColor: "white", alignItems: "center" }}>
       <FlatList

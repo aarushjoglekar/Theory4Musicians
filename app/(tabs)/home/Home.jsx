@@ -42,6 +42,7 @@ export default function Home() {
           onPress={() => router.navigate("/home/ResetScores")}
           text="Reset Scores"
         />
+        <View style={{ height: 40 }} />
         <View style={{ height: height * 0.1 }} />
       </SafeAreaView>
     </ImageBackground>

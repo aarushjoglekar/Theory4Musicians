@@ -13,16 +13,15 @@ export default function Loading() {
 
   useEffect(() => {
     if (loaded || error) {
-      // if (AsyncStorage.getItem('ViewedOnboarding') != null){
-      //   console.log(AsyncStorage.getItem('ViewedOnboarding'))
-      //   router.navigate('/home')
-      // } else {
-      //   router.navigate('/Onboarding');
-      // }
-      router.navigate('/home')
-
+      AsyncStorage.getItem('ViewedOnboarding').then((ViewedOnboarding) => {
+        if (ViewedOnboarding == 'true'){
+          router.navigate('/home')
+        } else {
+          router.navigate('/Onboarding');
+        }
+      })
     }
-  }, [loaded, error]);
+  }, [loaded, error])
 
   if (!loaded && !error) {
     return null;
