@@ -52,7 +52,7 @@ export default function IntervalsSprint() {
           pathname: "/intervals/DisplayScore",
           params: { IntervalsSprintScore: LatestIntervalsSprintScoreRef.current },
         });
-      }, 7000);
+      }, 30000);
       return () => clearTimeout(id);
     }, [])
   );

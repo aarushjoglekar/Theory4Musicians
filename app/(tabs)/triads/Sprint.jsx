@@ -53,7 +53,7 @@ export default function TriadsSprint() {
           pathname: "/triads/DisplayScore",
           params: { TriadsSprintScore: LatestTriadsSprintScoreRef.current },
         });
-      }, 7000);
+      }, 30000);
       return () => clearTimeout(id);
     }, [])
   );

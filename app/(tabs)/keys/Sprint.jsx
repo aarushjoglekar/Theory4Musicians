@@ -53,7 +53,7 @@ export default function KeysSprint() {
           pathname: "/keys/DisplayScore",
           params: { KeysSprintScore: LatestKeysSprintScoreRef.current },
         });
-      }, 7000);
+      }, 30000);
       return () => clearTimeout(id);
     }, [])
   );

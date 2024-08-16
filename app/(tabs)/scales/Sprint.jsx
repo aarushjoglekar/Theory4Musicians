@@ -52,7 +52,7 @@ export default function ScalesSprint() {
           pathname: "/scales/DisplayScore",
           params: { ScalesSprintScore: LatestScalesSprintScoreRef.current },
         });
-      }, 7000);
+      }, 30000);
       return () => clearTimeout(id);
     }, [])
   );
