@@ -5,14 +5,20 @@ import {
   SafeAreaView,
   Dimensions,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import { router } from "expo-router";
 import HomePageButtonSection from "../../../components/HomePageButtonSection";
 import Title from "../../../components/Title";
+import readDailyStreak from "../../../storageServices/readDailyStreak";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const height = Dimensions.get("window").height;
 
 export default function Home() {
+  const [dailyStreak, setDailyStreak] = useState();
+  readDailyStreak().then((streak) => {
+    setDailyStreak(streak)
+  })
   return (
     <ImageBackground
       source={require("./../../../assets/images//BackgroundImages/Theory4NerdsBackground.jpg")}
@@ -25,7 +31,7 @@ export default function Home() {
         <View style={{ flex: 30 }} />
         <HomePageButtonSection
           disabled={true}
-          text="Daily Streak: 0"
+          text={`Daily Streak: ${dailyStreak}`}
         />
         <View style={{height: 40}}/>
         <HomePageButtonSection
@@ -41,6 +47,11 @@ export default function Home() {
         <HomePageButtonSection
           onPress={() => router.navigate("/home/ResetScores")}
           text="Reset Scores"
+        />
+        <View style={{ height: 40 }} />
+        <HomePageButtonSection
+          onPress={() => AsyncStorage.setItem("ViewedOnboarding", "false")}
+          text="Onboarding False"
         />
         <View style={{ height: 40 }} />
         <View style={{ height: height * 0.1 }} />

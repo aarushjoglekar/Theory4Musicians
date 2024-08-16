@@ -4,6 +4,9 @@ import LottieView from "lottie-react-native";
 import React, { useEffect } from "react";
 import { router } from "expo-router";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import updateDailyStreak from "../storageServices/updateDailyStreak";
+import getRecentDate from "../storageServices/getRecentDate";
+import getNextDay from "../storageServices/getNextDay";
 
 export default function Loading() {
   const [loaded, error] = useFonts({
@@ -16,8 +19,18 @@ export default function Loading() {
       AsyncStorage.getItem('ViewedOnboarding').then((ViewedOnboarding) => {
         if (ViewedOnboarding == 'true'){
           router.navigate('/home')
+          const today = new Date()
+          const todayArray = [today.getMonth() + 1, today.getDate(), today.getFullYear()]
+          getRecentDate().then((recentDate) => {
+            if (todayArray != recentDate && todayArray != getNextDay(recentDate)){
+              updateDailyStreak(0)
+            }
+          })
+          
         } else {
-          router.navigate('/Onboarding');
+          updateDailyStreak(0).then(() => {
+            router.navigate('/Onboarding');
+          })
         }
       })
     }
