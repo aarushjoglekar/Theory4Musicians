@@ -19,26 +19,19 @@ export default function Loading() {
       AsyncStorage.getItem("ViewedOnboarding").then((ViewedOnboarding) => {
         if (ViewedOnboarding == "true") {
           router.navigate("/home");
-          try {
-            const today = new Date();
-            const todayArray = [
-              today.getMonth() + 1,
-              today.getDate(),
-              today.getFullYear(),
-            ];
-            getRecentDate().then((recentDate) => {
-              getNextDay(recentDate).then((nextDay) => {
-                if (todayArray != recentDate && todayArray != nextDay) {
-                  console.log("todayArray: ",todayArray)
-                  console.log('recentDate: ',recentDate)
-                  console.log('nextDay: ',nextDay)
-                  updateDailyStreak(0);
-                }
-              });
+          const today = new Date();
+          const todayArray = [
+            today.getMonth() + 1,
+            today.getDate(),
+            today.getFullYear(),
+          ];
+          getRecentDate().then((recentDate) => {
+            getNextDay(recentDate).then((nextDay) => {
+              if (todayArray != recentDate && todayArray != nextDay) {
+                updateDailyStreak(0);
+              }
             });
-          } catch (error) {
-            console.log("Error Checking End Of Streak: ", error)
-          }
+          });
         } else {
           updateDailyStreak(0).then(() => {
             router.navigate('/Onboarding');
