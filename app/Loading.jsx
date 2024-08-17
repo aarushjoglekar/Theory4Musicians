@@ -41,18 +41,18 @@ export default function Loading() {
           }
         } else {
           updateDailyStreak(0).then(() => {
-            router.navigate("/Onboarding");
-          });
+            router.navigate('/Onboarding');
+          })
         }
-      });
+      })
     }
-  }, [loaded, error]);
+  }, [loaded, error])
 
   if (!loaded && !error) {
     return null;
   }
   return (
-    <View style={{ flex: 1, backgroundColor: "white" }}>
+    <View style={{ flex: 1, backgroundColor: 'white' }}>
       <LottieView
         style={{ flex: 1 }}
         source={require("../constants/splash.json")}

@@ -17,20 +17,16 @@ export default function KeysDisplayScore() {
     }
   });
   readDailyStreak().then((streak) => {
-    if (streak == 0){
-      updateDailyStreak(1)
-      setRecentDate()
-    } else {
-      getRecentDate().then((recentDate) => {
-        getNextDay(recentDate).then((nextDay) => {
-          let today = new Date()
-          if ([today.getMonth + 1, today.getDate, today.getFullYear] == nextDay){
-            updateDailyStreak(streak + 1)
-            setRecentDate();
-          }
-        })
-      })
-    }
+    let today = new Date()
+    getNextDay(getRecentDate()).then((nextDay) => {
+      if (streak == 0){
+        updateDailyStreak(1)
+        setRecentDate();
+      } else if ([today.getMonth + 1, today.getDate, today.getFullYear] == nextDay){
+        updateDailyStreak(streak + 1)
+        setRecentDate();
+      }
+    })
   })
   return (
     <DisplayScore scoreValue={KeysSprintScore} onPress={()=>router.navigate('/keys/Keys')}/>
