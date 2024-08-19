@@ -53,6 +53,10 @@ export default function Home() {
           onPress={() => AsyncStorage.setItem("ViewedOnboarding", "false")}
           text="Onboarding False"
         />
+        <HomePageButtonSection
+          onPress={() => AsyncStorage.removeItem("RecentDate")}
+          text="Delete Recent Date"
+        />
         <View style={{ height: 40 }} />
         <View style={{ height: height * 0.1 }} />
       </SafeAreaView>

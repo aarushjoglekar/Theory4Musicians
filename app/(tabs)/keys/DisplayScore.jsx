@@ -8,6 +8,7 @@ import updateDailyStreak from "../../../storageServices/updateDailyStreak";
 import setRecentDate from "../../../storageServices/setRecentDate";
 import getNextDay from "../../../storageServices/getNextDay";
 import getRecentDate from "../../../storageServices/getRecentDate";
+import arraysEqual from "../../../constants/ArraysEqual";
 
 export default function KeysDisplayScore() {
   const { KeysSprintScore } = useLocalSearchParams();
@@ -18,15 +19,20 @@ export default function KeysDisplayScore() {
   });
   readDailyStreak().then((streak) => {
     let today = new Date()
-    getNextDay(getRecentDate()).then((nextDay) => {
-      if (streak == 0){
-        updateDailyStreak(1)
-        setRecentDate();
-      } else if ([today.getMonth + 1, today.getDate, today.getFullYear] == nextDay){
-        updateDailyStreak(streak + 1)
-        setRecentDate();
-      }
+    getRecentDate().then((recentDate) => {
+      getNextDay(recentDate).then((nextDay) => {
+        console.log("NEXT DAY: ", nextDay)
+        console.log("TODAY: ", [today.getUTCMonth() + 1, today.getUTCDate(), today.getUTCFullYear()])
+        if (streak == 0){
+          updateDailyStreak(1)
+          setRecentDate();
+        } else if (arraysEqual([today.getUTCMonth() + 1, today.getUTCDate(), today.getUTCFullYear()], nextDay)){
+          updateDailyStreak(streak + 1)
+          setRecentDate();
+        }
+      })
     })
+    
   })
   return (
     <DisplayScore scoreValue={KeysSprintScore} onPress={()=>router.navigate('/keys/Keys')}/>

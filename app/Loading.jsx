@@ -7,6 +7,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import updateDailyStreak from "../storageServices/updateDailyStreak";
 import getRecentDate from "../storageServices/getRecentDate";
 import getNextDay from "../storageServices/getNextDay";
+import arraysEqual from "../constants/ArraysEqual"
 
 export default function Loading() {
   const [loaded, error] = useFonts({
@@ -21,13 +22,16 @@ export default function Loading() {
           router.navigate("/home");
           const today = new Date();
           const todayArray = [
-            today.getMonth() + 1,
-            today.getDate(),
-            today.getFullYear(),
+            today.getUTCMonth() + 1,
+            today.getUTCDate(),
+            today.getUTCFullYear(),
           ];
           getRecentDate().then((recentDate) => {
             getNextDay(recentDate).then((nextDay) => {
-              if (todayArray != recentDate && todayArray != nextDay) {
+              console.log("nextDay:", nextDay)
+              console.log("recentDate:", recentDate)
+              console.log('todayArray: ',todayArray)
+              if (!arraysEqual(todayArray, recentDate) && !arraysEqual(todayArray, nextDay)) {
                 updateDailyStreak(0);
               }
             });
