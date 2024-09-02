@@ -10,7 +10,6 @@ import { router } from "expo-router";
 import HomePageButtonSection from "../../../components/HomePageButtonSection";
 import Title from "../../../components/Title";
 import readDailyStreak from "../../../storageServices/readDailyStreak";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const height = Dimensions.get("window").height;
 
@@ -21,12 +20,12 @@ export default function Home() {
   })
   return (
     <ImageBackground
-      source={require("./../../../assets/images//BackgroundImages/Theory4NerdsBackground.jpg")}
+      source={require("./../../../assets/images//BackgroundImages/Theory4MusiciansBackground.jpg")}
       style={styles.container}
     >
       <SafeAreaView style={styles.container}>
         <View style={{ flex: 10, justifyContent: "flex-end" }}>
-          <Title title="Theory4Nerds" />
+          <Title title="Theory4Musicians" />
         </View>
         <View style={{ flex: 30 }} />
         <HomePageButtonSection
@@ -47,15 +46,6 @@ export default function Home() {
         <HomePageButtonSection
           onPress={() => router.navigate("/home/ResetScores")}
           text="Reset Scores"
-        />
-        <View style={{ height: 40 }} />
-        <HomePageButtonSection
-          onPress={() => AsyncStorage.setItem("ViewedOnboarding", "false")}
-          text="Onboarding False"
-        />
-        <HomePageButtonSection
-          onPress={() => AsyncStorage.removeItem("RecentDate")}
-          text="Delete Recent Date"
         />
         <View style={{ height: 40 }} />
         <View style={{ height: height * 0.1 }} />
