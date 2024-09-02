@@ -21,8 +21,6 @@ export default function KeysDisplayScore() {
     let today = new Date()
     getRecentDate().then((recentDate) => {
       getNextDay(recentDate).then((nextDay) => {
-        console.log("NEXT DAY: ", nextDay)
-        console.log("TODAY: ", [today.getUTCMonth() + 1, today.getUTCDate(), today.getUTCFullYear()])
         if (streak == 0){
           updateDailyStreak(1)
           setRecentDate();

@@ -28,9 +28,6 @@ export default function Loading() {
           ];
           getRecentDate().then((recentDate) => {
             getNextDay(recentDate).then((nextDay) => {
-              console.log("nextDay:", nextDay)
-              console.log("recentDate:", recentDate)
-              console.log('todayArray: ',todayArray)
               if (!arraysEqual(todayArray, recentDate) && !arraysEqual(todayArray, nextDay)) {
                 updateDailyStreak(0);
               }
