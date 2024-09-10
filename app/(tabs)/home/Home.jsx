@@ -10,6 +10,7 @@ import { router } from "expo-router";
 import HomePageButtonSection from "../../../components/HomePageButtonSection";
 import Title from "../../../components/Title";
 import readDailyStreak from "../../../storageServices/readDailyStreak";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const height = Dimensions.get("window").height;
 
