@@ -14,7 +14,7 @@ export default function KeysDisplayScore() {
   const { KeysSprintScore } = useLocalSearchParams();
   readScore("keys").then( (highScore)=>{
     if (KeysSprintScore > highScore){
-       updateScore("keys", KeysSprintScore)
+      updateScore("keys", KeysSprintScore)
     }
   });
   readDailyStreak().then((streak) => {
@@ -30,7 +30,6 @@ export default function KeysDisplayScore() {
         }
       })
     })
-    
   })
   return (
     <DisplayScore scoreValue={KeysSprintScore} onPress={()=>router.navigate('/keys/Keys')}/>

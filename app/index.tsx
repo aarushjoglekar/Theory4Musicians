@@ -15,7 +15,6 @@ export default function Index() {
     id = JSON.stringify(id)
     let today = new Date()
     posthog.identify(id,{
-      // lastSeen: today.getUTCMonth()+'/'+today.getUTCDate()+'/'+today.getUTCFullYear()
       lastSeen: today
     })
   })
