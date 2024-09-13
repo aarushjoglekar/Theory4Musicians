@@ -20,6 +20,7 @@ export default function Onboarding() {
     } else {
       router.navigate("/home");
       AsyncStorage.setItem('ViewedOnboarding', 'true')
+      AsyncStorage.setItem('Clef','Treble')
     }
   };
   return (

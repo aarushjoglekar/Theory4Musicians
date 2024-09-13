@@ -1,6 +1,6 @@
-function ScalesProblemFunction(Array) {
+function ScalesProblemFunction(Array, clef) {
   let randomQuestion = Math.round(Math.random() * (Array.length - 1))
-  let imagePath = Array[randomQuestion]['uri']
+  let imagePath = Array[randomQuestion][clef + "URI"]
   let answers = Array[randomQuestion]['answers']
   let correctAnswer = answers[0]
   let wrongAnswer1 = answers[1]

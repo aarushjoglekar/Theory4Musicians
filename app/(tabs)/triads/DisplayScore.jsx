@@ -7,7 +7,9 @@ import readDailyStreak from "../../../storageServices/readDailyStreak";
 import getRecentDate from "../../../storageServices/getRecentDate";
 import getNextDay from "../../../storageServices/getNextDay";
 import setRecentDate from "../../../storageServices/setRecentDate";
-import updateDailyStreak from "../../../storageServices/updateDailyStreak"
+import updateDailyStreak from "../../../storageServices/updateDailyStreak";
+import arraysEqual from "../../../constants/ArraysEqual";
+
 
 export default function TriadsDisplayScore() {
   const { TriadsSprintScore } = useLocalSearchParams();

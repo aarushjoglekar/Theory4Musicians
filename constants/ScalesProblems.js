@@ -1,6 +1,6 @@
 export const ScalesProblems = [
   {
-    'uri': require("../assets/images/ScalesImages/Major/CbMajor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/Major/CbMajor.png"),
     'answers': [
       "Cb Major",
       "cb natural minor",
@@ -9,7 +9,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/Minor/CbMinor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/Minor/CbMinor.png"),
     'answers': [
       "cb natural minor",
       "Cb Major",
@@ -18,7 +18,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/HarmonicMinor/CbHarmonicMinor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/HarmonicMinor/CbHarmonicMinor.png"),
     'answers': [
       "cb harmonic minor",
       "Cb Major",
@@ -27,7 +27,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/MelodicMinor/CbMelodicMinor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/MelodicMinor/CbMelodicMinor.png"),
     'answers': [
       "cb melodic minor",
       "Cb Major",
@@ -36,7 +36,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/Major/CMajor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/Major/CMajor.png"),
     'answers': [
       "C Major",
       "c natural minor",
@@ -45,7 +45,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/Minor/CMinor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/Minor/CMinor.png"),
     'answers': [
       "c natural minor",
       "C Major",
@@ -54,7 +54,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/HarmonicMinor/CHarmonicMinor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/HarmonicMinor/CHarmonicMinor.png"),
     'answers': [
       "c harmonic minor",
       "C Major",
@@ -63,7 +63,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/MelodicMinor/CMelodicMinor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/MelodicMinor/CMelodicMinor.png"),
     'answers': [
       "c melodic minor",
       "C Major",
@@ -72,7 +72,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/Major/C#Major.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/Major/C#Major.png"),
     'answers': [
       "C# Major",
       "c# natural minor",
@@ -81,7 +81,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/Minor/C#Minor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/Minor/C#Minor.png"),
     'answers': [
       "c# natural minor",
       "C# Major",
@@ -90,7 +90,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/HarmonicMinor/C#HarmonicMinor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/HarmonicMinor/C#HarmonicMinor.png"),
     'answers': [
       "c# harmonic minor",
       "C# Major",
@@ -99,7 +99,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/MelodicMinor/C#MelodicMinor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/MelodicMinor/C#MelodicMinor.png"),
     'answers': [
       "c# melodic minor",
       "C# Major",
@@ -108,7 +108,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/Major/DbMajor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/Major/DbMajor.png"),
     'answers': [
       "Db Major",
       "db natural minor",
@@ -117,7 +117,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/Minor/DbMinor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/Minor/DbMinor.png"),
     'answers': [
       "db natural minor",
       "Db Major",
@@ -126,7 +126,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/HarmonicMinor/DbHarmonicMinor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/HarmonicMinor/DbHarmonicMinor.png"),
     'answers': [
       "db harmonic minor",
       "Db Major",
@@ -135,7 +135,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/MelodicMinor/DbMelodicMinor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/MelodicMinor/DbMelodicMinor.png"),
     'answers': [
       "db melodic minor",
       "Db Major",
@@ -144,7 +144,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/Major/DMajor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/Major/DMajor.png"),
     'answers': [
       "D Major",
       "d natural minor",
@@ -153,7 +153,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/Minor/DMinor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/Minor/DMinor.png"),
     'answers': [
       "d natural minor",
       "D Major",
@@ -162,7 +162,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/HarmonicMinor/DHarmonicMinor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/HarmonicMinor/DHarmonicMinor.png"),
     'answers': [
       "d harmonic minor",
       "D Major",
@@ -171,7 +171,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/MelodicMinor/DMelodicMinor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/MelodicMinor/DMelodicMinor.png"),
     'answers': [
       "d melodic minor",
       "D Major",
@@ -180,7 +180,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/Major/D#Major.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/Major/D#Major.png"),
     'answers': [
       "D# Major",
       "d# natural minor",
@@ -189,7 +189,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/Minor/D#Minor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/Minor/D#Minor.png"),
     'answers': [
       "d# natural minor",
       "D# Major",
@@ -198,7 +198,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/HarmonicMinor/D#HarmonicMinor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/HarmonicMinor/D#HarmonicMinor.png"),
     'answers': [
       "d# harmonic minor",
       "D# Major",
@@ -207,7 +207,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/MelodicMinor/D#MelodicMinor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/MelodicMinor/D#MelodicMinor.png"),
     'answers': [
       "d# melodic minor",
       "D# Major",
@@ -216,7 +216,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/Major/EbMajor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/Major/EbMajor.png"),
     'answers': [
       "Eb Major",
       "eb natural minor",
@@ -225,7 +225,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/Minor/EbMinor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/Minor/EbMinor.png"),
     'answers': [
       "eb natural minor",
       "Eb Major",
@@ -234,7 +234,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/HarmonicMinor/EbHarmonicMinor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/HarmonicMinor/EbHarmonicMinor.png"),
     'answers': [
       "eb harmonic minor",
       "Eb Major",
@@ -243,7 +243,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/MelodicMinor/EbMelodicMinor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/MelodicMinor/EbMelodicMinor.png"),
     'answers': [
       "eb melodic minor",
       "Eb Major",
@@ -252,7 +252,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/Major/EMajor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/Major/EMajor.png"),
     'answers': [
       "E Major",
       "e natural minor",
@@ -261,7 +261,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/Minor/EMinor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/Minor/EMinor.png"),
     'answers': [
       "e natural minor",
       "E Major",
@@ -270,7 +270,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/HarmonicMinor/EHarmonicMinor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/HarmonicMinor/EHarmonicMinor.png"),
     'answers': [
       "e harmonic minor",
       "E Major",
@@ -279,7 +279,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/MelodicMinor/EMelodicMinor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/MelodicMinor/EMelodicMinor.png"),
     'answers': [
       "e melodic minor",
       "E Major",
@@ -288,7 +288,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/Major/E#Major.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/Major/E#Major.png"),
     'answers': [
       "E# Major",
       "e# natural minor",
@@ -297,7 +297,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/Minor/E#Minor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/Minor/E#Minor.png"),
     'answers': [
       "e# natural minor",
       "E# Major",
@@ -306,7 +306,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/HarmonicMinor/E#HarmonicMinor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/HarmonicMinor/E#HarmonicMinor.png"),
     'answers': [
       "e# harmonic minor",
       "E# Major",
@@ -315,7 +315,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/MelodicMinor/E#MelodicMinor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/MelodicMinor/E#MelodicMinor.png"),
     'answers': [
       "e# melodic minor",
       "E# Major",
@@ -324,7 +324,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/Major/FbMajor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/Major/FbMajor.png"),
     'answers': [
       "Fb Major",
       "fb natural minor",
@@ -333,7 +333,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/Minor/FbMinor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/Minor/FbMinor.png"),
     'answers': [
       "fb natural minor",
       "Fb Major",
@@ -342,7 +342,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/HarmonicMinor/FbHarmonicMinor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/HarmonicMinor/FbHarmonicMinor.png"),
     'answers': [
       "fb harmonic minor",
       "Fb Major",
@@ -351,7 +351,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/MelodicMinor/FbMelodicMinor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/MelodicMinor/FbMelodicMinor.png"),
     'answers': [
       "fb melodic minor",
       "Fb Major",
@@ -360,7 +360,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/Major/FMajor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/Major/FMajor.png"),
     'answers': [
       "F Major",
       "f natural minor",
@@ -369,7 +369,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/Minor/FMinor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/Minor/FMinor.png"),
     'answers': [
       "f natural minor",
       "F Major",
@@ -378,7 +378,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/HarmonicMinor/FHarmonicMinor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/HarmonicMinor/FHarmonicMinor.png"),
     'answers': [
       "f harmonic minor",
       "F Major",
@@ -387,7 +387,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/MelodicMinor/FMelodicMinor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/MelodicMinor/FMelodicMinor.png"),
     'answers': [
       "f melodic minor",
       "F Major",
@@ -396,7 +396,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/Major/F#Major.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/Major/F#Major.png"),
     'answers': [
       "F# Major",
       "f# natural minor",
@@ -405,7 +405,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/Minor/F#Minor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/Minor/F#Minor.png"),
     'answers': [
       "f# natural minor",
       "F# Major",
@@ -414,7 +414,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/HarmonicMinor/F#HarmonicMinor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/HarmonicMinor/F#HarmonicMinor.png"),
     'answers': [
       "f# harmonic minor",
       "F# Major",
@@ -423,7 +423,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/MelodicMinor/F#MelodicMinor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/MelodicMinor/F#MelodicMinor.png"),
     'answers': [
       "f# melodic minor",
       "F# Major",
@@ -432,7 +432,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/Major/GbMajor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/Major/GbMajor.png"),
     'answers': [
       "Gb Major",
       "gb natural minor",
@@ -441,7 +441,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/Minor/GbMinor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/Minor/GbMinor.png"),
     'answers': [
       "gb natural minor",
       "Gb Major",
@@ -450,7 +450,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/HarmonicMinor/GbHarmonicMinor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/HarmonicMinor/GbHarmonicMinor.png"),
     'answers': [
       "gb harmonic minor",
       "Gb Major",
@@ -459,7 +459,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/MelodicMinor/GbMelodicMinor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/MelodicMinor/GbMelodicMinor.png"),
     'answers': [
       "gb melodic minor",
       "Gb Major",
@@ -468,7 +468,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/Major/GMajor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/Major/GMajor.png"),
     'answers': [
       "G Major",
       "g natural minor",
@@ -477,7 +477,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/Minor/GMinor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/Minor/GMinor.png"),
     'answers': [
       "g natural minor",
       "G Major",
@@ -486,7 +486,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/HarmonicMinor/GHarmonicMinor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/HarmonicMinor/GHarmonicMinor.png"),
     'answers': [
       "g harmonic minor",
       "G Major",
@@ -495,7 +495,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/MelodicMinor/GMelodicMinor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/MelodicMinor/GMelodicMinor.png"),
     'answers': [
       "g melodic minor",
       "G Major",
@@ -504,7 +504,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/Major/G#Major.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/Major/G#Major.png"),
     'answers': [
       "G# Major",
       "g# natural minor",
@@ -513,7 +513,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/Minor/G#Minor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/Minor/G#Minor.png"),
     'answers': [
       "g# natural minor",
       "G# Major",
@@ -522,7 +522,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/HarmonicMinor/G#HarmonicMinor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/HarmonicMinor/G#HarmonicMinor.png"),
     'answers': [
       "g# harmonic minor",
       "G# Major",
@@ -531,7 +531,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/MelodicMinor/G#MelodicMinor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/MelodicMinor/G#MelodicMinor.png"),
     'answers': [
       "g# melodic minor",
       "G# Major",
@@ -540,7 +540,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/Major/AbMajor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/Major/AbMajor.png"),
     'answers': [
       "Ab Major",
       "ab natural minor",
@@ -549,7 +549,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/Minor/AbMinor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/Minor/AbMinor.png"),
     'answers': [
       "ab natural minor",
       "Ab Major",
@@ -558,7 +558,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/HarmonicMinor/AbHarmonicMinor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/HarmonicMinor/AbHarmonicMinor.png"),
     'answers': [
       "ab harmonic minor",
       "Ab Major",
@@ -567,7 +567,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/MelodicMinor/AbMelodicMinor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/MelodicMinor/AbMelodicMinor.png"),
     'answers': [
       "ab melodic minor",
       "Ab Major",
@@ -576,7 +576,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/Major/AMajor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/Major/AMajor.png"),
     'answers': [
       "A Major",
       "a natural minor",
@@ -585,7 +585,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/Minor/AMinor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/Minor/AMinor.png"),
     'answers': [
       "a natural minor",
       "A Major",
@@ -594,7 +594,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/HarmonicMinor/AHarmonicMinor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/HarmonicMinor/AHarmonicMinor.png"),
     'answers': [
       "a harmonic minor",
       "A Major",
@@ -603,7 +603,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/MelodicMinor/AMelodicMinor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/MelodicMinor/AMelodicMinor.png"),
     'answers': [
       "a melodic minor",
       "A Major",
@@ -612,7 +612,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/Major/A#Major.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/Major/A#Major.png"),
     'answers': [
       "A# Major",
       "a# natural minor",
@@ -621,7 +621,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/Minor/A#Minor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/Minor/A#Minor.png"),
     'answers': [
       "a# natural minor",
       "A# Major",
@@ -630,7 +630,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/HarmonicMinor/A#HarmonicMinor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/HarmonicMinor/A#HarmonicMinor.png"),
     'answers': [
       "a# harmonic minor",
       "A# Major",
@@ -639,7 +639,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/MelodicMinor/A#MelodicMinor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/MelodicMinor/A#MelodicMinor.png"),
     'answers': [
       "a# melodic minor",
       "A# Major",
@@ -648,7 +648,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/Major/BbMajor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/Major/BbMajor.png"),
     'answers': [
       "Bb Major",
       "bb natural minor",
@@ -657,7 +657,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/Minor/BbMinor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/Minor/BbMinor.png"),
     'answers': [
       "bb natural minor",
       "Bb Major",
@@ -666,7 +666,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/HarmonicMinor/BbHarmonicMinor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/HarmonicMinor/BbHarmonicMinor.png"),
     'answers': [
       "bb harmonic minor",
       "Bb Major",
@@ -675,7 +675,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/MelodicMinor/BbMelodicMinor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/MelodicMinor/BbMelodicMinor.png"),
     'answers': [
       "bb melodic minor",
       "Bb Major",
@@ -684,7 +684,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/Major/BMajor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/Major/BMajor.png"),
     'answers': [
       "B Major",
       "b natural minor",
@@ -693,7 +693,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/Minor/BMinor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/Minor/BMinor.png"),
     'answers': [
       "b natural minor",
       "B Major",
@@ -702,7 +702,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/HarmonicMinor/BHarmonicMinor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/HarmonicMinor/BHarmonicMinor.png"),
     'answers': [
       "b harmonic minor",
       "B Major",
@@ -711,7 +711,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/MelodicMinor/BMelodicMinor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/MelodicMinor/BMelodicMinor.png"),
     'answers': [
       "b melodic minor",
       "B Major",
@@ -720,7 +720,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/Major/B#Major.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/Major/B#Major.png"),
     'answers': [
       "B# Major",
       "b# natural minor",
@@ -729,7 +729,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/Minor/B#Minor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/Minor/B#Minor.png"),
     'answers': [
       "b# natural minor",
       "B# Major",
@@ -738,7 +738,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/HarmonicMinor/B#HarmonicMinor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/HarmonicMinor/B#HarmonicMinor.png"),
     'answers': [
       "b# harmonic minor",
       "B# Major",
@@ -747,7 +747,7 @@ export const ScalesProblems = [
     ],
   },
   {
-    'uri': require("../assets/images/ScalesImages/MelodicMinor/B#MelodicMinor.png"),
+    'TrebleURI': require("../assets/images/ScalesImages/Treble/MelodicMinor/B#MelodicMinor.png"),
     'answers': [
       "b# melodic minor",
       "B# Major",

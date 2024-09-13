@@ -16,12 +16,18 @@ import shuffle from "../../../constants/Shuffle";
 import ScalesProblemFunction from "../../../constants/ScalesProblemFunction";
 import { RFPercentage } from "react-native-responsive-fontsize";
 import ScoreButton from "../../../components/ScoreButton";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
 
+let clef;
+AsyncStorage.getItem('Clef').then((storageClef) => {
+  clef = storageClef
+})
+
 function setProblem(ScalesProblems) {
-  let ScalesProblem = ScalesProblemFunction(ScalesProblems);
+  let ScalesProblem = ScalesProblemFunction(ScalesProblems, clef);
   return ScalesProblem;
 }
 
@@ -33,7 +39,7 @@ export default function ScalesStudy() {
   const [isAnswerEnabled, setIsAnswerEnabled] = useState(true)
   const [ScalesStudyScore, SetScalesStudyScore] = useState(0);
   const [ScalesProblem, ResetScalesProblem] = useState(
-    ScalesProblemFunction(ScalesProblems)
+    ScalesProblemFunction(ScalesProblems,clef)
   );
   const [imageSource, setImageSource] = useState(ScalesProblem[0]);
   useEffect(() => {

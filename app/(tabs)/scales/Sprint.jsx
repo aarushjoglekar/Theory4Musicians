@@ -16,12 +16,18 @@ import Title from "../../../components/Title";
 import { router, useFocusEffect } from "expo-router";
 import { RFPercentage } from "react-native-responsive-fontsize";
 import ScoreButton from "../../../components/ScoreButton";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
 
+let clef;
+AsyncStorage.getItem('Clef').then((storageClef) => {
+  clef = storageClef
+})
+
 function setProblem(ScalesProblems) {
-  let ScalesProblem = ScalesProblemFunction(ScalesProblems);
+  let ScalesProblem = ScalesProblemFunction(ScalesProblems,clef);
   return ScalesProblem;
 }
 
@@ -34,7 +40,7 @@ export default function ScalesSprint() {
   const [isAnswerEnabled, setIsAnswerEnabled] = useState(true)
   const [ScalesSprintScore, SetScalesSprintScore] = useState(0);
   const [ScalesProblem, ResetScalesProblem] = useState(
-    ScalesProblemFunction(ScalesProblems)
+    ScalesProblemFunction(ScalesProblems,clef)
   );
   const [imageSource, setImageSource] = useState(ScalesProblem[0]);
   useEffect(() => {

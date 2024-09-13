@@ -8,6 +8,7 @@ import getRecentDate from "../../../storageServices/getRecentDate";
 import getNextDay from "../../../storageServices/getNextDay";
 import setRecentDate from "../../../storageServices/setRecentDate";
 import updateDailyStreak from "../../../storageServices/updateDailyStreak"
+import arraysEqual from "../../../constants/ArraysEqual";
 
 export default function ScalesDisplayScore() {
   const { ScalesSprintScore } = useLocalSearchParams();

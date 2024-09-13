@@ -14,6 +14,11 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const height = Dimensions.get("window").height;
 
+let clef;
+AsyncStorage.getItem('Clef').then((storageClef) => {
+  clef = storageClef
+})
+
 export default function Home() {
   const [dailyStreak, setDailyStreak] = useState();
   readDailyStreak().then((streak) => {
@@ -28,7 +33,7 @@ export default function Home() {
         <View style={{ flex: 10, justifyContent: "flex-end" }}>
           <Title title="Theory4Musicians" />
         </View>
-        <View style={{ flex: 30 }} />
+        <View style={{ flex: 20 }} />
         <HomePageButtonSection
           disabled={true}
           text={`Daily Streak: ${dailyStreak}`}
@@ -49,6 +54,18 @@ export default function Home() {
           text="Reset Scores"
         />
         <View style={{ height: 40 }} />
+        <HomePageButtonSection
+          onPress={() => {
+            let otherClef;
+            if (clef == "Treble"){
+              otherClef = "Bass"
+            } else {
+              otherClef = "Treble"
+            }
+            AsyncStorage.setItem("Clef", otherClef)
+          }}
+          text={"Toggle Clef\nCurrent Clef: " + clef}
+        />
         <View style={{ height: height * 0.1 }} />
       </SafeAreaView>
     </ImageBackground>
