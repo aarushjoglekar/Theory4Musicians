@@ -1,6 +1,6 @@
-export default function TriadsProblemFunction(Array) {
+export default function TriadsProblemFunction(Array, clef) {
   let randomProblem = Math.round((Array.length - 1) * Math.random());
-  let problemKey = Array[randomProblem]['imagePath']
+  let problemKey = Array[randomProblem][clef + 'URI']
   let correctAnswer = Array[randomProblem]['answers'][0];
   let wrongAnswer1 = Array[randomProblem]['answers'][1];
   let wrongAnswer2 = Array[randomProblem]['answers'][2];

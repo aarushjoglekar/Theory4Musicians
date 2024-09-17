@@ -16,12 +16,18 @@ import shuffle from "../../../constants/Shuffle";
 import TriadsProblemFunction from "../../../constants/TriadsProblemFunction";
 import { RFPercentage } from "react-native-responsive-fontsize";
 import ScoreButton from "../../../components/ScoreButton";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
 
+let clef;
+AsyncStorage.getItem('Clef').then((storageClef) => {
+  clef = storageClef
+})
+
 function setProblem(TriadsProblems) {
-  let TriadsProblem = TriadsProblemFunction(TriadsProblems);
+  let TriadsProblem = TriadsProblemFunction(TriadsProblems, clef);
   return TriadsProblem;
 }
 
@@ -33,7 +39,7 @@ export default function TriadsStudy() {
   const [isAnswerEnabled, setIsAnswerEnabled] = useState(true)
   const [TriadsStudyScore, SetTriadsStudyScore] = useState(0);
   const [TriadsProblem, ResetTriadsProblem] = useState(
-    TriadsProblemFunction(TriadsProblems)
+    TriadsProblemFunction(TriadsProblems, clef)
   );
   const [imageSource, setImageSource] = useState(TriadsProblem[0]);
   useEffect(() => {
