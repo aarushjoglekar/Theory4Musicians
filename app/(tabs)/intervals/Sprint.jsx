@@ -16,12 +16,18 @@ import Title from "../../../components/Title";
 import { router, useFocusEffect } from "expo-router";
 import { RFPercentage } from "react-native-responsive-fontsize";
 import ScoreButton from "../../../components/ScoreButton";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
 
+let clef;
+AsyncStorage.getItem('Clef').then((storageClef) => {
+  clef = storageClef
+})
+
 function setProblem(IntervalsProblems) {
-  let IntervalsProblem = IntervalsProblemFunction(IntervalsProblems);
+  let IntervalsProblem = IntervalsProblemFunction(IntervalsProblems, clef);
   return IntervalsProblem;
 }
 
@@ -34,7 +40,7 @@ export default function IntervalsSprint() {
   const [isAnswerEnabled, setIsAnswerEnabled] = useState(true)
   const [IntervalsSprintScore, SetIntervalsSprintScore] = useState(0);
   const [IntervalsProblem, ResetIntervalsProblem] = useState(
-    IntervalsProblemFunction(IntervalsProblems)
+    IntervalsProblemFunction(IntervalsProblems, clef)
   );
   const [imageSource, setImageSource] = useState(IntervalsProblem[0]);
   useEffect(() => {
