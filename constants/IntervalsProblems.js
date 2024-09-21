@@ -271,6 +271,7 @@ export const IntervalsProblems = [
     "TrebleURI": require("../assets/images/IntervalsImages/Treble/2nds/B/BAug2.png"), 
     "answers": ['A2', 'M2', 'm2', 'd2'] 
   },
+  ////////////////////////////////
   { 
     "TrebleURI": require("../assets/images/IntervalsImages/Treble/3rds/C/CMaj3.png"), 
     "answers": ['M3', 'm3', 'd3', 'A3'] 
@@ -543,6 +544,7 @@ export const IntervalsProblems = [
     "TrebleURI": require("../assets/images/IntervalsImages/Treble/3rds/B/BAug3.png"), 
     "answers": ['A3', 'M3', 'm3', 'd3'] 
   },
+  ////////////////////////////////
   { 
     "TrebleURI": require("../assets/images/IntervalsImages/Treble/4ths/C/CPer4.png"), 
     "answers": ['P4', 'd4', 'A4', 'M4'] 
@@ -747,6 +749,7 @@ export const IntervalsProblems = [
     "TrebleURI": require("../assets/images/IntervalsImages/Treble/4ths/B/BAug4.png"), 
     "answers": ['A4', 'P4', 'd4', 'M4'] 
   },
+  ////////////////////////////////
   { 
     "TrebleURI": require("../assets/images/IntervalsImages/Treble/5ths/C/CPer5.png"), 
     "answers": ['P5', 'd5', 'A5', 'M5'] 
@@ -951,6 +954,7 @@ export const IntervalsProblems = [
     "TrebleURI": require("../assets/images/IntervalsImages/Treble/5ths/B/Bdim5.png"), 
     "answers": ['d5', 'P5', 'A5', 'm5'] 
   },
+  ////////////////////////////////
   { 
     "TrebleURI": require("../assets/images/IntervalsImages/Treble/6ths/C/CMaj6.png"), 
     "answers": ['M6', 'm6', 'd6', 'A6'] 
@@ -1223,6 +1227,7 @@ export const IntervalsProblems = [
     "TrebleURI": require("../assets/images/IntervalsImages/Treble/6ths/B/BAug6.png"), 
     "answers": ['A6', 'M6', 'm6', 'd6'] 
   },
+  ////////////////////////////////
   { 
     "TrebleURI": require("../assets/images/IntervalsImages/Treble/7ths/C/CMaj7.png"), 
     "answers": ['M7', 'm7', 'd7', 'A7'] 
@@ -1495,6 +1500,7 @@ export const IntervalsProblems = [
     "TrebleURI": require("../assets/images/IntervalsImages/Treble/7ths/B/BAug7.png"), 
     "answers": ['A7', 'M7', 'm7', 'd7'] 
   },
+  ////////////////////////////////
   { 
     "TrebleURI": require("../assets/images/IntervalsImages/Treble/8ths/C/CPer8.png"), 
     "answers": ['P8', 'd8', 'A8', 'M8'] 
