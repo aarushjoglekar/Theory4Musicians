@@ -9,6 +9,7 @@ export default function Index() {
     let id;
     if (storageID == null){
       id = uuid.v4()
+      AsyncStorage.setItem('id', JSON.stringify(id))
     } else {
       id = storageID
     }
