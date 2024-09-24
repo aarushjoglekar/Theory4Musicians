@@ -34,7 +34,7 @@ export default function KeysSprint() {
   const [isAnswerEnabled, setIsAnswerEnabled] = useState(true);
   const [KeysSprintScore, SetKeysSprintScore] = useState(0);
   const [KeysProblem, ResetKeysProblem] = useState(
-    KeysProblemFunction(KeysProblems)
+    setProblem(KeysProblems)
   );
   const [imageSource, setImageSource] = useState(KeysProblem[0]);
 

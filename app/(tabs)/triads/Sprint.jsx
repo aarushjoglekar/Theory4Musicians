@@ -26,8 +26,8 @@ AsyncStorage.getItem('Clef').then((storageClef) => {
   clef = storageClef
 })
 
-function setProblem(TriadsProblems) {
-  let TriadsProblem = TriadsProblemFunction(TriadsProblems, clef);
+function setProblem(TriadsProblems, currentClef) {
+  let TriadsProblem = TriadsProblemFunction(TriadsProblems, currentClef);
   return TriadsProblem;
 }
 
@@ -41,7 +41,7 @@ export default function TriadsSprint() {
   const [isAnswerEnabled, setIsAnswerEnabled] = useState(true)
   const [TriadsSprintScore, SetTriadsSprintScore] = useState(0);
   const [TriadsProblem, ResetTriadsProblem] = useState(
-    TriadsProblemFunction(TriadsProblems, clef)
+    setProblem(TriadsProblems, clef)
   );
   const [imageSource, setImageSource] = useState(TriadsProblem[0]);
   useEffect(() => {
@@ -93,7 +93,7 @@ export default function TriadsSprint() {
               if (correctAnswerSpot == 0) {
                 SetTriadsSprintScore(TriadsSprintScore + 1);
               }
-              ResetTriadsProblem(setProblem(TriadsProblems));
+              ResetTriadsProblem(setProblem(TriadsProblems, clef));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
               disableAnswerBriefly()
@@ -110,7 +110,7 @@ export default function TriadsSprint() {
               if (correctAnswerSpot == 1) {
                 SetTriadsSprintScore(TriadsSprintScore + 1);
               }
-              ResetTriadsProblem(setProblem(TriadsProblems));
+              ResetTriadsProblem(setProblem(TriadsProblems, clef));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
               disableAnswerBriefly()
@@ -127,7 +127,7 @@ export default function TriadsSprint() {
               if (correctAnswerSpot == 2) {
                 SetTriadsSprintScore(TriadsSprintScore + 1);
               }
-              ResetTriadsProblem(setProblem(TriadsProblems));
+              ResetTriadsProblem(setProblem(TriadsProblems, clef));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
               disableAnswerBriefly()
@@ -144,7 +144,7 @@ export default function TriadsSprint() {
               if (correctAnswerSpot == 3) {
                 SetTriadsSprintScore(TriadsSprintScore + 1);
               }
-              ResetTriadsProblem(setProblem(TriadsProblems));
+              ResetTriadsProblem(setProblem(TriadsProblems, clef));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
               disableAnswerBriefly()

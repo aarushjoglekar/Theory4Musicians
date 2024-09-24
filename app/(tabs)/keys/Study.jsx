@@ -33,7 +33,7 @@ export default function KeysStudy() {
   const [isAnswerEnabled, setIsAnswerEnabled] = useState(true)
   const [KeysStudyScore, SetKeysStudyScore] = useState(0);
   const [KeysProblem, ResetKeysProblem] = useState(
-    KeysProblemFunction(KeysProblems)
+    setProblem(KeysProblems)
   );
   const [imageSource, setImageSource] = useState(KeysProblem[0]);
   useEffect(() => {

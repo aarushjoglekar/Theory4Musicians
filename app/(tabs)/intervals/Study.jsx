@@ -26,8 +26,8 @@ AsyncStorage.getItem('Clef').then((storageClef) => {
   clef = storageClef
 })
 
-function setProblem(IntervalsProblems) {
-  let IntervalsProblem = IntervalsProblemFunction(IntervalsProblems, clef);
+function setProblem(IntervalsProblems, currentClef) {
+  let IntervalsProblem = IntervalsProblemFunction(IntervalsProblems, currentClef);
   return IntervalsProblem;
 }
 
@@ -39,7 +39,7 @@ export default function IntervalsStudy() {
   const [isAnswerEnabled, setIsAnswerEnabled] = useState(true)
   const [IntervalsStudyScore, SetIntervalsStudyScore] = useState(0);
   const [IntervalsProblem, ResetIntervalsProblem] = useState(
-    IntervalsProblemFunction(IntervalsProblems, clef)
+    setProblem(IntervalsProblems, clef)
   );
   const [imageSource, setImageSource] = useState(IntervalsProblem[0]);
   useEffect(() => {
@@ -74,7 +74,7 @@ export default function IntervalsStudy() {
               if (correctAnswerSpot == 0) {
                 SetIntervalsStudyScore(IntervalsStudyScore + 1);
               }
-              ResetIntervalsProblem(setProblem(IntervalsProblems));
+              ResetIntervalsProblem(setProblem(IntervalsProblems, clef));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
               disableAnswerBriefly()
@@ -91,7 +91,7 @@ export default function IntervalsStudy() {
               if (correctAnswerSpot == 1) {
                 SetIntervalsStudyScore(IntervalsStudyScore + 1);
               }
-              ResetIntervalsProblem(setProblem(IntervalsProblems));
+              ResetIntervalsProblem(setProblem(IntervalsProblems, clef));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
               disableAnswerBriefly()
@@ -108,7 +108,7 @@ export default function IntervalsStudy() {
               if (correctAnswerSpot == 2) {
                 SetIntervalsStudyScore(IntervalsStudyScore + 1);
               }
-              ResetIntervalsProblem(setProblem(IntervalsProblems));
+              ResetIntervalsProblem(setProblem(IntervalsProblems, clef));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
               disableAnswerBriefly()
@@ -125,7 +125,7 @@ export default function IntervalsStudy() {
               if (correctAnswerSpot == 3) {
                 SetIntervalsStudyScore(IntervalsStudyScore + 1);
               }
-              ResetIntervalsProblem(setProblem(IntervalsProblems));
+              ResetIntervalsProblem(setProblem(IntervalsProblems, clef));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
               disableAnswerBriefly()
