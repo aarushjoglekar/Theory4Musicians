@@ -14,12 +14,11 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const height = Dimensions.get("window").height;
 
-let clef;
-AsyncStorage.getItem('Clef').then((storageClef) => {
-  clef = storageClef
-})
-
 export default function Home() {
+  const [clef, setClef] = useState();
+  AsyncStorage.getItem('Clef').then((storageClef) => {
+    setClef(storageClef)
+  })
   const [dailyStreak, setDailyStreak] = useState();
   readDailyStreak().then((streak) => {
     setDailyStreak(streak)
@@ -63,6 +62,7 @@ export default function Home() {
               otherClef = "Treble"
             }
             AsyncStorage.setItem("Clef", otherClef)
+            setClef(otherClef)
           }}
           text={"Toggle Clef\nCurrent Clef: " + clef}
         />
