@@ -21,11 +21,6 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
 
-let clef;
-AsyncStorage.getItem('Clef').then((storageClef) => {
-  clef = storageClef
-})
-
 function setProblem(ScalesProblems, currentClef) {
   let ScalesProblem = ScalesProblemFunction(ScalesProblems, currentClef);
   return ScalesProblem;
@@ -36,14 +31,26 @@ answerOrder = shuffle(answerOrder);
 let correctAnswerSpot = answerOrder.indexOf(1);
 
 export default function ScalesStudy() {
+  let clef;
   const [isAnswerEnabled, setIsAnswerEnabled] = useState(true)
   const [ScalesStudyScore, SetScalesStudyScore] = useState(0);
   const [ScalesProblem, ResetScalesProblem] = useState(
-    setProblem(ScalesProblems, clef)
+    [,,,,]
   );
-  const [imageSource, setImageSource] = useState(ScalesProblem[0]);
+  const [imageSource, setImageSource] = useState(null);
   useEffect(() => {
-    setImageSource(ScalesProblem[0]);
+    const fetchClefAndSetProblem = async () => {
+      clef = await AsyncStorage.getItem('Clef');
+      const problem = setProblem(ScalesProblems, clef);
+      ResetScalesProblem(problem);
+    };
+
+    fetchClefAndSetProblem();
+  }, []);
+  useEffect(() => {
+    if (ScalesProblem){
+      setImageSource(ScalesProblem[0]);
+    }
   }, [ScalesProblem]);
   function disableAnswerBriefly(){
     setIsAnswerEnabled(false)
