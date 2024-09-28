@@ -37,14 +37,26 @@ let correctAnswerSpot = answerOrder.indexOf(1);
 
 export default function ScalesSprint() {
   const LatestScalesSprintScoreRef = useRef()
+  let clef;
   const [isAnswerEnabled, setIsAnswerEnabled] = useState(true)
   const [ScalesSprintScore, SetScalesSprintScore] = useState(0);
   const [ScalesProblem, ResetScalesProblem] = useState(
-    setProblem(ScalesProblems, clef)
+    [,,,,]
   );
-  const [imageSource, setImageSource] = useState(ScalesProblem[0]);
+  const [imageSource, setImageSource] = useState(null);
   useEffect(() => {
-    setImageSource(ScalesProblem[0]);
+    const fetchClefAndSetProblem = async () => {
+      clef = await AsyncStorage.getItem('Clef');
+      const problem = setProblem(ScalesProblems, clef);
+      ResetScalesProblem(problem);
+    };
+
+    fetchClefAndSetProblem();
+  }, []);
+  useEffect(() => {
+    if (ScalesProblem){
+      setImageSource(ScalesProblem[0]);
+    }
   }, [ScalesProblem]);
 
   useEffect(() => {
