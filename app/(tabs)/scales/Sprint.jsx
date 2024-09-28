@@ -21,11 +21,6 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
 
-let clef;
-AsyncStorage.getItem('Clef').then((storageClef) => {
-  clef = storageClef
-})
-
 function setProblem(ScalesProblems, currentClef) {
   let ScalesProblem = ScalesProblemFunction(ScalesProblems,currentClef);
   return ScalesProblem;
