@@ -21,11 +21,6 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
 
-let clef;
-AsyncStorage.getItem('Clef').then((storageClef) => {
-  clef = storageClef
-})
-
 function setProblem(IntervalsProblems, currentClef) {
   let IntervalsProblem = IntervalsProblemFunction(IntervalsProblems, currentClef);
   return IntervalsProblem;
@@ -37,14 +32,26 @@ let correctAnswerSpot = answerOrder.indexOf(1);
 
 export default function IntervalsSprint() {
   const LatestIntervalsSprintScoreRef = useRef()
+  let clef;
   const [isAnswerEnabled, setIsAnswerEnabled] = useState(true)
   const [IntervalsSprintScore, SetIntervalsSprintScore] = useState(0);
   const [IntervalsProblem, ResetIntervalsProblem] = useState(
-    setProblem(IntervalsProblems, clef)
+    [,,,,]
   );
-  const [imageSource, setImageSource] = useState(IntervalsProblem[0]);
+  const [imageSource, setImageSource] = useState(null);
   useEffect(() => {
-    setImageSource(IntervalsProblem[0]);
+    const fetchClefAndSetProblem = async () => {
+      clef = await AsyncStorage.getItem('Clef');
+      const problem = setProblem(IntervalsProblems, clef);
+      ResetIntervalsProblem(problem);
+    };
+
+    fetchClefAndSetProblem();
+  }, []);
+  useEffect(() => {
+    if (IntervalsProblem){
+      setImageSource(IntervalsProblem[0]);
+    }
   }, [IntervalsProblem]);
 
   useEffect(() => {
