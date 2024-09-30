@@ -21,11 +21,6 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
 
-let clef;
-AsyncStorage.getItem('Clef').then((storageClef) => {
-  clef = storageClef
-})
-
 function setProblem(TriadsProblems, currentClef) {
   let TriadsProblem = TriadsProblemFunction(TriadsProblems, currentClef);
   return TriadsProblem;
@@ -36,14 +31,26 @@ answerOrder = shuffle(answerOrder);
 let correctAnswerSpot = answerOrder.indexOf(1);
 
 export default function TriadsStudy() {
+  let clef;
   const [isAnswerEnabled, setIsAnswerEnabled] = useState(true)
   const [TriadsStudyScore, SetTriadsStudyScore] = useState(0);
   const [TriadsProblem, ResetTriadsProblem] = useState(
-    setProblem(TriadsProblems, clef)
+    [,,,,]
   );
-  const [imageSource, setImageSource] = useState(TriadsProblem[0]);
+  const [imageSource, setImageSource] = useState(null);
   useEffect(() => {
-    setImageSource(TriadsProblem[0]);
+    const fetchClefAndSetProblem = async () => {
+      clef = await AsyncStorage.getItem('Clef');
+      const problem = setProblem(TriadsProblems, clef);
+      ResetTriadsProblem(problem);
+    };
+
+    fetchClefAndSetProblem();
+  }, []);
+  useEffect(() => {
+    if (TriadsProblem){
+      setImageSource(TriadsProblem[0]);
+    }
   }, [TriadsProblem]);
   function disableAnswerBriefly(){ 
     setIsAnswerEnabled(false)
