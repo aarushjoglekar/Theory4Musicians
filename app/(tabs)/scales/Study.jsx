@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { router } from "expo-router";
 import {
   Dimensions,
@@ -31,7 +31,7 @@ answerOrder = shuffle(answerOrder);
 let correctAnswerSpot = answerOrder.indexOf(1);
 
 export default function ScalesStudy() {
-  let clef;
+  let clef = useRef();
   const [isAnswerEnabled, setIsAnswerEnabled] = useState(true)
   const [ScalesStudyScore, SetScalesStudyScore] = useState(0);
   const [ScalesProblem, ResetScalesProblem] = useState(
@@ -40,8 +40,9 @@ export default function ScalesStudy() {
   const [imageSource, setImageSource] = useState(null);
   useEffect(() => {
     const fetchClefAndSetProblem = async () => {
-      clef = await AsyncStorage.getItem('Clef');
-      const problem = setProblem(ScalesProblems, clef);
+      clefVar = await AsyncStorage.getItem('Clef');
+      clef.current = clefVar;
+      const problem = setProblem(ScalesProblems, clef.current);
       ResetScalesProblem(problem);
     };
 
@@ -78,10 +79,11 @@ export default function ScalesStudy() {
             disabled={!isAnswerEnabled}
             style={styles.Button}
             onPress={() => {
+              console.log('clef: ', clef)
               if (correctAnswerSpot == 0) {
                 SetScalesStudyScore(ScalesStudyScore + 1);
               }
-              ResetScalesProblem(setProblem(ScalesProblems, clef));
+              ResetScalesProblem(setProblem(ScalesProblems, clef.current));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
               disableAnswerBriefly()
@@ -98,7 +100,7 @@ export default function ScalesStudy() {
               if (correctAnswerSpot == 1) {
                 SetScalesStudyScore(ScalesStudyScore + 1);
               }
-              ResetScalesProblem(setProblem(ScalesProblems, clef));
+              ResetScalesProblem(setProblem(ScalesProblems, clef.current));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
               disableAnswerBriefly()
@@ -115,7 +117,7 @@ export default function ScalesStudy() {
               if (correctAnswerSpot == 2) {
                 SetScalesStudyScore(ScalesStudyScore + 1);
               }
-              ResetScalesProblem(setProblem(ScalesProblems, clef));
+              ResetScalesProblem(setProblem(ScalesProblems, clef.current));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
               disableAnswerBriefly()
@@ -132,7 +134,7 @@ export default function ScalesStudy() {
               if (correctAnswerSpot == 3) {
                 SetScalesStudyScore(ScalesStudyScore + 1);
               }
-              ResetScalesProblem(setProblem(ScalesProblems, clef));
+              ResetScalesProblem(setProblem(ScalesProblems, clef.current));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
               disableAnswerBriefly()
