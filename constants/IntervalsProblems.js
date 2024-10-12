@@ -240,26 +240,6 @@ export const IntervalsProblems = [
     "answers": ['A2', 'M2', 'm2', 'd2'] 
   },
   { 
-    "TrebleURI": require("../assets/images/IntervalsImages/Treble/2nds/A#/A#Maj2.png"), 
-    "BassURI": require("../assets/images/IntervalsImages/Bass/2nds/A#/A#Maj2.png"), 
-    "answers": ['M2', 'm2', 'd2', 'A2'] 
-  },
-  { 
-    "TrebleURI": require("../assets/images/IntervalsImages/Treble/2nds/A#/A#min2.png"), 
-    "BassURI": require("../assets/images/IntervalsImages/Bass/2nds/A#/A#min2.png"), 
-    "answers": ['m2', 'M2', 'd2', 'A2'] 
-  },
-  { 
-    "TrebleURI": require("../assets/images/IntervalsImages/Treble/2nds/A#/A#dim2.png"), 
-    "BassURI": require("../assets/images/IntervalsImages/Bass/2nds/A#/A#dim2.png"), 
-    "answers": ['d2', 'M2', 'm2', 'A2'] 
-  },
-  { 
-    "TrebleURI": require("../assets/images/IntervalsImages/Treble/2nds/A#/A#Aug2.png"), 
-    "BassURI": require("../assets/images/IntervalsImages/Bass/2nds/A#/A#Aug2.png"), 
-    "answers": ['A2', 'M2', 'm2', 'd2'] 
-  },
-  { 
     "TrebleURI": require("../assets/images/IntervalsImages/Treble/2nds/Bb/BbMaj2.png"), 
     "BassURI": require("../assets/images/IntervalsImages/Bass/2nds/Bb/BbMaj2.png"), 
     "answers": ['M2', 'm2', 'd2', 'A2'] 
@@ -541,26 +521,6 @@ export const IntervalsProblems = [
     "answers": ['A3', 'M3', 'm3', 'd3'] 
   },
   { 
-    "TrebleURI": require("../assets/images/IntervalsImages/Treble/3rds/A#/A#Maj3.png"), 
-    "BassURI": require("../assets/images/IntervalsImages/Bass/3rds/A#/A#Maj3.png"), 
-    "answers": ['M3', 'm3', 'd3', 'A3'] 
-  },
-  { 
-    "TrebleURI": require("../assets/images/IntervalsImages/Treble/3rds/A#/A#min3.png"), 
-    "BassURI": require("../assets/images/IntervalsImages/Bass/3rds/A#/A#min3.png"), 
-    "answers": ['m3', 'M3', 'd3', 'A3'] 
-  },
-  { 
-    "TrebleURI": require("../assets/images/IntervalsImages/Treble/3rds/A#/A#dim3.png"), 
-    "BassURI": require("../assets/images/IntervalsImages/Bass/3rds/A#/A#dim3.png"), 
-    "answers": ['d3', 'M3', 'm3', 'A3'] 
-  },
-  { 
-    "TrebleURI": require("../assets/images/IntervalsImages/Treble/3rds/A#/A#Aug3.png"), 
-    "BassURI": require("../assets/images/IntervalsImages/Bass/3rds/A#/A#Aug3.png"), 
-    "answers": ['A3', 'M3', 'm3', 'd3'] 
-  },
-  { 
     "TrebleURI": require("../assets/images/IntervalsImages/Treble/3rds/B/BMaj3.png"), 
     "BassURI": require("../assets/images/IntervalsImages/Bass/3rds/B/BMaj3.png"), 
     "answers": ['M3', 'm3', 'd3', 'A3'] 
@@ -758,21 +718,6 @@ export const IntervalsProblems = [
   { 
     "TrebleURI": require("../assets/images/IntervalsImages/Treble/4ths/A/AAug4.png"), 
     "BassURI": require("../assets/images/IntervalsImages/Bass/4ths/A/AAug4.png"), 
-    "answers": ['A4', 'P4', 'd4', 'M4'] 
-  },
-  { 
-    "TrebleURI": require("../assets/images/IntervalsImages/Treble/4ths/A#/A#Per4.png"), 
-    "BassURI": require("../assets/images/IntervalsImages/Bass/4ths/A#/A#Per4.png"), 
-    "answers": ['P4', 'd4', 'A4', 'M4'] 
-  },
-  { 
-    "TrebleURI": require("../assets/images/IntervalsImages/Treble/4ths/A#/A#dim4.png"), 
-    "BassURI": require("../assets/images/IntervalsImages/Bass/4ths/A#/A#dim4.png"), 
-    "answers": ['d4', 'P4', 'A4', 'm4'] 
-  },
-  { 
-    "TrebleURI": require("../assets/images/IntervalsImages/Treble/4ths/A#/A#Aug4.png"), 
-    "BassURI": require("../assets/images/IntervalsImages/Bass/4ths/A#/A#Aug4.png"), 
     "answers": ['A4', 'P4', 'd4', 'M4'] 
   },
   { 
@@ -983,21 +928,6 @@ export const IntervalsProblems = [
   { 
     "TrebleURI": require("../assets/images/IntervalsImages/Treble/5ths/A/Adim5.png"), 
     "BassURI": require("../assets/images/IntervalsImages/Bass/5ths/A/Adim5.png"), 
-    "answers": ['d5', 'P5', 'A5', 'm5'] 
-  },
-  { 
-    "TrebleURI": require("../assets/images/IntervalsImages/Treble/5ths/A#/A#Per5.png"), 
-    "BassURI": require("../assets/images/IntervalsImages/Bass/5ths/A#/A#Per5.png"), 
-    "answers": ['P5', 'd5', 'A5', 'M5'] 
-  },
-  { 
-    "TrebleURI": require("../assets/images/IntervalsImages/Treble/5ths/A#/A#Aug5.png"), 
-    "BassURI": require("../assets/images/IntervalsImages/Bass/5ths/A#/A#Aug5.png"), 
-    "answers": ['A5', 'P5', 'd5', 'M5'] 
-  },
-  { 
-    "TrebleURI": require("../assets/images/IntervalsImages/Treble/5ths/A#/A#dim5.png"), 
-    "BassURI": require("../assets/images/IntervalsImages/Bass/5ths/A#/A#dim5.png"), 
     "answers": ['d5', 'P5', 'A5', 'm5'] 
   },
   { 
@@ -1268,26 +1198,6 @@ export const IntervalsProblems = [
   { 
     "TrebleURI": require("../assets/images/IntervalsImages/Treble/6ths/A/AAug6.png"), 
     "BassURI": require("../assets/images/IntervalsImages/Bass/6ths/A/AAug6.png"),
-    "answers": ['A6', 'M6', 'm6', 'd6'] 
-  },
-  { 
-    "TrebleURI": require("../assets/images/IntervalsImages/Treble/6ths/A#/A#Maj6.png"), 
-    "BassURI": require("../assets/images/IntervalsImages/Bass/6ths/A#/A#Maj6.png"),
-    "answers": ['M6', 'm6', 'd6', 'A6'] 
-  },
-  { 
-    "TrebleURI": require("../assets/images/IntervalsImages/Treble/6ths/A#/A#min6.png"), 
-    "BassURI": require("../assets/images/IntervalsImages/Bass/6ths/A#/A#min6.png"),
-    "answers": ['m6', 'M6', 'd6', 'A6'] 
-  },
-  { 
-    "TrebleURI": require("../assets/images/IntervalsImages/Treble/6ths/A#/A#dim6.png"), 
-    "BassURI": require("../assets/images/IntervalsImages/Bass/6ths/A#/A#dim6.png"),
-    "answers": ['d6', 'M6', 'm6', 'A6'] 
-  },
-  { 
-    "TrebleURI": require("../assets/images/IntervalsImages/Treble/6ths/A#/A#Aug6.png"), 
-    "BassURI": require("../assets/images/IntervalsImages/Bass/6ths/A#/A#Aug6.png"),
     "answers": ['A6', 'M6', 'm6', 'd6'] 
   },
   { 
@@ -1788,21 +1698,6 @@ export const IntervalsProblems = [
   { 
     "TrebleURI": require("../assets/images/IntervalsImages/Treble/8ths/A/AAug8.png"), 
     "BassURI": require("../assets/images/IntervalsImages/Bass/8ths/A/AAug8.png"),
-    "answers": ['A8', 'P8', 'd8', 'M8'] 
-  },
-  { 
-    "TrebleURI": require("../assets/images/IntervalsImages/Treble/8ths/A#/A#Per8.png"), 
-    "BassURI": require("../assets/images/IntervalsImages/Bass/8ths/A#/A#Per8.png"),
-    "answers": ['P8', 'd8', 'A8', 'M8'] 
-  },
-  { 
-    "TrebleURI": require("../assets/images/IntervalsImages/Treble/8ths/A#/A#dim8.png"), 
-    "BassURI": require("../assets/images/IntervalsImages/Bass/8ths/A#/A#dim8.png"),
-    "answers": ['d8', 'P8', 'A8', 'm8'] 
-  },
-  { 
-    "TrebleURI": require("../assets/images/IntervalsImages/Treble/8ths/A#/A#Aug8.png"), 
-    "BassURI": require("../assets/images/IntervalsImages/Bass/8ths/A#/A#Aug8.png"),
     "answers": ['A8', 'P8', 'd8', 'M8'] 
   },
   { 
