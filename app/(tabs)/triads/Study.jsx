@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { router } from "expo-router";
 import {
   Dimensions,
@@ -31,7 +31,7 @@ answerOrder = shuffle(answerOrder);
 let correctAnswerSpot = answerOrder.indexOf(1);
 
 export default function TriadsStudy() {
-  let clef;
+  let clef = useRef();
   const [isAnswerEnabled, setIsAnswerEnabled] = useState(true)
   const [TriadsStudyScore, SetTriadsStudyScore] = useState(0);
   const [TriadsProblem, ResetTriadsProblem] = useState(
@@ -40,8 +40,9 @@ export default function TriadsStudy() {
   const [imageSource, setImageSource] = useState(null);
   useEffect(() => {
     const fetchClefAndSetProblem = async () => {
-      clef = await AsyncStorage.getItem('Clef');
-      const problem = setProblem(TriadsProblems, clef);
+      clefVar = await AsyncStorage.getItem('Clef');
+      clef.current = clefVar;
+      const problem = setProblem(TriadsProblems, clef.current);
       ResetTriadsProblem(problem);
     };
 
@@ -81,7 +82,7 @@ export default function TriadsStudy() {
               if (correctAnswerSpot == 0) {
                 SetTriadsStudyScore(TriadsStudyScore + 1);
               }
-              ResetTriadsProblem(setProblem(TriadsProblems, clef));
+              ResetTriadsProblem(setProblem(TriadsProblems, clef.current));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
               disableAnswerBriefly()
@@ -98,7 +99,7 @@ export default function TriadsStudy() {
               if (correctAnswerSpot == 1) {
                 SetTriadsStudyScore(TriadsStudyScore + 1);
               }
-              ResetTriadsProblem(setProblem(TriadsProblems, clef));
+              ResetTriadsProblem(setProblem(TriadsProblems, clef.current));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
               disableAnswerBriefly()
@@ -115,7 +116,7 @@ export default function TriadsStudy() {
               if (correctAnswerSpot == 2) {
                 SetTriadsStudyScore(TriadsStudyScore + 1);
               }
-              ResetTriadsProblem(setProblem(TriadsProblems, clef));
+              ResetTriadsProblem(setProblem(TriadsProblems, clef.current));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
               disableAnswerBriefly()
@@ -132,7 +133,7 @@ export default function TriadsStudy() {
               if (correctAnswerSpot == 3) {
                 SetTriadsStudyScore(TriadsStudyScore + 1);
               }
-              ResetTriadsProblem(setProblem(TriadsProblems, clef));
+              ResetTriadsProblem(setProblem(TriadsProblems, clef.current));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
               disableAnswerBriefly()

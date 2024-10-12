@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { router } from "expo-router";
 import {
   Dimensions,
@@ -31,7 +31,7 @@ answerOrder = shuffle(answerOrder);
 let correctAnswerSpot = answerOrder.indexOf(1);
 
 export default function IntervalsStudy() {
-  let clef;
+  let clef = useRef()
   const [isAnswerEnabled, setIsAnswerEnabled] = useState(true)
   const [IntervalsStudyScore, SetIntervalsStudyScore] = useState(0);
   const [IntervalsProblem, ResetIntervalsProblem] = useState(
@@ -40,8 +40,9 @@ export default function IntervalsStudy() {
   const [imageSource, setImageSource] = useState(null);
   useEffect(() => {
     const fetchClefAndSetProblem = async () => {
-      clef = await AsyncStorage.getItem('Clef');
-      const problem = setProblem(IntervalsProblems, clef);
+      clefVar = await AsyncStorage.getItem('Clef');
+      clef.current = clefVar;
+      const problem = setProblem(IntervalsProblems, clef.current);
       ResetIntervalsProblem(problem);
     };
 
@@ -81,7 +82,7 @@ export default function IntervalsStudy() {
               if (correctAnswerSpot == 0) {
                 SetIntervalsStudyScore(IntervalsStudyScore + 1);
               }
-              ResetIntervalsProblem(setProblem(IntervalsProblems, clef));
+              ResetIntervalsProblem(setProblem(IntervalsProblems, clef.current));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
               disableAnswerBriefly()
@@ -98,7 +99,7 @@ export default function IntervalsStudy() {
               if (correctAnswerSpot == 1) {
                 SetIntervalsStudyScore(IntervalsStudyScore + 1);
               }
-              ResetIntervalsProblem(setProblem(IntervalsProblems, clef));
+              ResetIntervalsProblem(setProblem(IntervalsProblems, clef.current));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
               disableAnswerBriefly()
@@ -115,7 +116,7 @@ export default function IntervalsStudy() {
               if (correctAnswerSpot == 2) {
                 SetIntervalsStudyScore(IntervalsStudyScore + 1);
               }
-              ResetIntervalsProblem(setProblem(IntervalsProblems, clef));
+              ResetIntervalsProblem(setProblem(IntervalsProblems, clef.current));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
               disableAnswerBriefly()
@@ -132,7 +133,7 @@ export default function IntervalsStudy() {
               if (correctAnswerSpot == 3) {
                 SetIntervalsStudyScore(IntervalsStudyScore + 1);
               }
-              ResetIntervalsProblem(setProblem(IntervalsProblems, clef));
+              ResetIntervalsProblem(setProblem(IntervalsProblems, clef.current));
               answerOrder = shuffle(answerOrder);
               correctAnswerSpot = answerOrder.indexOf(1);
               disableAnswerBriefly()
