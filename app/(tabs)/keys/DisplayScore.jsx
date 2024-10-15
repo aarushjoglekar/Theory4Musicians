@@ -13,7 +13,7 @@ import arraysEqual from "../../../constants/ArraysEqual";
 export default function KeysDisplayScore() {
   const { KeysSprintScore } = useLocalSearchParams();
   readScore("keys").then( (highScore)=>{
-    if (KeysSprintScore > highScore){
+    if (JSON.parse(KeysSprintScore) > highScore){
       updateScore("keys", KeysSprintScore)
     }
   });

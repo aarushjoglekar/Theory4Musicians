@@ -14,7 +14,7 @@ import arraysEqual from "../../../constants/ArraysEqual";
 export default function IntervalsDisplayScore() {
   const { IntervalsSprintScore } = useLocalSearchParams();
   readScore("intervals").then( (highScore)=>{
-    if (IntervalsSprintScore > highScore){
+    if (JSON.parse(IntervalsSprintScore) > highScore){
        updateScore("intervals", IntervalsSprintScore)
     }
   });
